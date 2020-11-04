@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.gdu.cash.service.CashbookService;
@@ -82,6 +83,13 @@ public class CashbookController {
 		
 		List<Category> categoryList = categoryService.getCategoryList();
 		model.addAttribute("categoryList",categoryList);
-		return "addCashbook";
+		return "addCashbook"; // forward
+	}
+	
+	@PostMapping("/addCashbook")
+	public String addCashbook(Cashbook cashbook) {//커멘드객체
+		System.out.println(cashbook);
+		cashbookService.addCashbook(cashbook);
+		return "redirect:/cashbookByMonth"; //redirect => controller 에 있는 메서드를 다시 실행시킨다. //response.sendRedirct()
 	}
 }

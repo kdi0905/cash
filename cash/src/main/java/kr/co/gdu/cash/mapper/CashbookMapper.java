@@ -11,6 +11,7 @@ import kr.co.gdu.cash.vo.Cashbook;
 //@Controller, @Service, @Mapper,@Repository : 스테레오타입  자식
 @Mapper
 public interface CashbookMapper {
+	int insertCashbook(Cashbook cashbook); //입력 수정 은 int로 사용
 	List<Map<String, Object>> selectCashInOutList(); 
 	Integer slectSumCashbookPriceByInOut(Map<String,Object> map);
 	List<Map<String,Object>> selectCashListByMonth(Map<String,Object> map);

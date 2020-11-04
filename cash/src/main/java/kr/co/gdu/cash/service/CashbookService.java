@@ -40,4 +40,7 @@ public class CashbookService {
 		return cashbookMapper.selectCashBookListByDay(map);
 		
 	}
+	public int addCashbook(Cashbook cashbook) {
+		return cashbookMapper.insertCashbook(cashbook);
+	}
 }
