@@ -6,8 +6,27 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+body{
+	padding: 0;
+	margin: 0;
+	width: 1300px; // 가로 폭 
+	height : 100%; //세로폭 
+	overflow: hidden; // 범위를 넘엇을시 넘는 영역 숨김 
+	background-position : 0 0;//시작위치 
+	background-repeat: no-repeat; // 배경화면 반복 
+	background-attachment :fixed; // 배경화면 스크롤시 고정
+	background-size : cover; // 배경화면 비율유지
+	position :relative; //위치지정 
+	overflow-y: auto;//스크롤
+}
+
+</style>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<h1>index</h1>
 	<div>
 		<!-- 공지 -->

@@ -2,6 +2,7 @@ package kr.co.gdu.cash.controller;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,12 +11,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.gdu.cash.service.CashbookService;
-import kr.co.gdu.cash.service.IndexService;
-import kr.co.gdu.cash.vo.Notice;
+import kr.co.gdu.cash.service.CategoryService;
+import kr.co.gdu.cash.vo.Cashbook;
+import kr.co.gdu.cash.vo.Category;
 
 @Controller
 public class CashbookController {
 	@Autowired private CashbookService cashbookService;
+	@Autowired private CategoryService categoryService;
 	@GetMapping(value="cashbookByMonth")
 	public String cashbookByMonth(Model model,
 			@RequestParam(name = "currentYear", defaultValue = "-1") int currentYear,
@@ -46,13 +49,39 @@ public class CashbookController {
 		int sumIn = cashbookService.getSumCashbookPriceByInOut("수입", currentYear, currentMonth);
 		
 		//--------------------------------------------------------------------
+		List<Map<String,Object>> cashList = cashbookService.getCashListByMonth(currentYear, currentMonth);
+		//--------------------------------------------------------------------
 		// 3. 뷰 모델 추가
 		model.addAttribute("currentYear", currentYear); // 년
 		model.addAttribute("currentMonth", currentMonth); // 월
 		model.addAttribute("lastDay", lastDay); // 마지막 일
 		model.addAttribute("firstDayOfWeek", firstDayOfWeek); // 1일의 요일
+		
 		model.addAttribute("sumIn",sumIn);//수입
 		model.addAttribute("sumOut",sumOut); //지출
+		
+		model.addAttribute("cashList",cashList);
 		return "cashbookByMonth";
+	}
+	
+	@GetMapping("/cashbookByDay")
+	public String cashbookByDay(Model model,
+		@RequestParam(name = "currentYear", required=true) int currentYear,
+		@RequestParam(name = "currentMonth", required=true) int currentMonth,
+		@RequestParam(name = "currentDay", required=true) int currentDay) {
+	List<Cashbook> cashbookList = cashbookService.getCashbookKistByDay(currentYear, currentMonth, currentDay);
+		model.addAttribute(cashbookList);
+	return "cashbookByDay";
+	}
+	
+	@GetMapping("/addCashbook")
+	public String addCashbook(Model model,
+			@RequestParam(name = "currentYear", required=true) int currentYear,
+			@RequestParam(name = "currentMonth", required=true) int currentMonth,
+			@RequestParam(name = "currentDay", required=true) int currentDay) {
+		
+		List<Category> categoryList = categoryService.getCategoryList();
+		model.addAttribute("categoryList",categoryList);
+		return "addCashbook";
 	}
 }
