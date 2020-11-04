@@ -87,9 +87,12 @@ public class CashbookController {
 	}
 	
 	@PostMapping("/addCashbook")
-	public String addCashbook(Cashbook cashbook) {//커멘드객체
+	public String addCashbook(Cashbook cashbook,
+			@RequestParam(name = "currentYear", required=true) int currentYear,
+			@RequestParam(name = "currentMonth", required=true) int currentMonth,
+			@RequestParam(name = "currentDay", required=true) int currentDay) {//커멘드객체
 		System.out.println(cashbook);
 		cashbookService.addCashbook(cashbook);
-		return "redirect:/cashbookByMonth"; //redirect => controller 에 있는 메서드를 다시 실행시킨다. //response.sendRedirct()
+		return "redirect:/cashbookByDay?currentYear="+currentYear+"&currentMonth="+currentMonth+"&currentDay="+currentDay; //redirect => controller 에 있는 메서드를 다시 실행시킨다. //response.sendRedirct()
 	}
 }
