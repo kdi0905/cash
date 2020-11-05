@@ -52,7 +52,7 @@
 		WHERE notice_id =#{noticeId}
 	
 	</delete>
-	<!-- 공지사항 추가 -->
+	<!-- 공지사항 수정 -->
 	<update id="updateNoticeOne" parameterType="kr.co.gdu.cash.vo.Notice">
 		UPDATE notice 
 		SET	notice_title = #{noticeTitle},

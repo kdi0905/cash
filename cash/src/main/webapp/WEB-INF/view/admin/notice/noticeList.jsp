@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>noticeList</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
@@ -48,19 +48,19 @@ body{
 		</c:forEach>
 		</tbody>
 		</table>
-		
+		<!-- 페이징 -->
 		<table class="table" style="width: 300px; margin: 0 auto;" >
 			<tr>
 			<c:if test="${currentPage > 1 }">
 			<td><a href="/admin/noticeList?currentPage=1"> << </a></td>
 			<td><a href="/admin/noticeList?currentPage=${currentPage-1 }"> < </a></td>
 			</c:if>
-			<c:if test="${currentPage == 1||currentPage==null}">
+			<c:if test="${currentPage == 1}">
 			<td> << </td>
 			<td> < </td>
 			</c:if>
 			
-			<c:if test="${currentPage != lastPage }">
+			<c:if test="${currentPage < lastPage }">
 			<td><a href="/admin/noticeList?currentPage=${currentPage+1 }"> > </a></td>
 			<td><a href="/admin/noticeList?currentPage=${lastPage}"> >> </a></td>
 			</c:if>
