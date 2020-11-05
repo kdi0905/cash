@@ -31,7 +31,7 @@ body{
 	
 	<h1 style="margin-top: 40px; text-align: center;">공지사항 추가</h1>
 	<form method="post" action="/admin/addNotice">
-		<table class="table table-bordered">
+		<table class="table table-bordered" style="text-align: center;">
 			<tr>
 				<td>notice_title</td>
 				<td><input type="text" placeholder="공지 제목을 입력하세요" name="noticeTitle"></td>
@@ -41,7 +41,7 @@ body{
 				<td><textarea style="width: 300px;" placeholder="공지 내용을 입력하세요" name="noticeContent"></textarea></td>
 			</tr>
 		</table>
-		<button class="btn btn-secondary" type="submit">추가</button>
+		<button class="btn btn-secondary" style="float: right;" type="submit">추가</button>
 	</form>
 	
 	</div>

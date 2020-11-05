@@ -29,13 +29,20 @@ public class NoticeController {
 		}else {
 			lastPage=(totalCount/rowPerPage);
 		}
-		
+		int showPage =10;
+		int showFirst =currentPage-(currentPage%showPage) +1;    
+		int showLast = showFirst+showPage-1; 
 		System.out.println("lastPage="+lastPage);
 		System.out.println("totalCount="+totalCount);
 		System.out.println("rowPerPage="+rowPerPage);
+		System.out.println("showFirst="+showFirst);
+		System.out.println("showLast="+showLast);
+	
 		model.addAttribute("noticeList",noticeList);
 		model.addAttribute("currentPage",currentPage);
 		model.addAttribute("lastPage",lastPage);
+		model.addAttribute("showFirst",showFirst);
+		model.addAttribute("showLast",showLast);
 		return "admin/notice/noticeList";
 	}
 	//공지 입력 폼

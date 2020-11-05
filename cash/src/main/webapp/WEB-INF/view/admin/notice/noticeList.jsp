@@ -29,7 +29,7 @@ body{
 <div class="container">
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<h1 style="text-align: center">공지사항 </h1>
-		<div ><a class="btn btn-secondary" style="margin-bottom: 20px" style="float: right;" href="/admin/addNotice">추가</a></div>
+		<div ><a class="btn btn-secondary" style="margin-bottom: 20px;float: right ;" href="/admin/addNotice">추가</a></div>
 		<table class="table table-bordered" style="text-align: center">
 		<thead>
 			<tr>
@@ -49,24 +49,33 @@ body{
 		</tbody>
 		</table>
 		<!-- 페이징 -->
-		<table class="table" style="width: 300px; margin: 0 auto;" >
+		<table class="table" style="width:60%; margin: 0 auto; margin-top: 20px" >
 			<tr>
 			<c:if test="${currentPage > 1 }">
-			<td><a href="/admin/noticeList?currentPage=1"> << </a></td>
-			<td><a href="/admin/noticeList?currentPage=${currentPage-1 }"> < </a></td>
+			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList?currentPage=1"> << </a></td>
+			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList?currentPage=${currentPage-1 }"> < </a></td>
 			</c:if>
 			<c:if test="${currentPage == 1}">
-			<td> << </td>
-			<td> < </td>
+			<td class="text-secondary"> << </td>
+			<td class="text-secondary"> < </td>
 			</c:if>
-			
+			<c:forEach var="i" begin="${showfirst}" end="${showLast}">
+				<c:if test="${i+1 <=lastPage }">
+					<c:if test="${i+1 == currentPage }">
+						<td class="text-secondary">${i+1}</td>
+					</c:if>
+					<c:if test="${i+1 !=currentPage}">
+						<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList?currentPage=${i+1}">${i+1}</a></td>
+					</c:if>
+				</c:if>
+			</c:forEach>
 			<c:if test="${currentPage < lastPage }">
-			<td><a href="/admin/noticeList?currentPage=${currentPage+1 }"> > </a></td>
-			<td><a href="/admin/noticeList?currentPage=${lastPage}"> >> </a></td>
+			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList?currentPage=${currentPage+1 }"> > </a></td>
+			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList?currentPage=${lastPage}"> >> </a></td>
 			</c:if>
 			<c:if test="${currentPage == lastPage}">
-			<td> > </td>
-			<td> >> </td>
+			<td class="text-secondary" style=""> > </td>
+			<td class="text-secondary"> >> </td>
 			</c:if>
 			</tr>
 		</table>
