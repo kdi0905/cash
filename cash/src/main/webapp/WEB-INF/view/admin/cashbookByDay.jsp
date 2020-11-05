@@ -37,7 +37,7 @@ body{
 		<a href="">이후</a>
 	</div>
 	<div>
-	<a href="/addCashbook?currentYear=${param.currentYear}&currentMonth=${param.currentMonth}&currentDay=${param.currentDay}">추가</a>
+	<a href="/admin/addCashbook?currentYear=${param.currentYear}&currentMonth=${param.currentMonth}&currentDay=${param.currentDay}">추가</a>
 	</div>
 	<table class="table">
 		<thead>

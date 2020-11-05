@@ -28,7 +28,7 @@ body{
 
 		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 		<h1>addCashbook</h1>
-		<form method="post" action="/addCashbook?currentYear=${param.currentYear }&currentMonth=${param.currentMonth}&currentDay=${param.currentDay}">
+		<form method="post" action="/admin/addCashbook?currentYear=${param.currentYear }&currentMonth=${param.currentMonth}&currentDay=${param.currentDay}">
 			<table class="table" style="width: 600px; height: 100%; text-align: center">
 			<tr>
 					<td>cashbook_date</td>

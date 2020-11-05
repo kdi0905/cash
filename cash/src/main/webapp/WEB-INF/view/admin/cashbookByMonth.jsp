@@ -37,6 +37,12 @@ body{
 thead{
 	background-color:  #D5D5D5;
 }
+tr{
+	width :(100/7)%;
+}
+td{
+	height: 50px
+}
 </style>
 </head>
 <body>
@@ -49,9 +55,9 @@ thead{
 			<h3>
 				
 				<div style="margin-bottom: 10px;">${currentYear}년</div>
-				<a class="text-secondary" href="/cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth-1}">&nbsp;&nbsp;<&nbsp;&nbsp;</a>
+				<a class="text-secondary" href="/admin/cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth-1}">&nbsp;&nbsp;<&nbsp;&nbsp;</a>
 				 ${currentMonth} 월 
-				<a class ="text-secondary"  href="/cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth+1}">&nbsp;&nbsp;>&nbsp;&nbsp;</a>
+				<a class ="text-secondary"  href="/admin/cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth+1}">&nbsp;&nbsp;>&nbsp;&nbsp;</a>
 			</h3>
 		</div>
 		<div>
@@ -77,7 +83,7 @@ thead{
 								<c:if test="${i%7 == 1}">
 									<td>
 									<div>
-										<a  class="sunday" href="/cashbookByDay?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${i-(firstDayOfWeek-1)}">
+										<a  class="sunday" href="/admin/cashbookByDay?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${i-(firstDayOfWeek-1)}">
 										 ${i-(firstDayOfWeek-1)}
 										 </a></div>
 										  <c:forEach var="c" items="${cashList}">
@@ -95,7 +101,7 @@ thead{
 								</c:if>
 								<c:if test="${i%7 !=1 }">
 									<td>
-											<a class="text-dark" href="/cashbookByDay?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${i-(firstDayOfWeek-1)}">
+											<a class="text-dark" href="/admin/cashbookByDay?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${i-(firstDayOfWeek-1)}">
 										 ${i-(firstDayOfWeek-1)}
 										 </a> <!-- 지출/수입 목록이 있는 날짜를 cashList에서 검색 -->
 

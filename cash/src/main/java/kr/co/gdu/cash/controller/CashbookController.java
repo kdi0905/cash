@@ -20,7 +20,7 @@ import kr.co.gdu.cash.vo.Category;
 public class CashbookController {
 	@Autowired private CashbookService cashbookService;
 	@Autowired private CategoryService categoryService;
-	@GetMapping(value="cashbookByMonth")
+	@GetMapping(value="/admin/cashbookByMonth")
 	public String cashbookByMonth(Model model,
 			@RequestParam(name = "currentYear", defaultValue = "-1") int currentYear,
 			@RequestParam(name = "currentMonth", defaultValue = "-1") int currentMonth) { 
@@ -62,20 +62,20 @@ public class CashbookController {
 		model.addAttribute("sumOut",sumOut); //지출
 		
 		model.addAttribute("cashList",cashList);
-		return "cashbookByMonth";
+		return "admin/cashbookByMonth";
 	}
 	
-	@GetMapping("/cashbookByDay")
+	@GetMapping("/admin/cashbookByDay")
 	public String cashbookByDay(Model model,
 		@RequestParam(name = "currentYear", required=true) int currentYear,
 		@RequestParam(name = "currentMonth", required=true) int currentMonth,
 		@RequestParam(name = "currentDay", required=true) int currentDay) {
 	List<Cashbook> cashbookList = cashbookService.getCashbookKistByDay(currentYear, currentMonth, currentDay);
 		model.addAttribute(cashbookList);
-	return "cashbookByDay";
+	return "admin/cashbookByDay";
 	}
 	
-	@GetMapping("/addCashbook")
+	@GetMapping("/admin/addCashbook")
 	public String addCashbook(Model model,
 			@RequestParam(name = "currentYear", required=true) int currentYear,
 			@RequestParam(name = "currentMonth", required=true) int currentMonth,
@@ -83,16 +83,16 @@ public class CashbookController {
 		
 		List<Category> categoryList = categoryService.getCategoryList();
 		model.addAttribute("categoryList",categoryList);
-		return "addCashbook"; // forward
+		return "admin/addCashbook"; // forward
 	}
 	
-	@PostMapping("/addCashbook")
+	@PostMapping("/admin/addCashbook")
 	public String addCashbook(Cashbook cashbook,
 			@RequestParam(name = "currentYear", required=true) int currentYear,
 			@RequestParam(name = "currentMonth", required=true) int currentMonth,
 			@RequestParam(name = "currentDay", required=true) int currentDay) {//커멘드객체
 		System.out.println(cashbook);
 		cashbookService.addCashbook(cashbook);
-		return "redirect:/cashbookByDay?currentYear="+currentYear+"&currentMonth="+currentMonth+"&currentDay="+currentDay; //redirect => controller 에 있는 메서드를 다시 실행시킨다. //response.sendRedirct()
+		return "redirect:/admin/cashbookByDay?currentYear="+currentYear+"&currentMonth="+currentMonth+"&currentDay="+currentDay; //redirect => controller 에 있는 메서드를 다시 실행시킨다. //response.sendRedirct()
 	}
 }

@@ -14,16 +14,16 @@ import kr.co.gdu.cash.vo.Notice;
 
 @Service
 @Transactional
-public class IndexService {
+public class NoticeService {
 	@Autowired private NoticeMapper noticeMapper;
 	@Autowired private CashbookMapper cashbookMapper;
 	
-	public Map<String,Object> getNoticeListAndInOutList() {
-		List<Notice> noticeList=noticeMapper.selectLatestNoticeList();
-		List<Map<String,Object>> inOutList = cashbookMapper.selectCashInOutList();
-		Map<String, Object> map = new HashMap<String,Object>();
-		map.put("noticeList", noticeList);
-		map.put("inOutList", inOutList);
-		return map;
+	//issue : noticeList 중복 
+	public List<Map<String,Object>> getInOutList() {
+		return cashbookMapper.selectCashInOutList();
+	}
+	
+	public List<Notice> getNoticeList (){
+		return noticeMapper.selectLatestNoticeList();
 	}
 }
