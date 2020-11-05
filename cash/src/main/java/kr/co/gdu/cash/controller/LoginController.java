@@ -29,7 +29,8 @@ public class LoginController {
 		if(session.getAttribute("loginId")!= null) { //x_y, xY, intxy 
 			return "redirect:/admin/index";
 		}
-		List<Notice> noticeList = noticeService.getNoticeList();
+		
+		List<Notice> noticeList = noticeService.getNoticeListByPage(1, 5);
 		model.addAttribute("noticeList",noticeList);
 		
 		return "login";

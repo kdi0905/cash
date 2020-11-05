@@ -18,12 +18,37 @@ public class NoticeService {
 	@Autowired private NoticeMapper noticeMapper;
 	@Autowired private CashbookMapper cashbookMapper;
 	
-	//issue : noticeList 중복 
+	
 	public List<Map<String,Object>> getInOutList() {
 		return cashbookMapper.selectCashInOutList();
 	}
-	
-	public List<Notice> getNoticeList (){
-		return noticeMapper.selectLatestNoticeList();
+	//공지사항 리스트
+	public List<Notice> getNoticeListByPage(int currentPage, int rowPerPage){
+		//int currentPage , int rowPerPage-> beginRow
+		int beginRow = (currentPage-1)*rowPerPage;
+		Map<String,Integer> map = new HashMap<String,Integer>();
+		map.put("beginRow", beginRow);
+		map.put("rowPerPage", rowPerPage );
+		return noticeMapper.selectNoticeListByPage(map);
 	}
+	public int getCountNotice() {
+		return noticeMapper.countNoticeList();
+	}
+	//공지사항 추가
+	public int insertNotice(Notice notice) {
+		return noticeMapper.insertNotice(notice);
+	}
+	//공지사항 상세보기
+	public Notice getNoticeOneById(int noticeId) {
+		return noticeMapper.selectNoticeOneById(noticeId);
+	}
+	//공지사항 삭제
+	public int deleteNoticeOneById(int noticeId) {
+		return noticeMapper.deleteNoticeOneById(noticeId);
+	}
+	//공지사항 수정
+	public int updateNoticeOne(Notice notice) {
+		return noticeMapper.updateNoticeOne(notice);
+	}
+	
 }

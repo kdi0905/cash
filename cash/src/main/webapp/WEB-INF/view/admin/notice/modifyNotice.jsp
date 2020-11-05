@@ -26,55 +26,33 @@ body{
 </style>
 </head>
 <body>
-<div class= "container">
+	<div class="container">
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
-	<h1>index</h1>
-	<div>
-		<!-- 공지 -->
-		<h1>공지사항<a href="/admin/noticeList">more</a> </h1>
-		<table class="table table-bordered">
-		<thead>
+	
+	<h1 style="margin-top: 40px; text-align: center;">공지사항 수정</h1>
+	<form method="post" action="/admin/modifyNotice?noticeId=${notice.noticeId}">
+		<table class="table table-bordered" style="text-align: center;">
 			<tr>
-				<th>notice_id</th>
-				<th>notice_title</th>
-				<th>notice_date</th>
+				<td>notice_id</td>
+				<td>${notice.noticeId}</td>
 			</tr>
-		</thead>
-		<tbody>
-		<c:forEach var ="n" items="${noticeList}">
 			<tr>
-				<td>${n.noticeId }</td>
-				<td>${n.noticeTitle }</td>
-				<td>${n.noticeDate }</td>
+				<td>notice_title</td>
+				<td><input type="text" name="noticeTitle" value="${notice.noticeTitle}"></td>
 			</tr>
-		</c:forEach>
-		</tbody>
+			<tr>
+				<td>notice_content</td>
+				<td><textarea style="width: 300px;" name="noticeContent">${notice.noticeContent}</textarea></td>
+			</tr>
+			<tr>
+				<td>notice_date</td>
+				<td>${notice.noticeDate}</td>
+			</tr>
 		</table>
+		<button class="btn btn-secondary" style="float: right;" type="submit">수정</button>
+	</form>
+	
 	</div>
-	<!-- 수입 /지출 -->
-	<div>
-		<table border="1">
-			<thead>
-				<tr>
-					<th>날짜</th>
-					<th>수입</th>
-					<th>지출</th>
-					<th>합계</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="io" items="${inOutList}">
-					<tr>
-						<td>${io["날짜"]}</td>
-						<td>${io["수입"]}</td>
-						<td>${io["지출"]}</td>
-						<td>${io["합계"]}</td>
-					</tr>
-				</c:forEach>
-				
-			</tbody>
-		</table>
-	</div>
-</div>
+
 </body>
 </html>

@@ -26,13 +26,11 @@ body{
 </style>
 </head>
 <body>
-<div class= "container">
+<div class="container">
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
-	<h1>index</h1>
-	<div>
-		<!-- 공지 -->
-		<h1>공지사항<a href="/admin/noticeList">more</a> </h1>
-		<table class="table table-bordered">
+	<h1 style="text-align: center">공지사항 </h1>
+		<div ><a class="btn btn-secondary" style="margin-bottom: 20px" style="float: right;" href="/admin/addNotice">추가</a></div>
+		<table class="table table-bordered" style="text-align: center">
 		<thead>
 			<tr>
 				<th>notice_id</th>
@@ -44,37 +42,35 @@ body{
 		<c:forEach var ="n" items="${noticeList}">
 			<tr>
 				<td>${n.noticeId }</td>
-				<td>${n.noticeTitle }</td>
+				<td><a class="text-dark"href="/admin/noticeOne?noticeId=${n.noticeId}">${n.noticeTitle }</a></td>
 				<td>${n.noticeDate }</td>
 			</tr>
 		</c:forEach>
 		</tbody>
 		</table>
-	</div>
-	<!-- 수입 /지출 -->
-	<div>
-		<table border="1">
-			<thead>
-				<tr>
-					<th>날짜</th>
-					<th>수입</th>
-					<th>지출</th>
-					<th>합계</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="io" items="${inOutList}">
-					<tr>
-						<td>${io["날짜"]}</td>
-						<td>${io["수입"]}</td>
-						<td>${io["지출"]}</td>
-						<td>${io["합계"]}</td>
-					</tr>
-				</c:forEach>
-				
-			</tbody>
+		
+		<table class="table" style="width: 300px; margin: 0 auto;" >
+			<tr>
+			<c:if test="${currentPage > 1 }">
+			<td><a href="/admin/noticeList?currentPage=1"> << </a></td>
+			<td><a href="/admin/noticeList?currentPage=${currentPage-1 }"> < </a></td>
+			</c:if>
+			<c:if test="${currentPage == 1||currentPage==null}">
+			<td> << </td>
+			<td> < </td>
+			</c:if>
+			
+			<c:if test="${currentPage != lastPage }">
+			<td><a href="/admin/noticeList?currentPage=${currentPage+1 }"> > </a></td>
+			<td><a href="/admin/noticeList?currentPage=${lastPage}"> >> </a></td>
+			</c:if>
+			<c:if test="${currentPage == lastPage}">
+			<td> > </td>
+			<td> >> </td>
+			</c:if>
+			</tr>
 		</table>
-	</div>
+	
 </div>
 </body>
 </html>

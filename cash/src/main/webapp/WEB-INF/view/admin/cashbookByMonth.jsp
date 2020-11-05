@@ -13,7 +13,7 @@
 body{
 	padding: 0;
 	margin: 0;
-	width: 1100px; // 가로 폭 
+	width: 100%; // 가로 폭 
 	height : 100%; //세로폭 
 	overflow: hidden; // 범위를 넘엇을시 넘는 영역 숨김 
 	background-position : 0 0;//시작위치 
@@ -46,6 +46,7 @@ td{
 </style>
 </head>
 <body>
+<div class="container">
 		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 		
 		<!-- 다이어리 -->
@@ -136,6 +137,6 @@ td{
 				</tbody>
 			</table>
 		</div>
-
+</div>
 </body>
 </html>
