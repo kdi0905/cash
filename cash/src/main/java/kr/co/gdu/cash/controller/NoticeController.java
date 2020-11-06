@@ -30,7 +30,10 @@ public class NoticeController {
 			lastPage=(totalCount/rowPerPage);
 		}
 		int showPage =10;
-		int showFirst =currentPage-(currentPage%showPage) +1;    
+		int showFirst =currentPage-(currentPage%showPage) +1; 
+		if((currentPage&showPage)==0) {
+			showFirst = currentPage-((currentPage-1)%showPage);
+		}
 		int showLast = showFirst+showPage-1; 
 		System.out.println("lastPage="+lastPage);
 		System.out.println("totalCount="+totalCount);
