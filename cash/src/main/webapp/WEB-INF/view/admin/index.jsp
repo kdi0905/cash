@@ -12,27 +12,26 @@
 body{
 	padding: 0;
 	margin: 0;
-	width: 100%; // 가로 폭 
-	height : 100%; //세로폭 
-	overflow: hidden; // 범위를 넘엇을시 넘는 영역 숨김 
-	background-position : 0 0;//시작위치 
-	background-repeat: no-repeat; // 배경화면 반복 
-	background-attachment :fixed; // 배경화면 스크롤시 고정
-	background-size : cover; // 배경화면 비율유지
-	position :relative; //위치지정 
-	overflow-y: auto;//스크롤
+	width: 100%; 
+	height : 100%; 
+	overflow: hidden; 
+	background-position : 0 0;
+	background-repeat: no-repeat; 
+	background-attachment :fixed; 
+	background-size : cover; 
+	position :relative; 
+	overflow-y: auto;
 }
 
 </style>
 </head>
 <body>
-<div class= "container">
+		<div style="margin-left: 10%; margin-right:10%;">
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
-	<h1>index</h1>
 	<div>
 		<!-- 공지 -->
-		<h1>공지사항<a href="/admin/noticeList">more</a> </h1>
-		<table class="table table-bordered">
+		<h1 style="text-align: center; margin-top: 30px;">공지사항<a href="/admin/noticeList"><span class="text-secondary"style="font-size: 20px;">more</span></a> </h1>
+		<table class="table table-bordered" style="text-align: center">
 		<thead>
 			<tr>
 				<th>notice_id</th>
@@ -52,8 +51,9 @@ body{
 		</table>
 	</div>
 	<!-- 수입 /지출 -->
+	<h1 style="font-size:30px;margin-top: 30px; text-align: center; ">★ 수입 / 지출 ★</h1>
 	<div>
-		<table border="1">
+		<table class="table table-bordered" style="text-align: center">
 			<thead>
 				<tr>
 					<th>날짜</th>

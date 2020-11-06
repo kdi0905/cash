@@ -9,37 +9,43 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
-body{
+body{	
 	padding: 0;
 	margin: 0;
-	width: 1100px; // 가로 폭 
-	height : 100%; //세로폭 
-	overflow: hidden; // 범위를 넘엇을시 넘는 영역 숨김 
-	background-position : 0 0;//시작위치 
-	background-repeat: no-repeat; // 배경화면 반복 
-	background-attachment :fixed; // 배경화면 스크롤시 고정
-	background-size : cover; // 배경화면 비율유지
-	position :relative; //위치지정 
-	overflow-y: auto;//스크롤
+	width: 100%; 
+	height : 100%; 
+	overflow: hidden; 
+	background-position : 0 0;
+	background-repeat: no-repeat; 
+	background-attachment :fixed; 
+	background-size : cover; 
+	position :relative;  
+	overflow-y: auto;
+	
 }
 
 </style>
 </head>
 <body>
+	<div style="margin-left: 10%; margin-right:10%;">
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
-	<h1>cashbookListByDay </h1>
-	<div>
-		${param.currentYear}년 ${param.currentMonth}월 
+
+	<h3 style="margin-top: 30px;">
+	<div style="text-align: center;">
+		${currentYear}년 ${currentMonth}월 
 	</div>
 	<div style="text-align: center;">
-		<a href="">이전</a>
-		${param.currentDay}일
-		<a href="">이후</a>
+	
+		<a class ="text-dark" href="/admin/cashbookByDay?target=pre&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}"> < </a>
+		${currentDay}일
+		<a class ="text-dark" href="/admin/cashbookByDay?target=next&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}"> > </a>
+	
 	</div>
+	</h3>
 	<div>
-	<a href="/admin/addCashbook?currentYear=${param.currentYear}&currentMonth=${param.currentMonth}&currentDay=${param.currentDay}">추가</a>
+	<a class = "btn btn-secondary "href="/admin/addCashbook?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}">추가</a>
 	</div>
-	<table class="table">
+	<table class="table " style="margin-top: 30px; text-align: center;">
 		<thead>
 			<tr>
 				<th>cashbookId</th>
@@ -60,12 +66,13 @@ body{
 					<td>${c.categoryName }</td>
 					<td>${c.cashbookPrice }</td>
 					<td>${c.cashbookContent }</td>
-					<td><a href="">수정</a></td>
-					<td><a href="">삭제</a></td>
+					<td><a class="text-secondary" href="/admin/updateCashbook?cashbookId=${c.cashbookId}&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}">수정</a></td>
+					<td><a class="text-danger" href="/admin/deleteCashbook?cashbookId=${c.cashbookId}&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}">삭제</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 
 	</table>
+</div>
 </body>
 </html>

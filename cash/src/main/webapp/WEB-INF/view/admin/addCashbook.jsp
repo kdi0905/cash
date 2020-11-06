@@ -13,23 +13,25 @@
 body{
 	padding: 0;
 	margin: 0;
-	width: 1100px; // 가로 폭 
-	height : 100%; //세로폭 
-	overflow: hidden; // 범위를 넘엇을시 넘는 영역 숨김 
-	background-position : 0 0;//시작위치 
-	background-repeat: no-repeat; // 배경화면 반복 
-	background-attachment :fixed; // 배경화면 스크롤시 고정
-	background-size : cover; // 배경화면 비율유지
-	position :relative; //위치지정 
-	overflow-y: auto;//스크롤
+	width: 100%; 
+	height : 100%; 
+	overflow: hidden; 
+	background-position : 0 0;
+	background-repeat: no-repeat;
+	background-attachment :fixed; 
+	background-size : cover; 
+	position :relative; 
+	overflow-y: auto;
 }
 </style>
 <body>
-
+	<div style="margin-left: 10%; margin-right:10%;">
 		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
-		<h1>addCashbook</h1>
+		<div style="text-align: center;">
+		<h1 style="margin-top: 30px;" >수입/지출</h1>
+		</div>
 		<form method="post" action="/admin/addCashbook?currentYear=${param.currentYear }&currentMonth=${param.currentMonth}&currentDay=${param.currentDay}">
-			<table class="table" style="width: 600px; height: 100%; text-align: center">
+			<table class="table table-bordered" style="text-align: center">
 			<tr>
 					<td>cashbook_date</td>
 					<td>
@@ -57,18 +59,18 @@ body{
 				<tr>
 					<td>cashbook_price</td>
 					<td>
-						<input type="text" name="cashbookPrice">
+						<input type="text" name="cashbookPrice" placeholder="가격을 입력하세요">
 					</td>
 				</tr>
 				<tr>
 					<td>cashbook_content</td>
 					<td>
-						<input type="text" name="cashbookContent">
+						<input type="text" name="cashbookContent" placeholder="내용을 입력하세요">
 					</td>
 				</tr>
 			</table>
-			<button type="submit">수입/지출입력</button>
+			<button class="btn btn-secondary" style="float: right" type="submit">수입/지출입력</button>
 		</form>
-
+</div>
 </body>
 </html>

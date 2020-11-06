@@ -27,6 +27,7 @@ public class CashbookController {
 		// 1-1. 요청분석
 		Calendar currentDay = Calendar.getInstance(); // 2020년 11월 2일
 		// currentYear 넘어오고, currentMonth도 넘어면
+		//issue calender로 변경해보자
 		if(currentYear != -1 && currentMonth != -1) {
 			if(currentMonth == 0) {
 				currentYear -= 1;
@@ -67,11 +68,26 @@ public class CashbookController {
 	
 	@GetMapping("/admin/cashbookByDay")
 	public String cashbookByDay(Model model,
-		@RequestParam(name = "currentYear", required=true) int currentYear,
+		@RequestParam(name = "currentYear", required=true) int currentYear, // required ->넘어올수도 있고 안넘어 올수도 있다.
 		@RequestParam(name = "currentMonth", required=true) int currentMonth,
-		@RequestParam(name = "currentDay", required=true) int currentDay) {
-	List<Cashbook> cashbookList = cashbookService.getCashbookKistByDay(currentYear, currentMonth, currentDay);
-		model.addAttribute(cashbookList);
+		@RequestParam(name = "currentDay", required=true) int currentDay,
+		@RequestParam(name = "target", required = false, defaultValue = "") String target) {
+		
+	
+		Calendar targetDay = Calendar.getInstance();
+		targetDay.set(Calendar.YEAR, currentYear);
+		targetDay.set(Calendar.MONTH, currentMonth-1); // month는 0부터 시작
+		targetDay.set(Calendar.DATE, currentDay);
+	if(target.equals("pre")) {
+		targetDay.add(Calendar.DATE, -1); // 날짜를 자동으로 -1을 한다 
+	}else if(target.equals("next")) {
+		targetDay.add(Calendar.DATE, +1);
+	}
+	List<Cashbook> cashbookList = cashbookService.getCashbookKistByDay(targetDay.get(Calendar.YEAR), targetDay.get(Calendar.MONTH)+1, targetDay.get(Calendar.DATE));
+	model.addAttribute("currentYear",targetDay.get(Calendar.YEAR));
+	model.addAttribute("currentMonth",targetDay.get(Calendar.MONTH)+1);
+	model.addAttribute("currentDay",targetDay.get(Calendar.DATE));
+	model.addAttribute("cashbookList",cashbookList);
 	return "admin/cashbookByDay";
 	}
 	
@@ -95,4 +111,39 @@ public class CashbookController {
 		cashbookService.addCashbook(cashbook);
 		return "redirect:/admin/cashbookByDay?currentYear="+currentYear+"&currentMonth="+currentMonth+"&currentDay="+currentDay; //redirect => controller 에 있는 메서드를 다시 실행시킨다. //response.sendRedirct()
 	}
+	
+	@GetMapping("/admin/deleteCashbook")
+	public String deleteCashbook(
+			@RequestParam(name="cashbookId") int cashbookId,
+			@RequestParam(name = "currentYear", required=true) int currentYear,
+			@RequestParam(name = "currentMonth", required=true) int currentMonth,
+			@RequestParam(name = "currentDay", required=true) int currentDay) {
+		cashbookService.deleteCashbook(cashbookId);
+		return "redirect:/admin/cashbookByDay?currentYear="+currentYear+"&currentMonth="+currentMonth+"&currentDay="+currentDay;
+	}
+	@GetMapping("/admin/updateCashbook")
+	public String updateCashbook(Model model,
+			@RequestParam(name="cashbookId") int cashbookId,
+			@RequestParam(name = "currentYear", required=true) int currentYear,
+			@RequestParam(name = "currentMonth", required=true) int currentMonth,
+			@RequestParam(name = "currentDay", required=true) int currentDay
+			) {
+		
+		Cashbook cashbook = cashbookService.getCashbookById(cashbookId);
+		List<Category> categoryList = categoryService.getCategoryList();
+		
+		model.addAttribute("cashbook",cashbook);
+		model.addAttribute("categoryList",categoryList);
+		return "admin/updateCashbook";
+	}
+	@PostMapping("/admin/updateCashbook")
+	public String updateCashbook(Cashbook cashbook,
+			@RequestParam(name = "currentYear", required=true) int currentYear,
+			@RequestParam(name = "currentMonth", required=true) int currentMonth,
+			@RequestParam(name = "currentDay", required=true) int currentDay
+			) {
+		cashbookService.updateCashbook(cashbook);
+		return "redirect:/admin/cashbookByDay?currentYear="+currentYear+"&currentMonth="+currentMonth+"&currentDay="+currentDay;
+	}
+
 }

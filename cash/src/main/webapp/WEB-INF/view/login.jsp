@@ -11,24 +11,24 @@
 body{
 	padding: 0;
 	margin: 0;
-	width: 100%; // 가로 폭 
-	height : 100%; //세로폭 
-	overflow: hidden; // 범위를 넘엇을시 넘는 영역 숨김 
-	background-position : 0 0;//시작위치 
-	background-repeat: no-repeat; // 배경화면 반복 
-	background-attachment :fixed; // 배경화면 스크롤시 고정
-	background-size : cover; // 배경화면 비율유지
-	position :relative; //위치지정 
-	overflow-y: auto;//스크롤
+	width: 100%; 
+	height : 100%; 
+	overflow: hidden;
+	background-position : 0 0;
+	background-repeat: no-repeat; 
+	background-attachment :fixed; 
+	background-size : cover; 
+	position :relative; 
+	overflow-y: auto;
 }
 
 </style>
 </head>
 <body>
-<div class="container">
+	<div style="margin-left: 10%; margin-right:10%;">
 
 		<!-- 공지 -->
-		<table class="table table-bordered">
+		<table class="table table-bordered" style="margin-top: 40px; text-align: center;">
 		<thead>
 			<tr>
 				<th>notice_id</th>
@@ -46,19 +46,20 @@ body{
 		</c:forEach>
 		</tbody>
 		</table>
-	
-	<h1>로그인</h1>
-	<form method="post" action="/login">
-		<div>
-			ID: <input type ="text" name="id">
+		<div style="text-align: center;">
+		<h1>로그인</h1>
+		<form method="post" action="/login">
+			<div style="margin-bottom: 20px;">
+				<span style="font-size: 20px; margin-right: 30px;">ID :</span> <input type ="text" name="id">
+			</div>
+			<div style="margin-bottom: 20px;">
+				<span style="font-size: 20px; margin-right: 20px;">PW :</span> <input type ="password" name="pw">
+			</div>
+			<div>
+				<button class="btn btn-secondary" type="submit">로그인</button>
+			</div>
+		</form>
 		</div>
-		<div>
-			PW: <input type ="password" name="pw">
-		</div>
-		<div>
-			<button type="submit">로그인</button>
-		</div>
-	</form>
 	</div>
 </body>
 </html>

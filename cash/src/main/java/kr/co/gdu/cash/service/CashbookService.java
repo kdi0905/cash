@@ -43,4 +43,15 @@ public class CashbookService {
 	public int addCashbook(Cashbook cashbook) {
 		return cashbookMapper.insertCashbook(cashbook);
 	}
+	
+	public int deleteCashbook(int cashbookId) {
+		return cashbookMapper.deleteCashbook(cashbookId);
+	}
+	
+	public Cashbook getCashbookById(int cashbookId) {
+		return cashbookMapper.selectCashbookById(cashbookId);
+	}
+	public int updateCashbook(Cashbook cashbook) {
+		return cashbookMapper.updateCashbook(cashbook);
+	}
 }

@@ -13,15 +13,15 @@
 body{
 	padding: 0;
 	margin: 0;
-	width: 100%; // 가로 폭 
-	height : 100%; //세로폭 
-	overflow: hidden; // 범위를 넘엇을시 넘는 영역 숨김 
-	background-position : 0 0;//시작위치 
-	background-repeat: no-repeat; // 배경화면 반복 
-	background-attachment :fixed; // 배경화면 스크롤시 고정
-	background-size : cover; // 배경화면 비율유지
-	position :relative; //위치지정 
-	overflow-y: auto;//스크롤
+	width: 100%; 
+	height : 100%; 
+	overflow: hidden; 
+	background-position : 0 0;
+	background-repeat: no-repeat;  
+	background-attachment :fixed; 
+	background-size : cover; 
+	position :relative; 
+	overflow-y: auto;
 }
 .sunday {
 	color: #FF0000;
@@ -34,25 +34,49 @@ body{
 .sumin {
 	color: #47C83E;
 }
+
 thead{
 	background-color:  #D5D5D5;
 }
-tr{
-	width :(100/7)%;
+table{
+ 
+	text-align: center;
 }
-td{
-	height: 50px
+th {
+	width: ${100/7}%;
+}
+td {
+	height: 80px;
+	vertical-align: top;
+}
+.tdbg{
+	background-color: #EAEAEA;
 }
 </style>
 </head>
 <body>
-<div class="container">
+		<div style="margin-left: 10%; margin-right:10%;">
 		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 		
 		<!-- 다이어리 -->
-		<div>이번달 수입 합계: ${sumIn}</div>
-		<div>이번달 지출 합계: ${sumOut}</div>
-		<div style="text-align: center;">
+		<table class="table" style="margin-top:30px; width: 200px; font-size:20px; float: left;" >
+			<tr>
+				<td class="tdbg">이번달 수입</td>
+			</tr>
+			<tr>
+				<td class= "sumin"> ${sumIn}</td>
+			</tr>
+		</table>
+		<table class="table" style="margin-top:30px; width: 200px;font-size:20px;; float: right;" >
+			<tr>
+				<td class="tdbg">이번달 지출</td>
+			</tr>
+			<tr>
+				<td class="sumout"> - ${sumOut}</td>
+			</tr>
+		</table>
+		
+		<div style="margin-top:50px; text-align: center;">
 			<h3>
 				
 				<div style="margin-bottom: 10px;">${currentYear}년</div>
@@ -62,7 +86,7 @@ td{
 			</h3>
 		</div>
 		<div>
-			<table class="table table-bordered" style="text-align: center;">
+			<table class="table table-bordered">
 				<thead>
 					<tr>
 						<th class="sunday">일</th>
