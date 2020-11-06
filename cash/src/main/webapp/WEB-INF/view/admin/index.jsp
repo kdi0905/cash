@@ -66,8 +66,8 @@ body{
 				<c:forEach var="io" items="${inOutList}">
 					<tr>
 						<td>${io["날짜"]}</td>
-						<td>${io["수입"]}</td>
-						<td>${io["지출"]}</td>
+						<td class="text-success">${io["수입"]}</td>
+						<td class="text-danger">- ${io["지출"]}</td>
 						<td>${io["합계"]}</td>
 					</tr>
 				</c:forEach>

@@ -61,11 +61,18 @@ body{
 		<tbody>
 			<c:forEach var="c" items="${cashbookList}">
 				<tr>
+					
 					<td>${c.cashbookId }</td>
 					<td>${c.cashbookKind }</td>
 					<td>${c.categoryName }</td>
-					<td>${c.cashbookPrice }</td>
+					<c:if test="${c.cashbookKind=='지출' }">
+					<td class="text-danger">- ${c.cashbookPrice }</td>
+					</c:if>
+					<c:if test="${c.cashbookKind=='수입' }">
+					<td class =" text-success">${c.cashbookPrice }</td>
+					</c:if>
 					<td>${c.cashbookContent }</td>
+					
 					<td><a class="text-secondary" href="/admin/updateCashbook?cashbookId=${c.cashbookId}&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}">수정</a></td>
 					<td><a class="text-danger" href="/admin/deleteCashbook?cashbookId=${c.cashbookId}&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}">삭제</a></td>
 				</tr>
