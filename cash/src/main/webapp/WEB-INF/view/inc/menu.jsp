@@ -4,15 +4,15 @@
 	background-color: #EAEAEA;
 }
 </style>
-<ul class="nav nav-tabs justify-content-center menubg">
-	<li class="nav-item">
-		<a class="nav-link text-secondary" href="/admin/index">홈</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link text-secondary" href="/admin/cashbookByMonth">가계부</a>
-	</li>
-		<li class="nav-item "  >
-		<a  class="nav-link text-info " href="/admin/logout">로그아웃</a>
-	<li>
-</ul>
+	<div class="menubg" >
+		
+		<a class="btn text-secondary" href="/admin/index" style="font-size: 30px;">CASHBOOK</a>
+		
+		<a class="btn text-secondary" style="margin-left: 100px" href="/admin/index">홈</a>	
+		<a class="btn text-secondary"  href="/admin/noticeList/1">공지사항</a>
+		<a class="btn text-secondary"  href="/admin/cashbookByMonth/now/-1/-1">가계부</a>
+		<a class="btn text-secondary" href="http://localhost:8080/cashStats.html">통계</a>
+		<a style="float: right; margin-top: 10px;" class="btn text-info" href="/admin/logout">로그아웃</a>		
+		
+	</div>
 

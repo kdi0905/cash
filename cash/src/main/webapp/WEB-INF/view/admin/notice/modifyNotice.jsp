@@ -10,17 +10,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
 body{
-	padding: 0;
-	margin: 0;
-	width: 100%;
+		margin: auto;
+	width: 1000px; 
 	height : 100%; 
-	overflow: hidden; 
-	background-position : 0 0;
-	background-repeat: no-repeat; 
-	background-attachment :fixed; 
-	background-size : cover; 
-	position :relative;
-	overflow-y: auto;
 }
 
 </style>
@@ -30,7 +22,7 @@ body{
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	
 	<h1 style="margin-top: 40px; text-align: center;">공지사항 수정</h1>
-	<form method="post" action="/admin/modifyNotice?noticeId=${notice.noticeId}">
+	<form method="post" action="/admin/modifyNotice/${notice.noticeId}">
 		<table class="table table-bordered" style="text-align: center;">
 			<tr>
 				<td>notice_id</td>

@@ -10,17 +10,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
 body{
-	padding: 0;
-	margin: 0;
-	width: 100%; 
+		margin: auto;
+	width: 1000px; 
 	height : 100%; 
-	overflow: hidden;
-	background-position : 
-	background-repeat: no-repeat;  
-	background-attachment :fixed;
-	background-size : cover; 
-	position :relative;
-	overflow-y: auto;
 }
 
 </style>
@@ -31,11 +23,11 @@ body{
 	
 	<h1 style="margin-top: 40px; text-align: center;">공지사항 상세보기</h1>
 		<div style="float: left">
-			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="/admin/noticeList" >목록</a>
+			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="/admin/noticeList/1" >목록</a>
 		</div>
 		<div style="float: right">
-			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="/admin/modifyNotice?noticeId=${notice.noticeId}">수정</a>
-			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="/admin/removeNotice?noticeId=${notice.noticeId}">삭제</a>	
+			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="/admin/modifyNotice/${notice.noticeId}">수정</a>
+			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="/admin/removeNotice/${notice.noticeId}">삭제</a>	
 		</div>
 		<table class="table table-bordered" style="text-align: center;">
 			<tr>

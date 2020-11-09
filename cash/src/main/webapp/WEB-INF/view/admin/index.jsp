@@ -10,17 +10,10 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
 body{
-	padding: 0;
-	margin: 0;
-	width: 100%; 
+	
+	margin: auto;
+	width: 1000px; 
 	height : 100%; 
-	overflow: hidden; 
-	background-position : 0 0;
-	background-repeat: no-repeat; 
-	background-attachment :fixed; 
-	background-size : cover; 
-	position :relative; 
-	overflow-y: auto;
 }
 
 </style>
@@ -28,9 +21,10 @@ body{
 <body>
 		<div style="margin-left: 10%; margin-right:10%;">
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
+	
 	<div>
 		<!-- 공지 -->
-		<h1 style="text-align: center; margin-top: 30px;">공지사항<a href="/admin/noticeList"><span class="text-secondary"style="font-size: 20px;">more</span></a> </h1>
+		<h1 style="text-align: center; margin-top: 30px;">공지사항<a href="/admin/noticeList/1"><span class="text-secondary"style="font-size: 20px;">more</span></a> </h1>
 		<table class="table table-bordered" style="text-align: center">
 		<thead>
 			<tr>

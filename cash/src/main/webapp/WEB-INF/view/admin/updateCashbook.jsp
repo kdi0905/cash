@@ -11,17 +11,9 @@
 </head>
 <style>
 body{
-	padding: 0;
-	margin: 0;
-	width: 100%; 
+	margin: auto;
+	width: 1000px; 
 	height : 100%; 
-	overflow: hidden; 
-	background-position : 0 0;
-	background-repeat: no-repeat;
-	background-attachment :fixed; 
-	background-size : cover; 
-	position :relative; 
-	overflow-y: auto;
 }
 </style>
 <body>
@@ -30,7 +22,7 @@ body{
 		<div style="text-align: center;">
 		<h1 style="margin-top: 30px;" >수입/지출 </h1>
 		</div>
-		<form method="post" action="/admin/updateCashbook?cashbookId=${cashbook.cashbookId}&currentYear=${param.currentYear}&currentMonth=${param.currentMonth}&currentDay=${param.currentDay}">
+		<form method="post" action="/admin/updateCashbook/${cashbook.cashbookId}/${currentYear}/${currentMonth}/${currentDay}">
 			<table class="table table-bordered" style=" height: 100%; text-align: center">
 			<tr>
 					<td>cashbook_date</td>

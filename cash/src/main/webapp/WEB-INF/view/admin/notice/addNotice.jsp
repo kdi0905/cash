@@ -10,17 +10,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
 body{
-	padding: 0;
-	margin: 0;
-	width: 100%; 
+		margin: auto;
+	width: 1000px; 
 	height : 100%; 
-	overflow: hidden; 
-	background-position : 0 0;
-	background-repeat: no-repeat; 
-	background-attachment :fixed; 
-	background-size : cover;
-	position :relative; 
-	overflow-y: auto;
 }
 
 </style>

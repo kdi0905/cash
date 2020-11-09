@@ -11,17 +11,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
 body{
-	padding: 0;
-	margin: 0;
-	width: 100%; 
+		margin: auto;
+	width: 1000px; 
 	height : 100%; 
-	overflow: hidden; 
-	background-position : 0 0;
-	background-repeat: no-repeat;  
-	background-attachment :fixed; 
-	background-size : cover; 
-	position :relative; 
-	overflow-y: auto;
 }
 .sunday {
 	color: #FF0000;
@@ -59,9 +51,9 @@ td {
 		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 		
 		<!-- 다이어리 -->
-		<table class="table" style="margin-top:30px; width: 200px; font-size:20px; float: left;" >
+		<table class="table table-bordered" style="margin-top:30px; width: 200px; font-size:20px; float: left;" >
 			<tr>
-				<td class="tdbg">이번달 수입</td>
+				<td style="height: 30px" class="tdbg">이번달 수입</td>
 			</tr>
 			<tr>
 				<td class= "sumin"> ${sumIn}</td>
@@ -69,7 +61,7 @@ td {
 		</table>
 		<table class="table" style="margin-top:30px; width: 200px;font-size:20px;; float: right;" >
 			<tr>
-				<td class="tdbg">이번달 지출</td>
+				<td style="height: 30px" class="tdbg">이번달 지출</td>
 			</tr>
 			<tr>
 				<td class="sumout"> - ${sumOut}</td>
@@ -80,9 +72,9 @@ td {
 			<h3>
 				
 				<div style="margin-bottom: 10px;">${currentYear}년</div>
-				<a class="text-secondary" href="/admin/cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth-1}">&nbsp;&nbsp;<&nbsp;&nbsp;</a>
+				<a class="text-secondary" href="/admin/cashbookByMonth/pre/${currentYear}/${currentMonth-1}">&nbsp;&nbsp;<&nbsp;&nbsp;</a>
 				 ${currentMonth} 월 
-				<a class ="text-secondary"  href="/admin/cashbookByMonth?currentYear=${currentYear}&currentMonth=${currentMonth+1}">&nbsp;&nbsp;>&nbsp;&nbsp;</a>
+				<a class ="text-secondary"  href="/admin/cashbookByMonth/next/${currentYear}/${currentMonth+1}">&nbsp;&nbsp;>&nbsp;&nbsp;</a>
 			</h3>
 		</div>
 		<div>
@@ -108,7 +100,7 @@ td {
 								<c:if test="${i%7 == 1}">
 									<td>
 									<div>
-										<a  class="sunday" href="/admin/cashbookByDay?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${i-(firstDayOfWeek-1)}">
+										<a  class="sunday" href="/admin/cashbookByDay/now/${currentYear}/${currentMonth}/${i-(firstDayOfWeek-1)}">
 										 ${i-(firstDayOfWeek-1)}
 										 </a></div>
 										  <c:forEach var="c" items="${cashList}">
@@ -126,7 +118,8 @@ td {
 								</c:if>
 								<c:if test="${i%7 !=1 }">
 									<td>
-											<a class="text-dark" href="/admin/cashbookByDay?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${i-(firstDayOfWeek-1)}">
+											<!-- <a class="text-dark" href="/admin/cashbookByDay?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${i-(firstDayOfWeek-1)}"> -->
+										 <a class="text-dark" href="/admin/cashbookByDay/now/${currentYear}/${currentMonth}/${i-(firstDayOfWeek-1)}">
 										 ${i-(firstDayOfWeek-1)}
 										 </a> <!-- 지출/수입 목록이 있는 날짜를 cashList에서 검색 -->
 

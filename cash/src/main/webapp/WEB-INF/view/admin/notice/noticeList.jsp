@@ -10,17 +10,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
 body{
-	padding: 0;
-	margin: 0;
-	width: 100%; 
+		margin: auto;
+	width: 1000px; 
 	height : 100%; 
-	overflow: hidden; 
-	background-position : 0 0;
-	background-repeat: no-repeat;
-	background-attachment :fixed;
-	background-size : cover;
-	position :relative;
-	overflow-y: auto;
 }
 
 </style>
@@ -42,7 +34,7 @@ body{
 		<c:forEach var ="n" items="${noticeList}">
 			<tr>
 				<td>${n.noticeId }</td>
-				<td><a class="text-dark"href="/admin/noticeOne?noticeId=${n.noticeId}">${n.noticeTitle }</a></td>
+				<td><a class="text-dark"href="/admin/noticeOne/${n.noticeId}">${n.noticeTitle }</a></td>
 				<td>${n.noticeDate }</td>
 			</tr>
 		</c:forEach>
@@ -52,8 +44,8 @@ body{
 		<table class="table" style="width:60%; margin: 0 auto; margin-top: 20px" >
 			<tr>
 			<c:if test="${currentPage > 1 }">
-			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList?currentPage=1"> << </a></td>
-			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList?currentPage=${currentPage-1 }"> < </a></td>
+			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList/1"> << </a></td>
+			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList/${currentPage-1 }"> < </a></td>
 			</c:if>
 			<c:if test="${currentPage == 1}">
 			<td class="text-secondary"> << </td>
@@ -65,13 +57,13 @@ body{
 						<td class="text-secondary">${i+1}</td>
 					</c:if>
 					<c:if test="${i+1 !=currentPage}">
-						<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList?currentPage=${i+1}">${i+1}</a></td>
+						<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList/${i+1}">${i+1}</a></td>
 					</c:if>
 				</c:if>
 			</c:forEach>
 			<c:if test="${currentPage < lastPage }">
-			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList?currentPage=${currentPage+1 }"> > </a></td>
-			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList?currentPage=${lastPage}"> >> </a></td>
+			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList/${currentPage+1 }"> > </a></td>
+			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList/${lastPage}"> >> </a></td>
 			</c:if>
 			<c:if test="${currentPage == lastPage}">
 			<td class="text-secondary" style=""> > </td>

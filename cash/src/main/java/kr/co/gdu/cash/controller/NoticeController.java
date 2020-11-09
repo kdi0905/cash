@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,8 +17,8 @@ import kr.co.gdu.cash.vo.Notice;
 public class NoticeController {
 	@Autowired private NoticeService noticeService;
 	//공지목록
-	@GetMapping("/admin/noticeList")
-	public String noticeList(Model model,@RequestParam(name="currentPage", defaultValue = "1")int currentPage) {
+	@GetMapping("/admin/noticeList/{currentPage}")
+	public String noticeList(Model model,@PathVariable(name="currentPage")int currentPage) {
 		
 		int rowPerPage =10;
 		List<Notice> noticeList = noticeService.getNoticeListByPage(currentPage, rowPerPage);
@@ -57,32 +58,32 @@ public class NoticeController {
 	@PostMapping("admin/addNotice")
 	public String addNotice(Notice notice) {
 		noticeService.insertNotice(notice);
-		return"redirect:/admin/noticeList";
+		return"redirect:/admin/noticeList/1";
 	}
 	//공지 상세보기
-	@GetMapping("/admin/noticeOne")
-	public String noticeOne(Model model,@RequestParam(name = "noticeId") int noticeId) {
+	@GetMapping("/admin/noticeOne/{noticeId}")
+	public String noticeOne(Model model,@PathVariable(name = "noticeId") int noticeId) {
 		Notice notice = noticeService.getNoticeOneById(noticeId);
 		model.addAttribute("notice",notice);
 		return "admin/notice/noticeOne";
 	}
 	//공지 삭제
-	@GetMapping("/admin/removeNotice")
-	public String removeNotice(@RequestParam(value="noticeId")int noticeId) {
+	@GetMapping("/admin/removeNotice/{noticeId}")
+	public String removeNotice(@PathVariable(value="noticeId")int noticeId) {
 		noticeService.deleteNoticeOneById(noticeId);
-		return "redirect:/admin/noticeList";
+		return "redirect:/admin/noticeList/1";
 	}
 	//공지 수정 폼
-	@GetMapping("/admin/modifyNotice")
-	public String modifyNotice(Model model, @RequestParam(name="noticeId") int noticeId) {
+	@GetMapping("/admin/modifyNotice/{noticeId}")
+	public String modifyNotice(Model model, @PathVariable(name="noticeId") int noticeId) {
 		Notice notice = noticeService.getNoticeOneById(noticeId);
 		model.addAttribute("notice",notice);
 		return "admin/notice/modifyNotice";
 	}
 	//공지 수정 액션
-	@PostMapping("/admin/modifyNotice")
-	public String modifyNotice(Notice notice) {
+	@PostMapping("/admin/modifyNotice/{noticeId}")
+	public String modifyNotice(Notice notice, @PathVariable(name="noticeId") int noticeId) {
 		noticeService.updateNoticeOne(notice);
-		return "redirect:/admin/noticeOne?noticeId="+notice.getNoticeId();
+		return "redirect:/admin/noticeOne/"+notice.getNoticeId();
 	}
 }

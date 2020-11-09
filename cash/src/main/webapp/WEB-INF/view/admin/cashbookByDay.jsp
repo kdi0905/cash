@@ -10,17 +10,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
 body{	
-	padding: 0;
-	margin: 0;
-	width: 100%; 
+	margin: auto;
+	width: 1000px; 
 	height : 100%; 
-	overflow: hidden; 
-	background-position : 0 0;
-	background-repeat: no-repeat; 
-	background-attachment :fixed; 
-	background-size : cover; 
-	position :relative;  
-	overflow-y: auto;
 	
 }
 
@@ -35,15 +27,13 @@ body{
 		${currentYear}년 ${currentMonth}월 
 	</div>
 	<div style="text-align: center;">
-	
-		<a class ="text-dark" href="/admin/cashbookByDay?target=pre&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}"> < </a>
+		<a class ="text-dark" href="/admin/cashbookByDay/pre/${currentYear}/${currentMonth}/${currentDay}"> < </a>
 		${currentDay}일
-		<a class ="text-dark" href="/admin/cashbookByDay?target=next&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}"> > </a>
-	
+		<a class ="text-dark" href="/admin/cashbookByDay/next/${currentYear}/${currentMonth}/${currentDay}"> > </a>
 	</div>
 	</h3>
 	<div>
-	<a class = "btn btn-secondary "href="/admin/addCashbook?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}">추가</a>
+	<a class = "btn btn-secondary "href="/admin/addCashbook/${currentYear}/${currentMonth}/${currentDay}">추가</a>
 	</div>
 	<table class="table " style="margin-top: 30px; text-align: center;">
 		<thead>
@@ -73,8 +63,8 @@ body{
 					</c:if>
 					<td>${c.cashbookContent }</td>
 					
-					<td><a class="text-secondary" href="/admin/updateCashbook?cashbookId=${c.cashbookId}&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}">수정</a></td>
-					<td><a class="text-danger" href="/admin/deleteCashbook?cashbookId=${c.cashbookId}&currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${currentDay}">삭제</a></td>
+					<td><a class="text-secondary" href="/admin/updateCashbook/${c.cashbookId}/${currentYear}/${currentMonth}/${currentDay}">수정</a></td>
+					<td><a class="text-danger" href="/admin/deleteCashbook/${c.cashbookId}/${currentYear}/${currentMonth}/${currentDay}">삭제</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
