@@ -59,7 +59,7 @@ td {
 				<td class= "sumin"> ${sumIn}</td>
 			</tr>
 		</table>
-		<table class="table" style="margin-top:30px; width: 200px;font-size:20px;; float: right;" >
+		<table class="table table-bordered" style="margin-top:30px; width: 200px;font-size:20px;; float: right;" >
 			<tr>
 				<td style="height: 30px" class="tdbg">이번달 지출</td>
 			</tr>
