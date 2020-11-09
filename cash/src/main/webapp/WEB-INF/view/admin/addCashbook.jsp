@@ -14,6 +14,13 @@ body{
 		margin: auto;
 	width: 1300px; 
 	height : 100%; 
+	background-color: #fafbfc;
+}
+thead{
+	background-color:  #D5D5D5;
+}
+tbody{
+	background-color: white;
 }
 </style>
 <body>

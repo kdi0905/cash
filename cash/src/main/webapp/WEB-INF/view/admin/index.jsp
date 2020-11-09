@@ -13,9 +13,15 @@ body{
 	
 	margin: auto;
 	width: 1300px; 
-	height : 100%; 
+	height : 100%;
+	background-color: #fafbfc;
 }
-
+thead{
+	background-color:  #D5D5D5;
+}
+tbody{
+	background-color: white;
+}
 </style>
 </head>
 <body>
@@ -24,7 +30,7 @@ body{
 	
 	<div>
 		<!-- 공지 -->
-		<h1 style="text-align: center; margin-top: 30px;">공지사항<a href="/admin/noticeList/1"><span class="text-secondary"style="font-size: 20px;">more</span></a> </h1>
+		<h1 style="text-align: center; margin-top: 30px;"><span>공지사항</span><a href="/admin/noticeList/1"><span class="text-secondary"style="font-size: 20px;">more</span></a></h1>
 		<table class="table table-bordered" style="text-align: center">
 		<thead>
 			<tr>

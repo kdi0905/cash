@@ -14,6 +14,10 @@ body{
 		margin: auto;
 	width: 1300px; 
 	height : 100%; 
+	background-color: #fafbfc;
+}
+tbody{
+	background-color: white;
 }
 .sunday {
 	color: #FF0000;
