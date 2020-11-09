@@ -12,7 +12,7 @@
 body{
 	
 	margin: auto;
-	width: 1000px; 
+	width: 1300px; 
 	height : 100%; 
 }
 
