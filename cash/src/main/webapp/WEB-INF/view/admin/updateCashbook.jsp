@@ -12,7 +12,7 @@
 <style>
 body{
 	margin: auto;
-	width: 1300px; 
+	width: 1100px; 
 	height : 100%; 
 	background-color: #fafbfc;
 	
@@ -25,7 +25,7 @@ tbody{
 }
 </style>
 <body>
-	<div style="margin-left: 10%; margin-right:10%;">
+
 		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 		<div style="text-align: center;">
 		<h1 style="margin-top: 30px;" >수입/지출 </h1>
@@ -83,6 +83,6 @@ tbody{
 			</table>
 			<button class="btn btn-secondary" style="float: right" type="submit">수정</button>
 		</form>
-</div>
+
 </body>
 </html>

@@ -12,7 +12,7 @@
 <style>
 body{
 		margin: auto;
-	width: 1300px; 
+	width: 1100px; 
 	height : 100%; 
 	background-color: #fafbfc;
 }
@@ -51,7 +51,7 @@ td {
 </style>
 </head>
 <body>
-		<div style="margin-left: 10%; margin-right:10%;">
+
 		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 		
 		<!-- 다이어리 -->
@@ -158,6 +158,6 @@ td {
 				</tbody>
 			</table>
 		</div>
-</div>
+
 </body>
 </html>

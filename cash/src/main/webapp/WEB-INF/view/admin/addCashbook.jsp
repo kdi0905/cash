@@ -12,7 +12,7 @@
 <style>
 body{
 		margin: auto;
-	width: 1300px; 
+	width: 1100px; 
 	height : 100%; 
 	background-color: #fafbfc;
 }
@@ -24,7 +24,7 @@ tbody{
 }
 </style>
 <body>
-	<div style="margin-left: 10%; margin-right:10%;">
+
 		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 		<div style="text-align: center;">
 		<h1 style="margin-top: 30px;" >수입/지출</h1>
@@ -74,7 +74,7 @@ tbody{
 			</table>
 			<button id ="btn" class="btn btn-secondary" style="float: right" type="button">수입/지출입력</button>
 		</form>
-</div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>

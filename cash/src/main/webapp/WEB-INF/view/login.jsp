@@ -10,7 +10,7 @@
 <style>
 body{
 	margin: auto;
-	width: 1300px; 
+	width: 1100px; 
 	height : 100%; 
 	background-color: #fafbfc;
 }
@@ -23,7 +23,7 @@ tbody{
 </style>
 </head>
 <body>
-	<div style="margin-left: 10%; margin-right:10%;">
+
 
 		<!-- 공지 -->
 		<h1 style="text-align: center; margin-top: 30px;">공지사항</h1>
@@ -62,7 +62,7 @@ tbody{
 			<span id="loginCheck"></span>
 		</form>
 		</div>
-	</div>
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script >

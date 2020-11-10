@@ -11,7 +11,7 @@
 <style>
 body{
 		margin: auto;
-	width: 1300px; 
+	width: 1100px; 
 	height : 100%; 
 	background-color: #fafbfc;
 }
@@ -24,7 +24,7 @@ tbody{
 </style>
 </head>
 <body>
-	<div style="margin-left: 10%; margin-right:10%;">
+
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	
 	<h1 style="margin-top: 40px; text-align: center;">공지사항 수정</h1>
@@ -49,8 +49,5 @@ tbody{
 		</table>
 		<button class="btn btn-secondary" style="float: right;" type="submit">수정</button>
 	</form>
-	
-	</div>
-
 </body>
 </html>

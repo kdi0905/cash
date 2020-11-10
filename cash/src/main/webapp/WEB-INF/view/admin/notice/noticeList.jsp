@@ -11,7 +11,7 @@
 <style>
 body{
 		margin: auto;
-	width: 1300px; 
+	width: 1100px; 
 	height : 100%; 
 	background-color: #fafbfc;
 }
@@ -24,7 +24,7 @@ tbody{
 </style>
 </head>
 <body>
-	<div style="margin-left: 10%; margin-right:10%;">
+
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<h1 style="text-align: center; margin-top: 30px;">공지사항 </h1>
 		<div ><a class="btn btn-secondary" style="margin-bottom: 20px;float: right ;" href="/admin/addNotice">추가</a></div>
@@ -78,6 +78,6 @@ tbody{
 			</tr>
 		</table>
 	
-</div>
+
 </body>
 </html>
