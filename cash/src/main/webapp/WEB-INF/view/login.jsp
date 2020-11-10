@@ -14,7 +14,12 @@ body{
 	height : 100%; 
 	background-color: #fafbfc;
 }
-
+thead{
+	background-color:  #D5D5D5;
+}
+tbody{
+	background-color: white;
+}
 </style>
 </head>
 <body>
@@ -42,18 +47,44 @@ body{
 		</table>
 		<div style="text-align: center;">
 		<h1>로그인</h1>
-		<form method="post" action="/login">
-			<div style="margin-bottom: 20px;">
-				<span style="font-size: 20px; margin-right: 30px;">ID :</span> <input type ="text" name="id">
+		<form id="loginForm"method="post" action="/login">
+			<div >
+				<span  style="font-size: 20px; margin-right: 30px;">ID :</span> <input id="id" type ="text" name="id">
 			</div>
-			<div style="margin-bottom: 20px;">
-				<span style="font-size: 20px; margin-right: 20px;">PW :</span> <input type ="password" name="pw">
+			<span id="idCheck" class="text-danger" style=" margin-left: 60px;"></span>
+			<div style="margin-top: 20px;">
+				<span style="font-size: 20px;  margin-right: 20px;">PW :</span> <input id="pw"type ="password" name="pw">
 			</div>
-			<div>
-				<button class="btn btn-secondary" type="submit">로그인</button>
+			<span id="pwCheck" class="text-danger" style=" margin-left: 60px;"></span>
+			<div style="margin-top: 20px">
+				<button class="btn btn-secondary" id="btn" type="button">로그인</button>
 			</div>
+			<span id="loginCheck"></span>
 		</form>
 		</div>
 	</div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script >
+
+	$('#btn').click(function(){
+		if($('#id').val()==""){
+			$('#idCheck').html("아이디를 입력해주세요.");
+			
+		}else{
+			$('#idCheck').html("");	
+		}
+		if($('#pw').val()==""){
+			$('#pwCheck').html("비밀번호를 입력해주세요.");
+		}else{
+			$('#pwCheck').html("");	
+		}
+		
+		if($('#id').val()!=""&&$('#pw').val()!=""){		
+			$("#loginForm").submit();	
+		}
+		
+	});
+	
+</script>
 </html>

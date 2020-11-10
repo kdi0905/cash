@@ -31,8 +31,8 @@ public class LoginController {
 		}
 		
 		List<Notice> noticeList = noticeService.getNoticeListByPage(1, 5);
-		model.addAttribute("noticeList",noticeList);
 		
+		model.addAttribute("noticeList",noticeList);
 		return "login";
 	}
 	
