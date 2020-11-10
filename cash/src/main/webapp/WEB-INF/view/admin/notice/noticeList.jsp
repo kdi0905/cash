@@ -10,7 +10,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
 body{
-		margin: auto;
+	margin: auto;
 	width: 1100px; 
 	height : 100%; 
 	background-color: #fafbfc;
@@ -18,9 +18,10 @@ body{
 thead{
 	background-color:  #D5D5D5;
 }
-tbody{
+.tablebg{
 	background-color: white;
 }
+
 </style>
 </head>
 <body>
@@ -39,15 +40,15 @@ tbody{
 		<tbody>
 		<c:forEach var ="n" items="${noticeList}">
 			<tr>
-				<td>${n.noticeId }</td>
-				<td><a class="text-dark"href="/admin/noticeOne/${n.noticeId}">${n.noticeTitle }</a></td>
-				<td>${n.noticeDate }</td>
+				<td class="tablebg">${n.noticeId }</td>
+				<td class="tablebg"><a class="text-dark"href="/admin/noticeOne/${n.noticeId}">${n.noticeTitle }</a></td>
+				<td class="tablebg">${n.noticeDate }</td>
 			</tr>
 		</c:forEach>
 		</tbody>
 		</table>
 		<!-- 페이징 -->
-		<table class="table" style="width:60%; margin: 0 auto; margin-top: 20px" >
+		<table class="table pagebg" style="width:60%; margin: 0 auto; margin-top: 20px" >
 			<tr>
 			<c:if test="${currentPage > 1 }">
 			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList/1"> << </a></td>
