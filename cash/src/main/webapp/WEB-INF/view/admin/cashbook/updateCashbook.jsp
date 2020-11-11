@@ -30,7 +30,7 @@ tbody{
 		<div style="text-align: center;">
 		<h1 style="margin-top: 30px;" >수입/지출 </h1>
 		</div>
-		<form method="post" action="/admin/updateCashbook/${cashbook.cashbookId}/${currentYear}/${currentMonth}/${currentDay}">
+		<form id ="updateCashbookForm" method="post" action="/admin/updateCashbook/${cashbook.cashbookId}/${currentYear}/${currentMonth}/${currentDay}">
 			<table class="table table-bordered" style=" height: 100%; text-align: center">
 			<tr>
 					<td>cashbook_date</td>
@@ -56,33 +56,58 @@ tbody{
 				<tr>
 					<td>category_name</td>
 					<td>
-						<select name="categoryName">
+						<select  name="categoryName">
 							<c:forEach var="c" items="${categoryList}">
 								<c:if test="${c.categoryName==cashbook.categoryName}">
 								<option selected="selected" value="${c.categoryName}">${c.categoryName}</option>
+								<span id="cashbookKindCheck"></span>
 								</c:if>
 								<c:if test="${c.categoryName!=cashbook.categoryName}">
 								<option  value="${c.categoryName}">${c.categoryName}</option>
 								</c:if>
 							</c:forEach>
 						</select>
+						
 					</td>
 				</tr>
 				<tr>
 					<td>cashbook_price</td>
 					<td>
-						<input type="text" name="cashbookPrice" value="${cashbook.cashbookPrice}">
+						<input id="cashbookPrice" type="text" name="cashbookPrice" value="${cashbook.cashbookPrice}">
+						<span class="text-danger" style="margin-left:10px; font-size: 10px" id= "cashbookPriceCheck"></span>
 					</td>
 				</tr>
 				<tr>
 					<td>cashbook_content</td>
 					<td>
-						<input type="text" name="cashbookContent" value="${cashbook.cashbookContent}">
+						<input id="cashbookContent" type="text" name="cashbookContent" value="${cashbook.cashbookContent}">
+						<span class="text-danger" style="margin-left:10px; font-size: 10px" id="cashbookContentCheck"></span>
 					</td>
 				</tr>
 			</table>
-			<button class="btn btn-secondary" style="float: right" type="submit">수정</button>
+			<button class="btn btn-secondary" id="btn" style="float: right" type="button">수정</button>
 		</form>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$("#btn").click(function(){
+		
+		
+		if($("#cashbookPrice").val()==""){
+			$("#cashbookPriceCheck").html("가격을 입력해주세요");
+		}else{
+			$("#cashbookPriceCheck").html("");
+		}
+		
+		if($("#cashbookContent").val()==""){
+			$("#cashbookContentCheck").html("내용을 입력해주세요");
+		}else{
+			$("#cashbookContentCheck").html("");
+		}
+		if($("#cashbookPrice").val()!=""&&$("#cashbookContent").val()!=""){
+			$("#updateCashbookForm").submit();
+		}
+		});
+</script>
 </html>

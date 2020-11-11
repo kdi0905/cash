@@ -17,16 +17,16 @@ body{
 </style>
 </head>
 <body>
-	
+	<!-- 사용자 리스트 -> 추가버튼 -> 사용자 추가 -> 사용자 삭제 -->
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<div style="text-align: center;">
-	<h1 style="margin-top: 30px; ">사용자 추가</h1>
+	<h1 style="margin-top: 30px; margin-bottom: 20px; ">사용자 추가</h1>
 	<form id="addMember" method="post" action="/admin/addMember">
 			<div>
 				<span  style="font-size: 20px; margin-right: 30px;">ID :</span> <input id="id" type ="text" name="id">
 			</div>
 			<span id="idCheck" class="text-danger" style=" margin-left: 60px;"></span>
-			<span id="idCheck2" class="text-success" style=" margin-left: 60px;"></span>
+			<span id="idCheck2" class="text-success" ></span>
 			<div style="margin-top: 10px;">
 				<span style="font-size: 20px;  margin-right: 20px;">PW :</span> <input id="pw"type ="password" name="pw">
 			</div>
@@ -34,14 +34,13 @@ body{
 			<div style="margin-top: 10px">
 				<button class="btn btn-secondary" id="btn" type="button">추가</button>
 			</div>
-		
 	</form>
 	</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script >
 	$('#id').focus();
-	if($('#id')!=''){
+	if($('#id').val()!=""){
 		$('#id').blur(function(){
 			//비동기 요청으로 id값을 서버에 보내고 #id값이 중복인지 아닌지  확인
 			$.ajax({
@@ -49,11 +48,12 @@ body{
 				type:'post',
 				success:function(data){ //data -> yes:사용가능한 id no:사용 불가 id
 					if(data =='yes'){
+						$('#idCheck1').html("");
 						$('#idCheck2').html("사용가능한 ID입니다.");
 						$('#pw').focus();
 					}else{
-						
-						$('#idCheck').html("사용중인 ID입니다.");
+						$('#idCheck2').html("");
+						$('#idCheck1').html("사용중인 ID입니다.");
 						$('#id').select();
 					}
 				}
@@ -78,8 +78,6 @@ body{
 		if($('#id').val()!=""&&$('#pw').val()!=""){		
 			$("#addMember").submit();	
 		}
-		
-		
 	});
 	
 </script>

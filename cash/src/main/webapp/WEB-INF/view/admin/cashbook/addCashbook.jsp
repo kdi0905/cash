@@ -97,7 +97,7 @@ tbody{
 		}else{
 			$("#cashbookContentCheck").html("");
 		}
-		if($("#cashbookKind:checked").val()!=undefined&&$("#cashbookPrice").val()!=""&&$("#cashbookContent").val()!=""){
+		if($(".cashbookKind:checked").val()!=undefined&&$("#cashbookPrice").val()!=""&&$("#cashbookContent").val()!=""){
 			$("#addCashbookForm").submit();
 		}
 		});

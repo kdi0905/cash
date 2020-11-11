@@ -122,6 +122,7 @@ public class CashbookController {
 		cashbookService.deleteCashbook(cashbookId);
 		return "redirect:/admin/cashbookByDay/now/"+currentYear+"/"+currentMonth+"/"+currentDay;
 	}
+	
 	@GetMapping("/admin/updateCashbook/{cashbookId}/{currentYear}/{currentMonth}/{currentDay}")
 	public String updateCashbook(Model model,
 			@PathVariable(name="cashbookId") int cashbookId,
@@ -140,6 +141,7 @@ public class CashbookController {
 		model.addAttribute("categoryList",categoryList);
 		return "admin/cashbook/updateCashbook";
 	}
+	
 	@PostMapping("/admin/updateCashbook/{cashbookId}/{currentYear}/{currentMonth}/{currentDay}")
 	public String updateCashbook(Cashbook cashbook,
 			@PathVariable(name = "cashbookId", required=true) int cashbookId,
@@ -150,6 +152,7 @@ public class CashbookController {
 		cashbookService.updateCashbook(cashbook);
 		return "redirect:/admin/cashbookByDay/now/"+currentYear+"/"+currentMonth+"/"+currentDay;
 	}
+	
 	@GetMapping("/admin/cashbookList/{currentPage}")
 	public String cashbookList(Model model,@PathVariable(name = "currentPage", required = true)int currentPage) {
 		int rowPerPage =20;

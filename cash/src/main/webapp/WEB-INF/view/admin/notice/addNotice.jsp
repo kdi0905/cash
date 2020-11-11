@@ -28,18 +28,44 @@ tbody{
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	
 	<h1 style="margin-top: 30px; text-align: center;">공지사항 추가</h1>
-	<form method="post" action="/admin/addNotice">
+	<form id ="addNoticeForm" method="post" action="/admin/addNotice">
 		<table class="table table-bordered" style="text-align: center;">
 			<tr>
 				<td>notice_title</td>
-				<td><input type="text" placeholder="공지 제목을 입력하세요" name="noticeTitle"></td>
+				<td><input id="noticeTitle" type="text" placeholder="공지 제목을 입력하세요" name="noticeTitle">
+				<span class="text-danger" style="margin-left:10px; font-size: 10px" id="noticeTitleCheck"></span>
+				</td>
+				
 			</tr>
 			<tr>
 				<td>notice_content</td>
-				<td><textarea style="width: 300px;" placeholder="공지 내용을 입력하세요" name="noticeContent"></textarea></td>
+				<td><textarea id="noticeContent" style="width: 300px;" placeholder="공지 내용을 입력하세요" name="noticeContent"></textarea>
+				<span class="text-danger" style="margin-left:10px; font-size: 10px" id="noticeContentCheck"></span></td>
 			</tr>
 		</table>
-		<button class="btn btn-secondary" style="float: right;" type="submit">추가</button>
+		<button id="btn" class="btn btn-secondary" style="float: right;" type="button">추가</button>
 	</form>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$("#btn").click(function(){
+		
+		if($("#noticeTitle").val()==""){
+			$("#noticeTitleCheck").html("공지 제목을 입력해주세요.");
+		}else{
+			$("#noticeTitleCheck").html("");
+		}
+		
+		if($("#noticeContent").val()==""){
+			$("#noticeContentCheck").html("공지 내용을 입력하세요");
+		}else{
+			$("#noticeContentCheck").html("");
+		}
+		
+		
+		if($("#noticeTitle").val()!=""&&$("#noticeContent").val()!=""){
+			$("#addNoticeForm").submit();
+		}
+		});
+</script>
 </html>
