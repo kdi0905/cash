@@ -22,6 +22,7 @@ thead{
 tbody{
 	background-color: white;
 }
+
 </style>
 </head>
 <body>

@@ -15,6 +15,20 @@ import kr.co.gdu.cash.vo.Cashbook;
 @Transactional
 public class CashbookService {
 	@Autowired private CashbookMapper cashbookMapper;
+	public int getCashbookListCount() {
+		return cashbookMapper.selectCashbookListCount();
+	}
+	public List<Cashbook> getCashbookListAll(){
+		return cashbookMapper.selectCashbookListAll();
+	}
+		
+	public List<Cashbook> getCashbookListByPage(int currentPage,int rowPerPage){
+		Map<String,Object> map = new HashMap<>();
+		int beginRow = (currentPage-1)*rowPerPage;
+		map.put("beginRow", beginRow);
+		map.put("rowPerPage",rowPerPage);
+		return cashbookMapper.selectCashbookListByPage(map);
+	}
 	
 	public int getSumCashbookPriceByInOut(String cashbookKind, int currentYear, int currentMonth) {
 		Map<String,Object> map = new HashMap<String, Object>();

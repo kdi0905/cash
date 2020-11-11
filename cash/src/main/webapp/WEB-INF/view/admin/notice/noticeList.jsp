@@ -48,36 +48,37 @@ thead{
 		</tbody>
 		</table>
 		<!-- 페이징 -->
-		<table class="table pagebg" style="width:60%; margin: 0 auto; margin-top: 20px" >
-			<tr>
-			<c:if test="${currentPage > 1 }">
-			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList/1"> << </a></td>
-			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList/${currentPage-1 }"> < </a></td>
-			</c:if>
+		<ul class="pagination justify-content-center">
+		
 			<c:if test="${currentPage == 1}">
-			<td class="text-secondary"> << </td>
-			<td class="text-secondary"> < </td>
+				<li class="page-item disabled"><span class="page-link "> << </span> </li>
+				<li class="page-item disabled"><span class="page-link "> < </span> </li>
 			</c:if>
-			<c:forEach var="i" begin="${showfirst}" end="${showLast}">
-				<c:if test="${i+1 <=lastPage }">
-					<c:if test="${i+1 == currentPage }">
-						<td class="text-secondary">${i+1}</td>
+			<c:if test="${currentPage > 1 }">
+				<li class="page-item"><a class="page-link text-secondary"  href="/admin/noticeList/1"> << </a></li>
+				<li class="page-item"><a class="page-link text-secondary"  href="/admin/noticeList/${currentPage-1 }"> < </a></li>
+			</c:if>
+			
+			<c:forEach var="i" begin="${showFirst}" end="${showLast}">
+				<c:if test="${i <=lastPage }">
+					<c:if test="${i == currentPage }">
+						<li class="page-item active"><a class="page-link bg-secondary"  href="/admin/noticeList/${i}">${i}</a></li>
 					</c:if>
-					<c:if test="${i+1 !=currentPage}">
-						<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList/${i+1}">${i+1}</a></td>
+					<c:if test="${i !=currentPage}">
+					<li class="page-item "><a class="page-link text-secondary"  href="/admin/noticeList/${i}">${i}</a></li>
 					</c:if>
 				</c:if>
 			</c:forEach>
 			<c:if test="${currentPage < lastPage }">
-			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList/${currentPage+1 }"> > </a></td>
-			<td><a class ="btn btn-outline-light text-dark"" href="/admin/noticeList/${lastPage}"> >> </a></td>
+				<li class="page-item"><a class="page-link text-secondary" href="/admin/noticeList/${currentPage+1 }"> > </a></li>
+				<li class="page-item"><a class="page-link text-secondary" href="/admin/noticeList/${lastPage}"> >> </a></li>
 			</c:if>
 			<c:if test="${currentPage == lastPage}">
-			<td class="text-secondary" style=""> > </td>
-			<td class="text-secondary"> >> </td>
+				<li class="page-item disabled"><span class="page-link  text-secondary"> > </span></li>
+				<li class="page-item disabled"><span class="page-link  text-secondary"> >> </span></li>
 			</c:if>
-			</tr>
-		</table>
+			
+		</ul>
 	
 
 </body>

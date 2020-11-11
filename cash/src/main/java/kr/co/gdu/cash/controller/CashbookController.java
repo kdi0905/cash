@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.gdu.cash.service.CashbookService;
 import kr.co.gdu.cash.service.CategoryService;
@@ -62,7 +61,7 @@ public class CashbookController {
 		model.addAttribute("sumOut",sumOut); //지출
 		
 		model.addAttribute("cashList",cashList);
-		return "admin/cashbookByMonth";
+		return "admin/cashbook/cashbookByMonth";
 	}
 	
 	@GetMapping("/admin/cashbookByDay/{target}/{currentYear}/{currentMonth}/{currentDay}")
@@ -87,7 +86,7 @@ public class CashbookController {
 	model.addAttribute("currentMonth",targetDay.get(Calendar.MONTH)+1);
 	model.addAttribute("currentDay",targetDay.get(Calendar.DATE));
 	model.addAttribute("cashbookList",cashbookList);
-	return "admin/cashbookByDay";
+	return "admin/cashbook/cashbookByDay";
 	}
 	
 	@GetMapping("/admin/addCashbook/{currentYear}/{currentMonth}/{currentDay}")
@@ -101,7 +100,7 @@ public class CashbookController {
 		model.addAttribute("currentMonth",currentMonth);
 		model.addAttribute("currentDay",currentDay);
 		model.addAttribute("categoryList",categoryList);
-		return "admin/addCashbook"; // forward
+		return "admin/cashbook/addCashbook"; // forward
 	}
 	
 	@PostMapping("/admin/addCashbook/{currentYear}/{currentMonth}/{currentDay}")
@@ -139,7 +138,7 @@ public class CashbookController {
 		model.addAttribute("currentMonth",currentMonth);
 		model.addAttribute("currentDay",currentDay);
 		model.addAttribute("categoryList",categoryList);
-		return "admin/updateCashbook";
+		return "admin/cashbook/updateCashbook";
 	}
 	@PostMapping("/admin/updateCashbook/{cashbookId}/{currentYear}/{currentMonth}/{currentDay}")
 	public String updateCashbook(Cashbook cashbook,
@@ -150,6 +149,30 @@ public class CashbookController {
 			) {
 		cashbookService.updateCashbook(cashbook);
 		return "redirect:/admin/cashbookByDay/now/"+currentYear+"/"+currentMonth+"/"+currentDay;
+	}
+	@GetMapping("/admin/cashbookList/{currentPage}")
+	public String cashbookList(Model model,@PathVariable(name = "currentPage", required = true)int currentPage) {
+		int rowPerPage =20;
+		
+		List<Cashbook> cashbookList = cashbookService.getCashbookListByPage(currentPage, rowPerPage);
+		int totalCount = cashbookService.getCashbookListCount();
+		int lastPage= (totalCount/rowPerPage) +1;
+		int show = 10;
+		int firstShow = currentPage-(currentPage%show)+1; 
+		if(currentPage%show==0) {
+			firstShow = currentPage-((currentPage-1)%show);
+		}
+		int lastShow = firstShow+show-1;
+		System.out.println("lastPage = "+lastPage);
+		System.out.println("currentPage = "+currentPage);
+		System.out.println("firstShow = "+firstShow);
+		System.out.println("lastShow = "+lastShow);
+		
+		model.addAttribute("cashbookList",cashbookList);
+		model.addAttribute("lastPage",lastPage);
+		model.addAttribute("firstShow",firstShow);
+		model.addAttribute("lastShow",lastShow);
+		return "admin/cashbook/cashbookList";
 	}
 
 }
