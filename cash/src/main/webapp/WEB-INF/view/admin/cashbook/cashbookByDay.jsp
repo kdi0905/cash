@@ -26,20 +26,20 @@ tbody{
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/view/inc/menu.jsp"></jsp:include>
 
 	<h3 style="margin-top: 30px;">
 	<div style="text-align: center;">
 		${currentYear}년 ${currentMonth}월 
 	</div>
 	<div style="text-align: center;">
-		<a class ="text-dark" href="/admin/cashbookByDay/pre/${currentYear}/${currentMonth}/${currentDay}"> < </a>
+		<a class ="text-dark" href="${pageContext.request.contextPath }/admin/cashbookByDay/pre/${currentYear}/${currentMonth}/${currentDay}"> < </a>
 		${currentDay}일
-		<a class ="text-dark" href="/admin/cashbookByDay/next/${currentYear}/${currentMonth}/${currentDay}"> > </a>
+		<a class ="text-dark" href="${pageContext.request.contextPath }/admin/cashbookByDay/next/${currentYear}/${currentMonth}/${currentDay}"> > </a>
 	</div>
 	</h3>
 	<div>
-	<a class = "btn btn-secondary "href="/admin/addCashbook/${currentYear}/${currentMonth}/${currentDay}">추가</a>
+	<a class = "btn btn-secondary "href="${pageContext.request.contextPath }/admin/addCashbook/${currentYear}/${currentMonth}/${currentDay}">추가</a>
 	</div>
 	<table class="table " style="margin-top: 30px; text-align: center;">
 		<thead>
@@ -69,8 +69,8 @@ tbody{
 					</c:if>
 					<td>${c.cashbookContent }</td>
 					
-					<td><a class="text-secondary" href="/admin/updateCashbook/${c.cashbookId}/${currentYear}/${currentMonth}/${currentDay}">수정</a></td>
-					<td><a class="text-danger" href="/admin/deleteCashbook/${c.cashbookId}/${currentYear}/${currentMonth}/${currentDay}">삭제</a></td>
+					<td><a class="text-secondary" href="${pageContext.request.contextPath }/admin/updateCashbook/${c.cashbookId}/${currentYear}/${currentMonth}/${currentDay}">수정</a></td>
+					<td><a class="text-danger" href="${pageContext.request.contextPath }/admin/deleteCashbook/${c.cashbookId}/${currentYear}/${currentMonth}/${currentDay}">삭제</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

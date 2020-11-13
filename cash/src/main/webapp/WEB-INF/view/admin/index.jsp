@@ -27,11 +27,11 @@ tbody{
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath}/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	
 	<div>
 		<!-- 공지 -->
-		<h1 style="text-align: center; margin-top: 30px;"><span>공지사항</span><a href="/admin/noticeList/1"><span class="text-secondary"style="font-size: 20px;">more</span></a></h1>
+		<h1 style="text-align: center; margin-top: 30px;"><span>공지사항</span><a href="${pageContext.request.contextPath }/admin/noticeList/1"><span class="text-secondary"style="font-size: 20px;">more</span></a></h1>
 		<table class="table table-bordered" style="text-align: center">
 		<thead>
 			<tr>

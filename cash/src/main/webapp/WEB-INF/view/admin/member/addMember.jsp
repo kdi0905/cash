@@ -21,7 +21,7 @@ body{
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<div style="text-align: center;">
 	<h1 style="margin-top: 30px; margin-bottom: 20px; ">사용자 추가</h1>
-	<form id="addMember" method="post" action="/admin/addMember">
+	<form id="addMember" method="post" action="${pageContext.request.contextPath }/admin/addMember">
 			<div>
 				<span  style="font-size: 20px; margin-right: 30px;">ID :</span> <input id="id" type ="text" name="id">
 			</div>
@@ -44,7 +44,7 @@ body{
 		$('#id').blur(function(){
 			//비동기 요청으로 id값을 서버에 보내고 #id값이 중복인지 아닌지  확인
 			$.ajax({
-				url:'/admin/idCheck/'+$('#id').val(),
+				url:${pageContext.request.contextPath }+'/admin/idCheck/'+$('#id').val(),
 				type:'post',
 				success:function(data){ //data -> yes:사용가능한 id no:사용 불가 id
 					if(data =='yes'){

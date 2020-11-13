@@ -47,13 +47,13 @@ tbody{
 		</table>
 		<div style="text-align: center;">
 		<h1>로그인</h1>
-		<form id="loginForm"method="post" action="/login">
+		<form id="loginForm"method="post" action="${pageContext.request.contextPath }/login">
 			<div >
-				<span  style="font-size: 10px; margin-right: 30px;">ID :</span> <input id="id" type ="text" name="id">
+				<span  style="font-size: 20px; margin-right: 30px;">ID :</span> <input id="id" type ="text" name="id">
 			</div>
 			<span id="idCheck" class="text-danger" style=" margin-left: 60px;"></span>
 			<div style="margin-top: 20px;">
-				<span style="font-size: 10px;  margin-right: 20px;">PW :</span> <input id="pw"type ="password" name="pw">
+				<span style="font-size: 20px;  margin-right: 20px;">PW :</span> <input id="pw"type ="password" name="pw">
 			</div>
 			<span id="pwCheck" class="text-danger" style=" margin-left: 60px;"></span>
 			<div style="margin-top: 20px">

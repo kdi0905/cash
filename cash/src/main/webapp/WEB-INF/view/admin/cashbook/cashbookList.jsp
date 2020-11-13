@@ -29,9 +29,9 @@ tbody{
 </style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<h1>cashbookList</h1>
-	<a href="/admin/cashbookListExcel">전체 cashbookList를 Excel파일로 다운</a>
+	<a href="${pageContext.request.contextPath }/admin/cashbookListExcel">전체 cashbookList를 Excel파일로 다운</a>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -68,22 +68,22 @@ tbody{
 		<li class="page-item disabled"><span class="page-link "> < </span> </li>
 	</c:if>
 	<c:if test="${currentPage>1}">
-		<li class="page-item">	<a class="page-link text-secondary" href="/admin/cashbookList/1"> << </a> </li>
-		<li class="page-item">	<a class="page-link text-secondary" href="/admin/cashbookList/${currentPage-1}"> < </a> </li>
+		<li class="page-item">	<a class="page-link text-secondary" href="${pageContext.request.contextPath }/admin/cashbookList/1"> << </a> </li>
+		<li class="page-item">	<a class="page-link text-secondary" href="${pageContext.request.contextPath }/admin/cashbookList/${currentPage-1}"> < </a> </li>
 	</c:if>
 	<c:forEach var="s" begin="${firstShow}" end="${lastShow}">
 		<c:if test="${s<=lastPage}">
 			<c:if test ="${s==currentPage }">
-			<li class="page-item active  "><a class="page-link bg-secondary" href="/admin/cashbookList/${s}">${s}</a></li>
+			<li class="page-item active  "><a class="page-link bg-secondary" href="${pageContext.request.contextPath }/admin/cashbookList/${s}">${s}</a></li>
 			</c:if>
 			<c:if test ="${s!=currentPage }">
-			<li class="page-item "><a class="page-link text-secondary" href="/admin/cashbookList/${s}">${s}</a></li>
+			<li class="page-item "><a class="page-link text-secondary" href="${pageContext.request.contextPath }/admin/cashbookList/${s}">${s}</a></li>
 			</c:if>
 		</c:if>
 	</c:forEach>
 	<c:if test="${currentPage<lastPage}">
-		<li class="page-item"><a class="page-link text-secondary" href="/admin/cashbookList/${currentPage+1}"> > </a></li>
-		<li class="page-item"><a class="page-link text-secondary" href="/admin/cashbookList/${lastPage}"> >> </a></li>
+		<li class="page-item"><a class="page-link text-secondary" href="${pageContext.request.contextPath }/admin/cashbookList/${currentPage+1}"> > </a></li>
+		<li class="page-item"><a class="page-link text-secondary" href="${pageContext.request.contextPath }/admin/cashbookList/${lastPage}"> >> </a></li>
 	</c:if>
 	<c:if test="${currentPage==lastPage}">
 		<li class="page-item disabled"><span class="page-link  text-secondary"> > </span></li>

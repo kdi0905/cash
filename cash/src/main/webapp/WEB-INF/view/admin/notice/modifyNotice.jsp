@@ -25,10 +25,10 @@ tbody{
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	
 	<h1 style="margin-top: 40px; text-align: center;">공지사항 수정</h1>
-	<form id="updateNoticeForm" method="post" action="/admin/modifyNotice/${notice.noticeId}">
+	<form id="updateNoticeForm" method="post" action="${pageContext.request.contextPath }/admin/modifyNotice/${notice.noticeId}">
 		<table class="table table-bordered" style="text-align: center;">
 			<tr>
 				<td>notice_id</td>

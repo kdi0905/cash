@@ -52,7 +52,7 @@ td {
 </head>
 <body>
 
-		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
+		<jsp:include page="${pageContext.request.contextPath }/WEB-INF/view/inc/menu.jsp"></jsp:include>
 		
 		<!-- 다이어리 -->
 		<table class="table table-bordered" style="margin-top:30px; width: 200px; font-size:20px; float: left;" >
@@ -76,9 +76,9 @@ td {
 			<h3>
 				
 				<div style="margin-bottom: 10px;">${currentYear}년</div>
-				<a class="text-secondary" href="/admin/cashbookByMonth/pre/${currentYear}/${currentMonth-1}">&nbsp;&nbsp;<&nbsp;&nbsp;</a>
+				<a class="text-secondary" href="${pageContext.request.contextPath }/admin/cashbookByMonth/pre/${currentYear}/${currentMonth-1}">&nbsp;&nbsp;<&nbsp;&nbsp;</a>
 				 ${currentMonth} 월 
-				<a class ="text-secondary"  href="/admin/cashbookByMonth/next/${currentYear}/${currentMonth+1}">&nbsp;&nbsp;>&nbsp;&nbsp;</a>
+				<a class ="text-secondary"  href="${pageContext.request.contextPath }/admin/cashbookByMonth/next/${currentYear}/${currentMonth+1}">&nbsp;&nbsp;>&nbsp;&nbsp;</a>
 			</h3>
 		</div>
 		<div>
@@ -104,7 +104,7 @@ td {
 								<c:if test="${i%7 == 1}">
 									<td>
 									<div>
-										<a  class="sunday" href="/admin/cashbookByDay/now/${currentYear}/${currentMonth}/${i-(firstDayOfWeek-1)}">
+										<a  class="sunday" href="${pageContext.request.contextPath }/admin/cashbookByDay/now/${currentYear}/${currentMonth}/${i-(firstDayOfWeek-1)}">
 										 ${i-(firstDayOfWeek-1)}
 										 </a></div>
 										  <c:forEach var="c" items="${cashList}">
@@ -123,7 +123,7 @@ td {
 								<c:if test="${i%7 !=1 }">
 									<td>
 											<!-- <a class="text-dark" href="/admin/cashbookByDay?currentYear=${currentYear}&currentMonth=${currentMonth}&currentDay=${i-(firstDayOfWeek-1)}"> -->
-										 <a class="text-dark" href="/admin/cashbookByDay/now/${currentYear}/${currentMonth}/${i-(firstDayOfWeek-1)}">
+										 <a class="text-dark" href="${pageContext.request.contextPath }/admin/cashbookByDay/now/${currentYear}/${currentMonth}/${i-(firstDayOfWeek-1)}">
 										 ${i-(firstDayOfWeek-1)}
 										 </a> <!-- 지출/수입 목록이 있는 날짜를 cashList에서 검색 -->
 

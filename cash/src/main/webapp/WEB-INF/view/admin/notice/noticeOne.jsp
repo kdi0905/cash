@@ -25,15 +25,15 @@ tbody{
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
+	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	
 	<h1 style="margin-top: 40px; text-align: center;">공지사항 상세보기</h1>
 		<div style="float: left">
-			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="/admin/noticeList/1" >목록</a>
+			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="${pageContext.request.contextPath }/admin/noticeList/1" >목록</a>
 		</div>
 		<div style="float: right">
-			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="/admin/modifyNotice/${notice.noticeId}">수정</a>
-			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="/admin/removeNotice/${notice.noticeId}">삭제</a>	
+			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="${pageContext.request.contextPath }/admin/modifyNotice/${notice.noticeId}">수정</a>
+			<a class ="btn btn-secondary" style="margin-bottom: 20px" href="${pageContext.request.contextPath }/admin/removeNotice/${notice.noticeId}">삭제</a>	
 		</div>
 		<table class="table table-bordered" style="text-align: center;">
 			<tr>

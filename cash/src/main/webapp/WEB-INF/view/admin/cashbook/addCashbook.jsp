@@ -25,11 +25,11 @@ tbody{
 </style>
 <body>
 
-		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
+		<jsp:include page="${pageContext.request.contextPath }/WEB-INF/view/inc/menu.jsp"></jsp:include>
 		<div style="text-align: center;">
 		<h1 style="margin-top: 30px;" >수입/지출</h1>
 		</div>
-		<form id="addCashbookForm"method="post" action="/admin/addCashbook/${currentYear }/${currentMonth}/${currentDay}">
+		<form id="addCashbookForm"method="post" action="${pageContext.request.contextPath }/admin/addCashbook/${currentYear }/${currentMonth}/${currentDay}">
 			<table class="table table-bordered" style="text-align: center">
 			<tr>
 					<td>cashbook_date</td>
