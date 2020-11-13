@@ -26,7 +26,7 @@ thead{
 </head>
 <body>
 
-	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/view/inc/menu.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<h1 style="text-align: center; margin-top: 30px;">공지사항 </h1>
 		<div ><a class="btn btn-secondary" style="margin-bottom: 20px;float: right ;" href="${pageContext.request.contextPath }/admin/addNotice">추가</a></div>
 		<table class="table table-bordered" style="text-align: center">

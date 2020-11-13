@@ -52,7 +52,7 @@ td {
 </head>
 <body>
 
-		<jsp:include page="${pageContext.request.contextPath }/WEB-INF/view/inc/menu.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 		
 		<!-- 다이어리 -->
 		<table class="table table-bordered" style="margin-top:30px; width: 200px; font-size:20px; float: left;" >

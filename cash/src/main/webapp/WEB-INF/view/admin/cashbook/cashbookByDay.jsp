@@ -26,7 +26,7 @@ tbody{
 </head>
 <body>
 
-	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/view/inc/menu.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 
 	<h3 style="margin-top: 30px;">
 	<div style="text-align: center;">

@@ -40,13 +40,18 @@ body{
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script >
 	$('#id').focus();
-	if($('#id').val()!=""){
+	
 		$('#id').blur(function(){
 			//비동기 요청으로 id값을 서버에 보내고 #id값이 중복인지 아닌지  확인
 			$.ajax({
-				url:${pageContext.request.contextPath }+'/admin/idCheck/'+$('#id').val(),
+				url:'${pageContext.request.contextPath }/admin/idCheck/'+$('#id').val(),
 				type:'post',
 				success:function(data){ //data -> yes:사용가능한 id no:사용 불가 id
+					// 공백 확인
+					if($('#id').val() == '') {
+						$('#id').focus();
+						return;
+					}
 					if(data =='yes'){
 						$('#idCheck1').html("");
 						$('#idCheck2').html("사용가능한 ID입니다.");
@@ -55,11 +60,12 @@ body{
 						$('#idCheck2').html("");
 						$('#idCheck1').html("사용중인 ID입니다.");
 						$('#id').select();
+						$('#id').focus();
 					}
 				}
 			})
 		})
-	}
+	
 		
 	$('#btn').click(function(){
 		if($('#id').val()==""){

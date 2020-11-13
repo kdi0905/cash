@@ -13,5 +13,6 @@ public class MemberRestService {
 	@Autowired private MemberRestMapper memberRestMapper;
 	public String getMemberId(String id) {
 		return memberRestMapper.selectMemberId(id);
+		
 	}
 }

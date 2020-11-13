@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <style>
 .menubg {
-	background-color: #EAEAEA;
+	background-color: #D5D5D5;
 	height: 60px;
 }
 </style>

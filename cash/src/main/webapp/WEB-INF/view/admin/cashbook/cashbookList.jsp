@@ -29,7 +29,7 @@ tbody{
 </style>
 </head>
 <body>
-	<jsp:include page="${pageContext.request.contextPath }/WEB-INF/view/inc/menu.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<h1>cashbookList</h1>
 	<a href="${pageContext.request.contextPath }/admin/cashbookListExcel">전체 cashbookList를 Excel파일로 다운</a>
 	<table class="table table-bordered">

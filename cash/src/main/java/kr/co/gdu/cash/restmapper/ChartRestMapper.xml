@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="kr.co.gdu.cash.restmapper.ChartRestMapper">
+  <select id="selectYear" resultType="String">
+  		SELECT
+			Year(cashbook_date) year
+		FROM cashbook
+		GROUP by Year(Cashbook_date);
+  </select>
+  <select id="selectTotalOfMonthByYear"></select>
+  
+  </mapper>
