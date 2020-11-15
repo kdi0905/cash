@@ -1,41 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<style>
-.menubg {
-	background-color: #D5D5D5;
-	height: 60px;
-}
-</style>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<div class="tm-top-header">
 
-	<nav class="navbar navbar-expand-sm menubg">
-		<ul  class="navbar-nav">
-		<li class="nav-item">
-			<a class=" text-secondary nav-link" href="${pageContext.request.contextPath }/admin/index" style="font-size: 30px; float: left;">CASHBOOK</a>
-		</li>
-		<li class="nav-item">
-			<a class=" text-secondary nav-link" style="margin-top: 10px;"  href="${pageContext.request.contextPath }/admin/index">홈</a>	
-		</li>
-		<li class="nav-item">
-			<a class=" text-secondary nav-link" style="margin-top: 10px;"  href="${pageContext.request.contextPath }/admin/noticeList/1">공지사항</a>
-		</li>
-		<li class="nav-item">
-			<a class=" text-secondary nav-link" style="margin-top: 10px;"  href="${pageContext.request.contextPath }/admin/cashbookByMonth/now/-1/-1">가계부</a>
-		</li>
-		<li class="nav-item">
-			<a class=" text-secondary nav-link" style="margin-top: 10px;"  href="${pageContext.request.contextPath }/admin/cashbookList/1">가계부리스트</a>
-		</li>
-		<li class="nav-item">
-			<a class=" text-secondary nav-link" style="margin-top: 10px;" href="${pageContext.request.contextPath }/admin/chartStrart.jsp">통계</a>
-		</li>
-		<li class="nav-item">
-			<a class=" text-secondary nav-link" style="margin-top: 10px;" href="${pageContext.request.contextPath }/admin/addMember">사용자추가</a>
-		</li>
-		
-		
-		
-		
-		<li class="nav-item ">
-			<a style="float: right; margin-top: 10px;" class=" text-info nav-link" href="/admin/logout">로그아웃</a>				
-		</li>
-		</ul>
-	</nav>
+			<div class="row">
+				<div class="tm-top-header-inner">
+					<div class="tm-logo-container">
+
+						<h1 class="tm-site-name tm-handwriting-font">
+							<a class="tm-site-name tm-handwriting-font"
+								href="${pageContext.request.contextPath }/admin/index">CASHBOOK</a>
+						</h1>
+					</div>
+					<div class="mobile-menu-icon">
+						<i class="fa fa-bars"></i>
+					</div>
+					<nav class="tm-nav">
+						<ul>
+							<li><a href="${pageContext.request.contextPath }/admin/index">홈</a></li>
+							<li><a href="${pageContext.request.contextPath }/admin/noticeList/1">공지사항</a></li>
+							<li><a href="${pageContext.request.contextPath }/admin/cashbookByMonth/now/-1/-1">가계부</a></li>
+							<li><a href="${pageContext.request.contextPath }/admin/cashbookList/1">가계부리스트</a></li>
+							<li><a href="${pageContext.request.contextPath }/admin/chartStrart.jsp">통계</a> </li>
+							<li><a href="${pageContext.request.contextPath }/admin/logout" >로그아웃</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+
+	
+	
+	
+
 
