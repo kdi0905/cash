@@ -1,6 +1,6 @@
 package kr.co.gdu.cash.restservice;
 
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,19 @@ import kr.co.gdu.cash.restmapper.ChartRestMapper;
 public class ChartRestService {
 	@Autowired ChartRestMapper chartRestMapper;
 	
-	public List<String> getYear(){
-		return chartRestMapper.selectYear();
+	public Map<String, Object> getTotalOfMonthOutByYear(int year){
+		return chartRestMapper.selectTotalOfMonthOutByYear(year);
+	}
+	
+	public Map<String, Object> getTotalOfMonthInByYear(int year){
+		return chartRestMapper.selectTotalOfMonthInByYear(year);
+	}
+	
+	public Map<String,Object> getTotaloutAndInByYear(int year){
+		return chartRestMapper.selectTotalOutAndInByYear(year);
+	}
+	
+	public Map<String,Object> getCategoryInByYear(int year){
+		return chartRestMapper.selectCategoryInByYear(year);
 	}
 }

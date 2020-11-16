@@ -7,6 +7,10 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ChartRestMapper {
-	public List<String> selectYear();
-	public Map<String,Object> selectTotalOfMonthByYear(int year);
+	public Map<String, Object> selectTotalOfMonthOutByYear(int year);
+	public Map<String, Object> selectTotalOfMonthInByYear(int year);
+	public Map<String,Object> selectTotalOutAndInByYear(int year);
+	public Map<String,Object> selectCategoryInByYear(int year);
+	
+	//지출
 }

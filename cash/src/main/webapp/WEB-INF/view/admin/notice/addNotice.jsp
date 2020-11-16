@@ -112,8 +112,7 @@
 										style="margin-left: 10px; font-size: 15px"
 										id="noticeContentCheck"></span>
 								</div>
-								<button id="btn" class="tm-more-button tm-more-button-welcome"
-									type="button">추가</button>
+								<button id="btn" class="tm-more-button "type="button">추가</button>
 							</div>
 						</form>
 					</div>

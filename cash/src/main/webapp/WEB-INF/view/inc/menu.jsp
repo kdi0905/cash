@@ -20,7 +20,7 @@
 							<li><a href="${pageContext.request.contextPath }/admin/noticeList/1">공지사항</a></li>
 							<li><a href="${pageContext.request.contextPath }/admin/cashbookByMonth/now/-1/-1">가계부</a></li>
 							<li><a href="${pageContext.request.contextPath }/admin/cashbookList/1">가계부리스트</a></li>
-							<li><a href="${pageContext.request.contextPath }/admin/chartStrart.jsp">통계</a> </li>
+							<li><a href="${pageContext.request.contextPath }/admin/chart/chartStart.jsp">통계</a> </li>
 							<li><a href="${pageContext.request.contextPath }/admin/logout" >로그아웃</a></li>
 						</ul>
 					</nav>
