@@ -104,7 +104,7 @@
 	$('#totalOfMonthByYearChart').click(function() {
 		if ($('#year').val() != "") {
 			$.ajax({
-				url : '/admin/totalOfMonthInByYear/'+ $('#year').val(),
+				url : '${pageContext.request.contextPath}/admin/totalOfMonthInByYear/'+ $('#year').val(),
 				type : 'get',
 				success : function(data) {
 						

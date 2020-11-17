@@ -104,14 +104,14 @@
 	$('#totalOfMonthByYearChart').click(function() {
 		if ($('#year').val() != "") {
 			$.ajax({
-				url : '/admin/totalOfMonthOutByYear/'+ $('#year').val(),
+				url : '${pageContext.request.contextPath}/admin/totalOfMonthOutByYear/'+ $('#year').val(),
 				type : 'get',
 				success : function(data) {
 						
 						var ctx = document.getElementById('myChart').getContext('2d');//캔퍼스태그를 가져와서 그린다. //2d,3d도화지를 가져온다.
 						//var chart = new Chart(ctx,{type:'차트 종류', data:{차트안에 사용될 모은데이터}, options:{ }});//ctx 안에 차트1개 만들기
 						var chart = new Chart(ctx,{
-								type : 'bar',
+								type : 'line',
 								data : {
 									labels : [
 											'1월',

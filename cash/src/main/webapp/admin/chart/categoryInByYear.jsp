@@ -104,7 +104,7 @@
 $('#categoryInByYear').click(function(){
 	if ($('#year').val() != "") {
 		$.ajax({
-			url:'/admin/categoryInByYear/'+$('#year').val(),
+			url: '${pageContext.request.contextPath}/admin/categoryInByYear/'+$('#year').val(),
 			type:'get',
 			success:function(data){
 				

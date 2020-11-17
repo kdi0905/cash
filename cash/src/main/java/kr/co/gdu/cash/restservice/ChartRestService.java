@@ -28,4 +28,8 @@ public class ChartRestService {
 	public Map<String,Object> getCategoryInByYear(int year){
 		return chartRestMapper.selectCategoryInByYear(year);
 	}
+	
+	public Map<String,Object> getCategoryOutByYear(int year){
+		return chartRestMapper.selectCategoryOutByYear(year);
+	}
 }

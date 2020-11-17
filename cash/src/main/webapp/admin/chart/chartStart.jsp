@@ -32,6 +32,7 @@
 	href="${pageContext.request.contextPath }/img/favicon.ico"
 	type="image/x-icon" />
 <style>
+
 </style>
 </head>
 <body id="landing">
@@ -93,7 +94,8 @@
 								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/chart6.jsp">chart6</a>
 							</div>
 							<div class="from-group " style="margin: auto;">	
-								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/chart7.jsp">chart7</a>
+								
+								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/categoryOutByYear.jsp">년도별 카테고리 지출</a>
 								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/chart8.jsp">chart8</a>
 							</div>
 						</div>

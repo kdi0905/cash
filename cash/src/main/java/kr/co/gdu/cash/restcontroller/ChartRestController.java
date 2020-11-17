@@ -30,9 +30,13 @@ public class ChartRestController {
 	public Map<String,Object> totalOutAndInByYear(@PathVariable(name="year")int year){
 		return chartRestService.getTotaloutAndInByYear(year);
 	}
-	//년도별 카테고리 지출
+	//년도별 카테고리 수입
 	@GetMapping("/admin/categoryInByYear/{year}")
 	public Map<String,Object> categoryInByYear(@PathVariable(name="year")int year){
 		return chartRestService.getCategoryInByYear(year);
+	}
+	@GetMapping("/admin/categoryOutByYear/{year}")
+	public Map<String,Object> categoryOutByYear(@PathVariable(name="year")int year){
+		return chartRestService.getCategoryOutByYear(year);
 	}
 }

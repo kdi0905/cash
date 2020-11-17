@@ -104,7 +104,7 @@
 $('#totalOutAndInByYearChart').click(function(){
 	if ($('#year').val() != "") {
 		$.ajax({
-			url:'/admin/totalOutAndInByYear/'+$('#year').val(),
+			url:'${pageContext.request.contextPath}/admin/totalOutAndInByYear/'+$('#year').val(),
 			type:'get',
 			success:function(data){
 				
