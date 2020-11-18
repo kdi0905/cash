@@ -12,5 +12,7 @@ public interface ChartRestMapper {
 	public Map<String,Object> selectTotalOutAndInByYear(int year);
 	public Map<String,Object> selectCategoryInByYear(int year);
 	public Map<String,Object> selectCategoryOutByYear(int year);
-	//지출
+	public List<Map<String,Object>> selectMonthOfCategoryInByYear(int year); 
+	public List<Map<String,Object>> selectMonthOfCategoryOutByYear(int year); 
+	public List<Map<String,Object>> selectMonthOfInAndOutByYear(int year);
 }

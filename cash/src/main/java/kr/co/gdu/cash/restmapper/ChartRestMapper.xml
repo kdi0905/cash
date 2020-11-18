@@ -70,7 +70,7 @@
 		WHERE YEAR(cashbook_date)= #{year}
 		GROUP BY Year(cashbook_date);
   	</select>
-  	<!-- 지출 -->
+  
   	<select id ="selectCategoryOutByYear" parameterType="int" resultType="java.util.Map">
   		SELECT YEAR(cashbook_date) YEAR,
 			SUM(case when category_name="관광" then cashbook_price END) "관광",
@@ -81,7 +81,8 @@
 		WHERE YEAR(cashbook_date)=#{year}
 		GROUP BY Year(cashbook_date);
   	</select>
-  	<select id="" parameterType="int" resultType="java.util.Map">
+  	
+  	<select id="selectMonthOfCategoryInByYear" parameterType="int" resultType="java.util.Map">
   		SELECT 
 			YEAR(cashbook_date)  YEAR,category_name,
 			sum(case when month(cashbook_date)=1 then cashbook_price END)  "january",
@@ -101,7 +102,8 @@
 		AND cashbook_kind = "수입"
 		GROUP BY Year(cashbook_date), category_name
   	</select>
-  	<select id=""  parameterType="int" resultType="java.util.Map">
+  	
+  	<select id="selectMonthOfCategoryOutByYear"  parameterType="int" resultType="java.util.Map">
   		SELECT 
 			YEAR(cashbook_date)  YEAR,category_name,
 			sum(case when month(cashbook_date)=1 then cashbook_price END)  "january",
@@ -121,7 +123,7 @@
 		AND cashbook_kind = "지출"
 		GROUP BY Year(cashbook_date), category_name	  
   	</select>
-  	<select id="">
+  	<select id="selectMonthOfInAndOutByYear" parameterType="int" resultType="java.util.Map">
   		SELECT 
 			YEAR(cashbook_date)  YEAR,  cashbook_kind,
 			sum(case when month(cashbook_date)=1 then cashbook_price END)  "january",
@@ -137,8 +139,7 @@
 			sum(case when month(cashbook_date)=11 then cashbook_price END)  "november",
 			sum(case when month(cashbook_date)=12 then cashbook_price END)  "december"
 		FROM cashbook
-		WHERE YEAR(cashbook_date) = 2020		
-		
+		WHERE YEAR(cashbook_date) = #{year}	
 		GROUP BY Year(cashbook_date), cashbook_kind
   	</select>
   </mapper>

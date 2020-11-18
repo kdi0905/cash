@@ -81,13 +81,13 @@
 					<div class="container">
 						<div class="row">
 							<div class="from-group " style="margin: auto;">
-								<button id="categoryInByYear" class="tm-more-button tm-more-button-welcome" type="button">Chart</button>
+								<button id="chartBtn" class="tm-more-button tm-more-button-welcome" type="button">Chart</button>
 								<input class="form-control text-center " type="text" id="year" placeholder="년도 입력하세요.">
 							</div>
 						</div>
 						<!-- 0)출력 -->
-						<div id="canvas" style="margin-left: auto; margin-right:auto; margin-top: 20px; width: 80%">
-							 <canvas id="chart"></canvas>
+						<div  style="margin-left: auto; margin-right:auto; margin-top: 20px; width: 80%">
+							 <canvas id="myChart"></canvas>
 						</div>
 						<a href="${pageContext.request.contextPath }/admin/chart/chartStart.jsp" class="tm-more-button margin-top-30">목록</a>
 					</div>
@@ -101,14 +101,14 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <!--차트 -->
 <script>
-$('#categoryInByYear').click(function(){
+$('#chartBtn').click(function(){
 	if ($('#year').val() != "") {
 		$.ajax({
 			url: '${pageContext.request.contextPath}/admin/categoryInByYear/'+$('#year').val(),
 			type:'get',
 			success:function(data){
 				
-				let ctx = $('#chart');
+				var ctx = document.getElementById('myChart').getContext('2d');//캔퍼스태그를 가져와서 그린다. //2d,3d도화지를 가져온다.
 					
 				console.log(data);
 				let pieChart = new Chart(ctx,{

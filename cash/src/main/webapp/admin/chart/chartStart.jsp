@@ -90,13 +90,13 @@
 						</div>
 						<div class="row">
 							<div class="from-group " style="margin: auto;">
-								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/chart5.jsp">chart5</a>
-								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/chart6.jsp">chart6</a>
+								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/monthOfCategoryInByYear.jsp"> 월 카테고리 수입</a>
+								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/monthOfCategoryOutByYear.jsp"> 월 카테고리 지출</a>
 							</div>
 							<div class="from-group " style="margin: auto;">	
 								
 								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/categoryOutByYear.jsp">년도별 카테고리 지출</a>
-								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/chart8.jsp">chart8</a>
+								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/monthOfInAndOutByYear.jsp">월 총 금액</a>
 							</div>
 						</div>
 						
