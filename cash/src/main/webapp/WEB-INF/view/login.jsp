@@ -129,16 +129,15 @@ tbody {
 						<form id="loginForm" method="post"
 							action="${pageContext.request.contextPath}/login">
 							<div>
-								<span style="font-size: 20px; margin-right: 30px;">ID </span> <input
-									id="id" type="text" name="id" class="form-control">
+								<span style="font-size: 20px; margin-right: 30px;">ID </span> 
+								<input id="id" type="text" name="id" class="form-control" value="admin">
 							</div>
 							<span id="idCheck" class="text-danger" style="margin-left: 60px;"></span>
 							<div style="margin-top: 20px;">
-								<span style="font-size: 20px; margin-right: 20px;">PW </span> <input
-									id="pw" type="password" name="pw" class="form-control">
+								<span style="font-size: 20px; margin-right: 20px;">PW </span> 
+								<input id="pw" type="password" name="pw" class="form-control" value="1234">
 							</div>
 							<span id="pwCheck" class="text-danger" style="margin-left: 60px;"></span>
-
 							<button id="btn" type="button"
 								class="tm-more-button margin-top-30">로그인</button>
 
