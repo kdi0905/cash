@@ -54,7 +54,25 @@ public class ChartRestController {
 	//월 총 금액
 	@GetMapping("/admin/MonthOfInAndOutByYear/{year}")
 	public List<Map<String,Object>> MonthOfInAndOutByYear(@PathVariable(name="year")int year){
-		return chartRestService.GetMonthOfInAndOutByYear(year);
+		return chartRestService.getMonthOfInAndOutByYear(year);
 	}
+	
+	//날짜별 카테고리 수입
+	@GetMapping("/admin/beetweenCategoryInByDate/{startDate}/{endDate}")
+	public Map<String,Object> beetweenCategoryInByDate(
+											@PathVariable(name="startDate") String startDate,
+											@PathVariable(name="endDate") String endDate ){
+		return chartRestService.getBetweenCategoryInOfDate(startDate, endDate);
+		
+	}
+	//날짜별 카테고리 지출
+	@GetMapping("/admin/beetweenCategoryOutByDate/{startDate}/{endDate}")
+	public Map<String,Object> beetweenCategoryOutByDate(
+											@PathVariable(name="startDate") String startDate,
+											@PathVariable(name="endDate") String endDate ){
+		return chartRestService.getBetweenCategoryOutOfDate(startDate, endDate);
+		
+	}
+			
 	
 }

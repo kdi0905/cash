@@ -142,4 +142,22 @@
 		WHERE YEAR(cashbook_date) = #{year}	
 		GROUP BY Year(cashbook_date), cashbook_kind
   	</select>
+  	
+  	<select id="selectBetweenCategoryInOfDate" parameterType="java.util.Map" resultType="java.util.Map">
+  		SELECT 
+			SUM(case when category_name="급여" then cashbook_price END) "급여",
+			SUM(case when category_name="용돈" then cashbook_price END) "용돈"
+		FROM cashbook
+		WHERE cashbook_date BETWEEN #{startDate} and #{endDate}
+  	</select>
+  	<select id ="selectBetweenCategoryOutOfDate" parameterType="java.util.Map" resultType="java.util.Map">
+  		SELECT
+			SUM(case when category_name="관광" then cashbook_price END) "관광",
+			SUM(case when category_name="생활" then cashbook_price END) "생활",
+			SUM(case when category_name="식비" then cashbook_price END) "식비",
+			SUM(case when category_name="의료" then cashbook_price END) "의료"
+		FROM cashbook
+		WHERE cashbook_date BETWEEN #{startDate} and #{endDate}
+		
+  	</select>
   </mapper>

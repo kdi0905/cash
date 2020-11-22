@@ -1,5 +1,6 @@
 package kr.co.gdu.cash.restservice;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import kr.co.gdu.cash.restmapper.ChartRestMapper;
 @Service
 @Transactional
 public class ChartRestService {
-	@Autowired public ChartRestMapper chartRestMapper;
+	@Autowired private ChartRestMapper chartRestMapper;
 	
 	public Map<String, Object> getTotalOfMonthOutByYear(int year){
 		return chartRestMapper.selectTotalOfMonthOutByYear(year);
@@ -42,7 +43,20 @@ public class ChartRestService {
 		return chartRestMapper.selectMonthOfCategoryOutByYear(year);
 	}
 	
-	public List<Map<String,Object>> GetMonthOfInAndOutByYear(int year){
+	public List<Map<String,Object>> getMonthOfInAndOutByYear(int year){
 		return chartRestMapper.selectMonthOfInAndOutByYear(year);
 	}
+	
+	public Map<String,Object> getBetweenCategoryInOfDate(String startDate, String endDate){
+			Map<String,Object> betweenDate = new HashMap<>();
+			betweenDate.put("startDate", startDate);
+			betweenDate.put("endDate", endDate);
+		return chartRestMapper.selectBetweenCategoryInOfDate(betweenDate);
+	}
+	public Map<String,Object> getBetweenCategoryOutOfDate(String startDate, String endDate){
+		Map<String,Object> betweenDate = new HashMap<>();
+		betweenDate.put("startDate", startDate);
+		betweenDate.put("endDate", endDate);
+	return chartRestMapper.selectBetweenCategoryOutOfDate(betweenDate);
+}
 }

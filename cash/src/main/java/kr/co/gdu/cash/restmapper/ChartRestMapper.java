@@ -15,4 +15,6 @@ public interface ChartRestMapper {
 	public List<Map<String,Object>> selectMonthOfCategoryInByYear(int year); 
 	public List<Map<String,Object>> selectMonthOfCategoryOutByYear(int year); 
 	public List<Map<String,Object>> selectMonthOfInAndOutByYear(int year);
+	public Map<String,Object> selectBetweenCategoryInOfDate(Map<String,Object> betweenDate);
+	public Map<String,Object> selectBetweenCategoryOutOfDate(Map<String,Object> betweenDate);
 }

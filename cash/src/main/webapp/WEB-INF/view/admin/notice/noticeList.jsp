@@ -7,31 +7,18 @@
 <meta charset="UTF-8">
 <title>noticeList</title>
 <!-- JS -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.11.2.min.js"></script>
 <!-- jQuery -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/templatemo-script.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/templatemo-script.js"></script>
 <!-- Templatemo Script -->
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Damion'
-	rel='stylesheet' type='text/css'>
-<link href="${pageContext.request.contextPath }/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath }/css/font-awesome.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath }/css/templatemo-style.css"
-	rel="stylesheet">
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath }/img/favicon.ico"
-	type="image/x-icon" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700'	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+<link href="${pageContext.request.contextPath }/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/font-awesome.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/templatemo-style.css" rel="stylesheet">
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/img/favicon.ico" type="image/x-icon" />
 <style>
 thead {
 	background-color: #E8E2AE;
@@ -56,18 +43,15 @@ tbody {
 	<section class="tm-welcome-section">
 		<div class="container tm-position-relative">
 			<div class="tm-lights-container">
-				<img src="${pageContext.request.contextPath }/img/light.png"
-					alt="Light" class="light light-1"> <img
-					src="${pageContext.request.contextPath }/img/light.png" alt="Light"
-					class="light light-2"> <img
-					src="${pageContext.request.contextPath }/img/light.png" alt="Light"
-					class="light light-3">
+				<img src="${pageContext.request.contextPath }/img/light.png" alt="Light" class="light light-1">
+				<img src="${pageContext.request.contextPath }/img/light.png" alt="Light" class="light light-2">
+				<img src="${pageContext.request.contextPath }/img/light.png" alt="Light" class="light light-3">
 			</div>
 			<div class=" tm-welcome-content">
 				<h2 class="white-text tm-handwriting-font tm-welcome-header">
 					<img src="${pageContext.request.contextPath }/img/header-line.png"
-						alt="Line" class="tm-header-line">&nbsp;Notice&nbsp;&nbsp;<img
-						src="${pageContext.request.contextPath }/img/header-line.png"
+						alt="Line" class="tm-header-line">&nbsp;Notice&nbsp;&nbsp;
+					<img src="${pageContext.request.contextPath }/img/header-line.png"
 						alt="Line" class="tm-header-line">
 				</h2>
 				<h2 class="gold-text tm-welcome-header-2">공 지 사 항</h2>
@@ -99,8 +83,7 @@ tbody {
 					<div class="col-lg-4 col-md-4">
 						<div class="container">
 						<a class="tm-more-button tm-more-button-welcome"  href="${pageContext.request.contextPath }/admin/addNotice">추가</a>
-							<table class="table table-bordered table-hover"
-								style="margin-top: 20px; text-align: center;">
+							<table class="table table-bordered table-hover" style="margin-top: 20px; text-align: center;">
 								<thead>
 									<tr>
 										<th class="text-center ">notice_id</th>
@@ -118,7 +101,6 @@ tbody {
 									</c:forEach>
 								</tbody>
 							</table>
-							<a href="#" class="tm-more-button margin-top-30">Read More</a>
 						</div>
 					</div>
 				</div>
@@ -127,55 +109,46 @@ tbody {
 			<ul class="pagination justify-content-center" style=" margin-bottom: 40px;">
 
 				<c:if test="${currentPage == 1}">
-					<li class="page-item disabled"><span class="page-link ">
-							<< </span></li>
-					<li class="page-item disabled"><span class="page-link ">
-							< </span></li>
+					<li class="page-item disabled"><span class="page-link "> << </span></li>
+					<li class="page-item disabled"><span class="page-link "> < </span></li>
 				</c:if>
 				<c:if test="${currentPage > 1 }">
 					<li class="page-item"><a class="page-link text-secondary"
-						href="${pageContext.request.contextPath }/admin/noticeList/1">
-							<< </a></li>
+						href="${pageContext.request.contextPath }/admin/noticeList/1"> << </a></li>
 					<li class="page-item"><a class="page-link text-secondary"
-						href="${pageContext.request.contextPath }/admin/noticeList/${currentPage-1 }">
-							< </a></li>
+						href="${pageContext.request.contextPath }/admin/noticeList/${currentPage-1 }"> < </a></li>
 				</c:if>
 
 				<c:forEach var="i" begin="${showFirst}" end="${showLast}">
 					<c:if test="${i <=lastPage }">
 						<c:if test="${i == currentPage }">
-							<li class="page-item active"><a
-								class="page-link bg-secondary"
+							<li class="page-item active">
+							<a class="page-link bg-secondary"
 								href="${pageContext.request.contextPath }/admin/noticeList/${i}">${i}</a></li>
 						</c:if>
 						<c:if test="${i !=currentPage}">
-							<li class="page-item "><a class="page-link text-secondary"
+							<li class="page-item ">
+							<a class="page-link text-secondary"
 								href="${pageContext.request.contextPath }/admin/noticeList/${i}">${i}</a></li>
 						</c:if>
 					</c:if>
 				</c:forEach>
 				<c:if test="${currentPage < lastPage }">
-					<li class="page-item"><a class="page-link text-secondary"
-						href="${pageContext.request.contextPath }/admin/noticeList/${currentPage+1 }">
-							> </a></li>
-					<li class="page-item"><a class="page-link text-secondary"
-						href="${pageContext.request.contextPath }/admin/noticeList/${lastPage}">
-							>> </a></li>
+					<li class="page-item">
+					<a class="page-link text-secondary"
+						href="${pageContext.request.contextPath }/admin/noticeList/${currentPage+1 }"> > </a></li>
+					<li class="page-item">
+					<a class="page-link text-secondary"
+						href="${pageContext.request.contextPath }/admin/noticeList/${lastPage}"> >> </a></li>
 				</c:if>
 				<c:if test="${currentPage == lastPage}">
-					<li class="page-item disabled"><span
-						class="page-link  text-secondary"> > </span></li>
-					<li class="page-item disabled"><span
-						class="page-link  text-secondary"> >> </span></li>
+					<li class="page-item disabled"><span class="page-link  text-secondary"> > </span></li>
+					<li class="page-item disabled"><span class="page-link  text-secondary"> >> </span></li>
 				</c:if>
-
 			</ul>
-			
+			<a href="#" class="tm-more-button margin-top-30" style="margin-bottom: 30px">Read More</a>
 		</div>
 	</div>
-<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
-
-
-
+	<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
 </body>
 </html>

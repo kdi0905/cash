@@ -4,35 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>chart</title>
+<title>통계</title>
 <!-- JS -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.11.2.min.js"></script>
 <!-- jQuery -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/templatemo-script.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/templatemo-script.js"></script>
 <!-- Templatemo Script -->
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Damion'
-	rel='stylesheet' type='text/css'>
-<link href="${pageContext.request.contextPath }/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath }/css/font-awesome.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath }/css/templatemo-style.css"
-	rel="stylesheet">
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath }/img/favicon.ico"
-	type="image/x-icon" />
-<style>
-</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700'	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+<link href="${pageContext.request.contextPath }/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/font-awesome.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/templatemo-style.css" rel="stylesheet">
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/img/favicon.ico" type="image/x-icon" />
 </head>
 <body id="landing">
 
@@ -86,8 +71,8 @@
 							</div>
 						</div>
 						<!-- 0)출력 -->
-						<div  style="margin-left: auto; margin-right:auto; margin-top: 20px; width: 80%">
-							 <canvas id="myChart"></canvas>
+						<div id="canvas"  style="margin-left: auto; margin-right:auto; margin-top: 20px; width: 80%; height: 400px;">
+							 <!-- <canvas id="myChart"></canvas> -->
 						</div>
 						<a href="${pageContext.request.contextPath }/admin/chart/chartStart.jsp" class="tm-more-button margin-top-30">목록</a>
 					</div>
@@ -102,7 +87,9 @@
 <!--차트 -->
 <script>
 $('#chartBtn').click(function(){
+	$('#canvas').html("");
 	if ($('#year').val() != "") {
+		$('#canvas').append('<canvas id="myChart">')
 		$.ajax({
 			url:'${pageContext.request.contextPath}/admin/totalOutAndInByYear/'+$('#year').val(),
 			type:'get',
@@ -132,6 +119,7 @@ $('#chartBtn').click(function(){
 				
 			}
 		});
+		$('#canvas').append('</canvas>')
 	}
 });
 

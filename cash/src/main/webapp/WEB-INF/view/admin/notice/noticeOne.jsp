@@ -7,35 +7,20 @@
 <meta charset="UTF-8">
 <title>noticeOne</title>
 <!-- JS -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.11.2.min.js"></script>
 <!-- jQuery -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/templatemo-script.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/templatemo-script.js"></script>
 <!-- Templatemo Script -->
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Damion'
-	rel='stylesheet' type='text/css'>
-<link href="${pageContext.request.contextPath }/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath }/css/font-awesome.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath }/css/templatemo-style.css"
-	rel="stylesheet">
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath }/img/favicon.ico"
-	type="image/x-icon" />
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700'	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+<link href="${pageContext.request.contextPath }/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/font-awesome.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/css/templatemo-style.css" rel="stylesheet">
+<link rel="shortcut icon" href="${pageContext.request.contextPath }/img/favicon.ico" type="image/x-icon" />
 </head>
-<body>
-
+<body id="landing">
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<!-- Preloader -->
 	<div id="loader-wrapper">
@@ -108,29 +93,28 @@
 								
 								<div class="col-lg-6 col-md-6" style="margin-left: 20%;">
 									<div class="form-group">
-										<span style="font-size: 20px; margin-right: 30px;">notice_id
-										</span> <input id="noticeTitle" type="text" class="form-control"
-											name="noticeTitle" value="${notice.noticeId}"
-											disabled="disabled"> 
+										<span style="font-size: 20px; margin-right: 30px;">notice_id </span>
+										 <input id="noticeTitle" type="text" class="form-control"
+										  name="noticeTitle" value="${notice.noticeId}"
+											readonly="readonly"> 
 									</div>
 									<div class="form-group">
-										<span style="font-size: 20px; margin-right: 30px;">notice_title
-										</span> <input id="noticeTitle" type="text" class="form-control"
+										<span style="font-size: 20px; margin-right: 30px;">notice_title</span>
+										 <input id="noticeTitle" type="text" class="form-control"
 											name="noticeTitle" value="${notice.noticeTitle }"
-											disabled="disabled"> 
+											readonly="readonly"> 
 									</div>
 									<div class="form-group">
-										<span style="font-size: 20px; margin-right: 30px;">notice_content
-											</span>
+										<span style="font-size: 20px; margin-right: 30px;">notice_content</span>
 										<textarea id="noticeContent" class="form-control" rows="6"
-											 name="noticeContent" disabled="disabled">${notice.noticeContent }</textarea>
+											 name="noticeContent" readonly="readonly">${notice.noticeContent }</textarea>
 										
 									</div>
 									<div class="form-group">
-										<span style="font-size: 20px; margin-right: 30px;">notice_date
-										</span> <input id="noticeTitle" type="text" class="form-control"
+										<span style="font-size: 20px; margin-right: 30px;">notice_date</span>
+										 <input id="noticeTitle" type="text" class="form-control"
 											name="noticeDate" value="${notice.noticeDate}"
-											disabled="disabled"> 
+											readonly="readonly"> 
 									</div>
 									
 								</div>
