@@ -14,13 +14,7 @@
 		
 	</select>
 	
-	<!-- 년도 찾기 -->
-	<select id="selectYear" resultType="String">
-		SELECT
-			Year(cashbook_date) year
-		FROM cashbook
-		GROUP by Year(Cashbook_date);
-	</select>
+
 	<select id="selectTotalOfMonthOutByYear" parameterType="int" resultType="java.util.Map">		
 		SELECT 
 			YEAR(cashbook_date)  year,
