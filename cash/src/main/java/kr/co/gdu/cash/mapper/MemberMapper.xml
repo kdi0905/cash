@@ -5,21 +5,24 @@
   <mapper namespace="kr.co.gdu.cash.mapper.MemberMapper">
   	<insert id="insertMember" parameterType="kr.co.gdu.cash.vo.Member">
   		INSERT INTO member(
-  			id,
-  			pw
+  			member_id,
+  			member_pw,
+  			member_name
   		) VALUES(
-  			#{id},
-  			#{pw}
+  			#{memberId},
+  			#{memberPw},
+  			#{memberName}
   		)
   	</insert>
   
   
   	<select id="selectMemberById" parameterType="String" resultType="kr.co.gdu.cash.vo.Member">
   		SELECT
-  			id,
-  			pw
+  			member_id memberId,
+  			member_pw memberPw,
+  			member_name memberName
   		FROM member
-  		WHERE id=#{id} 
+  		WHERE member_id=#{memberId} 
   	</select>
   	<!-- 입력값이 1개일때는 아무거나 넣어줘도 된다.2개 이상 입력값이 있으면 필드값이 동일해야된다. -->
   </mapper>

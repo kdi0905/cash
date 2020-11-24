@@ -1,23 +1,34 @@
 package kr.co.gdu.cash.vo;
 
 public class Member {
-	private String id;
-	private String pw;
-	public String getId() {
-		return id;
+	private String memberId;
+	private String memberPw;
+	private String memberName;
+	public String getMemberId() {
+		return memberId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
-	public String getPw() {
-		return pw;
+	public String getMemberPw() {
+		return memberPw;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setMemberPw(String memberPw) {
+		this.memberPw = memberPw;
 	}
+	
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+	
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", pw=" + pw + "]";
+		return "Member [memberId=" + memberId + ", memberPw=" + memberPw + ", memberName=" + memberName + "]";
 	}
+	
+	
 	
 }

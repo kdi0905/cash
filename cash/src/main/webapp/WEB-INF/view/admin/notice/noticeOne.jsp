@@ -66,8 +66,8 @@
 			<section class="tm-section">
 				<div class="row">
 					<div class="col-lg-12 tm-section-header-container">
-						<h2 class="tm-section-header gold-text tm-handwriting-font">
-							공지사항 상세보기</h2>
+						<h3 class="tm-section-header gold-text tm-handwriting-font">
+							공지사항 상세보기</h3>
 
 						<div class="tm-hr-container">
 							<hr class="tm-hr">
@@ -78,7 +78,6 @@
 					<div class="col-lg-4 col-md-4">
 						<div class="container">
 							<div class="row">
-
 								<a class="tm-more-button tm-more-button-welcome"
 									style="margin-bottom: 20px;"
 									href="${pageContext.request.contextPath }/admin/noticeList/1">목록</a>
@@ -119,6 +118,41 @@
 									
 								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<section class="tm-section">
+				<div class="row">
+					<div class="col-lg-12 tm-section-header-container">
+						<h3 class="tm-section-header gold-text tm-handwriting-font" style="width: 100px;">댓글</h3>
+						<div class="tm-hr-container">
+							<hr class="tm-hr">
+						</div>
+					</div>
+				</div>
+				<div class="tm-daily-menu-container ">
+					<div class="col-lg-4 col-md-4">
+						<div class="container">
+							<div class="row">
+							
+								<div class="col-lg-6 col-md-6" style="margin-left: 20%;">
+									<div class="form-group">
+										<div id="comment"></div>
+									</div>
+									<div class="form-group">
+										<hr class="tm-hr">
+										<form id="addComment" method="get" action="${pageContext.request.contextPath}/admin/insertComment">
+										<span style="font-size: 20px; margin-right: 30px;">댓글</span>
+										<input type="hidden" name="noticeId" value="${notice.noticeId}">
+										<input type="hidden" name="memberId" value="${notice.memberId}">
+										<textarea id="comment" class="form-control" rows="3" name="commentContent" ></textarea>
+										<button class="text-secondary btn" style="float: right"  id="btn" type="button" >등록</button>
+										</form>
+									</div>
+								</div>
+							</div>
 							<a href="#" class="tm-more-button margin-top-30">Read More</a>
 						</div>
 					</div>
@@ -128,4 +162,11 @@
 	</div>
 	<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
 </body>
+<script>
+$('#btn').click(function(){
+	$('#addComment').submit();
+	
+});
+
+</script>
 </html>

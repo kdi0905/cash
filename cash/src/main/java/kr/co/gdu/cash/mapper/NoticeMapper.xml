@@ -8,6 +8,7 @@
 	<select id="selectNoticeListByPage" parameterType="java.util.Map" resultType="kr.co.gdu.cash.vo.Notice">
 		SELECT 
 			notice_id noticeId,
+			member_id memberId,
 			notice_title noticeTitle,
 			notice_content noticeContent,
 			notice_date noticeDate 
@@ -26,10 +27,12 @@
 	<!-- 공지사항 추가 -->
 	<insert id="insertNotice" parameterType="kr.co.gdu.cash.vo.Notice">
 		INSERT INTO notice(
+			member_id,
 			notice_title,
 			notice_content,
 			notice_date )
 			values(
+			#{memberId},
 			#{noticeTitle},
 			#{noticeContent},
 			now() )
@@ -38,6 +41,7 @@
 	<!-- 공지사항 상세보기 -->
 	<select id="selectNoticeOneById" parameterType="int" resultType="kr.co.gdu.cash.vo.Notice">
 		SELECT 
+			member_id memberId,
 			notice_id noticeId,
 			notice_title noticeTitle,
 			notice_content noticeContent,

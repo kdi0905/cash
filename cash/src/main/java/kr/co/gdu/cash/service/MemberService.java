@@ -16,7 +16,7 @@ public class MemberService {
 	}
 	public Member getMemberById(Member paramMember) {
 	
-		Member member = memberMapper.selectMemberById(paramMember.getId());
+		Member member = memberMapper.selectMemberById(paramMember.getMemberId());
 		/*if(member == null) {
 			return null;
 		}else if(member.getPw().equals(pw)!=true) {
@@ -24,7 +24,7 @@ public class MemberService {
 		}else {
 			return member;
 		}*/
-		if(member!=null && member.getPw().equals(paramMember.getPw())==true) {
+		if(member!=null && member.getMemberPw().equals(paramMember.getMemberPw())==true) {
 			return member;
 		}
 		return null;

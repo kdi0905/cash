@@ -2,6 +2,7 @@ package kr.co.gdu.cash.vo;
 
 public class Notice {
 	private int noticeId;
+	private String memberId;
 	private String noticeTitle;
 	private String noticeContent;
 	private String noticeDate;
@@ -10,6 +11,13 @@ public class Notice {
 	}
 	public void setNoticeId(int noticeId) {
 		this.noticeId = noticeId;
+	}
+	
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String string) {
+		this.memberId = string;
 	}
 	public String getNoticeTitle() {
 		return noticeTitle;
@@ -29,10 +37,11 @@ public class Notice {
 	public void setNoticeDate(String noticeDate) {
 		this.noticeDate = noticeDate;
 	}
+	
 	@Override
 	public String toString() {
-		return "Notice [noticeId=" + noticeId + ", noticeTitle=" + noticeTitle + ", noticeContent=" + noticeContent
-				+ ", noticeDate=" + noticeDate + "]";
+		return "Notice [noticeId=" + noticeId + ", memberId=" + memberId + ", noticeTitle=" + noticeTitle
+				+ ", noticeContent=" + noticeContent + ", noticeDate=" + noticeDate + "]";
 	}
 	
 }

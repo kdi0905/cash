@@ -2,18 +2,21 @@ package kr.co.gdu.cash.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.gdu.cash.service.NoticeService;
 import kr.co.gdu.cash.vo.Notice;
 
 @Controller
+
 public class NoticeController {
 	@Autowired private NoticeService noticeService;
 	//공지목록
@@ -56,7 +59,10 @@ public class NoticeController {
 	}
 	//공지 입력 액션
 	@PostMapping("admin/addNotice")
-	public String addNotice(Notice notice) {
+	public String addNotice(Notice notice, HttpServletRequest request) {
+		
+		HttpSession session = ((HttpServletRequest)request).getSession();
+		notice.setMemberId((String)session.getAttribute("loginId"));
 		noticeService.insertNotice(notice);
 		return"redirect:/admin/noticeList/1";
 	}

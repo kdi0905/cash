@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="kr.co.gdu.cash.mapper.CommentMapper">
+  	<insert id="insertComment" parameterType="kr.co.gdu.cash.vo.Comment">
+  		INSERT INTO comment(
+  				notice_id,
+  				member_id,
+  				comment_content,
+  				update_date,
+  				create_date
+  		) VALUES(
+  			#{noticeId},
+  			#{memberId},
+  			#{commentContent},
+  			now(),
+  			now()
+  		)
+  	</insert>
+  	<select id="selectComment" parameterType="int" resultType="kr.co.gdu.cash.vo.Comment">
+  		SELECT comment_id commentId,
+  			notice_id noticeId,
+  			member_id memberId,
+  			comment_content commentContent,
+  			update_date updateDate,
+  			create_date createDate
+  		FROM comment
+  		WHERE notice_id=#{noticeId}
+  	</select>
+  </mapper>

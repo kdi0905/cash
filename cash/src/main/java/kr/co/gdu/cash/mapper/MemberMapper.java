@@ -8,7 +8,7 @@ import kr.co.gdu.cash.vo.Member;
 public interface MemberMapper {
 	//id check
 
-	public Member selectMemberById(String id);
+	public Member selectMemberById(String memberId);
 	public int insertMember(Member member);
 	
 }

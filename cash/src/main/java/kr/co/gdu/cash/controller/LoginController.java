@@ -44,7 +44,7 @@ public class LoginController {
 		if(loginMember == null) {
 			return"redirect:/login";
 		}
-		session.setAttribute("loginId", loginMember.getId());
+		session.setAttribute("loginId", loginMember.getMemberId());
 		return"redirect:/admin/index";
 	}
 	@GetMapping("/admin/logout")
