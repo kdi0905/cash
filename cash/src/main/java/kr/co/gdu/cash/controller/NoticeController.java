@@ -1,6 +1,7 @@
 package kr.co.gdu.cash.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import kr.co.gdu.cash.service.CommentService;
 import kr.co.gdu.cash.service.NoticeService;
 import kr.co.gdu.cash.vo.Notice;
 
@@ -19,6 +21,7 @@ import kr.co.gdu.cash.vo.Notice;
 
 public class NoticeController {
 	@Autowired private NoticeService noticeService;
+	@Autowired private CommentService commentService;
 	//공지목록
 	@GetMapping("/admin/noticeList/{currentPage}")
 	public String noticeList(Model model,@PathVariable(name="currentPage")int currentPage) {
@@ -68,9 +71,16 @@ public class NoticeController {
 	}
 	//공지 상세보기
 	@GetMapping("/admin/noticeOne/{noticeId}")
-	public String noticeOne(Model model,@PathVariable(name = "noticeId") int noticeId) {
+	public String noticeOne(Model model,@PathVariable(name = "noticeId") int noticeId, HttpServletRequest request) {
 		Notice notice = noticeService.getNoticeOneById(noticeId);
+		//댓글 
+		List<Map<String,Object>> commentList = commentService.getComment(noticeId);
+		HttpSession seesion = ((HttpServletRequest)request).getSession();
+		String sessionId = (String)seesion.getAttribute("loginId");
+		
+		model.addAttribute("sessionId",sessionId);
 		model.addAttribute("notice",notice);
+		model.addAttribute("commentList",commentList);
 		return "admin/notice/noticeOne";
 	}
 	//공지 삭제

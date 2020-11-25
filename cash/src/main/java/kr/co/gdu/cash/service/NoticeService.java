@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.gdu.cash.mapper.CashbookMapper;
+import kr.co.gdu.cash.mapper.CommentMapper;
 import kr.co.gdu.cash.mapper.NoticeMapper;
 import kr.co.gdu.cash.vo.Notice;
 
@@ -17,6 +18,7 @@ import kr.co.gdu.cash.vo.Notice;
 public class NoticeService {
 	@Autowired private NoticeMapper noticeMapper;
 	@Autowired private CashbookMapper cashbookMapper;
+	@Autowired private CommentMapper commentMapper;
 	
 	
 	public List<Map<String,Object>> getInOutList() {
@@ -43,8 +45,9 @@ public class NoticeService {
 		return noticeMapper.selectNoticeOneById(noticeId);
 	}
 	//공지사항 삭제
-	public int deleteNoticeOneById(int noticeId) {
-		return noticeMapper.deleteNoticeOneById(noticeId);
+	public void deleteNoticeOneById(int noticeId) {
+		commentMapper.deleteCommentAll(noticeId);
+		noticeMapper.deleteNoticeOneById(noticeId);
 	}
 	//공지사항 수정
 	public int updateNoticeOne(Notice notice) {

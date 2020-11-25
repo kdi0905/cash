@@ -35,7 +35,7 @@
 	type="image/x-icon" />
 <style>
 thead {
-	background-color: #E8E2AE;
+	background-color: #c79c60;
 }
 
 tbody {

@@ -3,6 +3,15 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="kr.co.gdu.cash.mapper.CommentMapper">
+  	<delete id="deleteCommentOne" parameterType="int">
+  		DELETE FROM comment 
+  		WHERE comment_id=#{commentId}
+  	</delete>
+  	
+  	<delete id="deleteCommentAll" parameterType="int">
+  		DELETE FROM comment
+  		WHERE notice_id=#{noticeId}
+  	</delete>
   	<insert id="insertComment" parameterType="kr.co.gdu.cash.vo.Comment">
   		INSERT INTO comment(
   				notice_id,
@@ -18,14 +27,22 @@
   			now()
   		)
   	</insert>
-  	<select id="selectComment" parameterType="int" resultType="kr.co.gdu.cash.vo.Comment">
-  		SELECT comment_id commentId,
-  			notice_id noticeId,
-  			member_id memberId,
-  			comment_content commentContent,
-  			update_date updateDate,
-  			create_date createDate
-  		FROM comment
+  	<select id="selectComment" parameterType="int" resultType="java.util.Map">
+  		SELECT c.comment_id commentId,
+  			c.notice_id noticeId,
+  			c.member_id memberId,
+  			c.comment_content commentContent,
+  			TIMESTAMPDIFF(YEAR,c.update_date,NOW()) year,
+  			TIMESTAMPDIFF(MONTH,c.update_date,NOW()) month,
+  			TIMESTAMPDIFF(WEEK,c.update_date,NOW()) week,
+  			TIMESTAMPDIFF(DAY,c.update_date,NOW()) day,
+  			TIMESTAMPDIFF(HOUR,c.update_date,NOW()) hour,
+  			TIMESTAMPDIFF(MINUTE,c.update_date,NOW()) minute,
+  			TIMESTAMPDIFF(SECOND,c.update_date,NOW()) second,
+  			m.member_name memberName
+  		FROM comment c
+  		INNER JOIN member m
+  		ON c.member_id = m.member_id
   		WHERE notice_id=#{noticeId}
   	</select>
   </mapper>

@@ -21,7 +21,7 @@
 <link rel="shortcut icon" href="${pageContext.request.contextPath }/img/favicon.ico" type="image/x-icon" />
 <style>
 thead {
-	background-color: #E8E2AE;
+	background-color: #c79c60;
 }
 
 tbody {

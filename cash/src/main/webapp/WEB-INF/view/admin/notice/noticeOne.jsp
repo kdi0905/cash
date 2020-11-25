@@ -139,7 +139,41 @@
 							
 								<div class="col-lg-6 col-md-6" style="margin-left: 20%;">
 									<div class="form-group">
-										<div id="comment"></div>
+										<div id="comment">
+											<c:forEach var="cm" items="${commentList}">
+												
+												<span style="font-size: 15px;">${cm.memberName}</span>
+												<span>
+													<c:if test="${cm.second<60}">
+														<span class="text-secondary" style="font-size: 8px;" >${cm.second}초 전</span>
+													</c:if>
+													<c:if test="${cm.minute>0 and cm.minute<60}">
+														<span class="text-secondary" style="font-size: 8px;">${cm.minute}분 전</span>
+													</c:if>
+													<c:if test="${cm.hour>0 and cm.hour<24}">
+														<span class="text-secondary" style="font-size: 8px;">${cm.hour}시간 전</span>
+													</c:if>
+													<c:if test="${cm.day>0 and cm.day<7}">
+														<span class="text-secondary" style="font-size: 8px;">${cm.day}일 전</span>
+													</c:if>
+													<c:if test="${cm.week>0 and cm.week<4}">
+														<span class="text-secondary" style="font-size: 8px;">${cm.week}주 전</span>
+													</c:if>
+													<c:if test="${cm.month>0 and cm.month<12}">
+														<span class="text-secondary" style="font-size: 8px;">${cm.month}개월 전</span>
+													</c:if>
+													<c:if test="${cm.year>0}">
+														<span class="text-secondary" style="font-size: 8px;">${cm.year}년 전</span>
+													</c:if>
+												</span>
+												<c:if test="${cm.memberId==sessionId}">
+													<span style="float: right;">
+														<a class="btn text-danger" href="/admin/deleteComment/${cm.noticeId}/${cm.commentId}">삭제</a>
+													</span>
+												</c:if>
+												<input style="margin-bottom: 20px;" class="form-control" id="comment${cm.commentId}"readonly="readonly" value="${cm.commentContent}">
+											</c:forEach>
+										</div>
 									</div>
 									<div class="form-group">
 										<hr class="tm-hr">
@@ -163,10 +197,13 @@
 	<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
 </body>
 <script>
-$('#btn').click(function(){
-	$('#addComment').submit();
-	
+$("#btn").click(function(){
+	if($("#commentContent").val()!=""){
+		$("#addComment").submit();
+	}
 });
+
+
 
 </script>
 </html>
