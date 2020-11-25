@@ -146,7 +146,7 @@ tbody {
 					<li class="page-item disabled"><span class="page-link  text-secondary"> >> </span></li>
 				</c:if>
 			</ul>
-			<a href="#" class="tm-more-button margin-top-30" style="margin-bottom: 30px">Read More</a>
+			<a href="${pageContext.request.contextPath }/admin/index" class="tm-more-button margin-top-30" style="margin-bottom: 30px">홈</a>
 		</div>
 	</div>
 	<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>

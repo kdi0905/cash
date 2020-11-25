@@ -117,7 +117,7 @@
 			</section>	
 		</div>
 	</div>
-<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
 </body>
 <script>
 	$("#btn").click(function(){

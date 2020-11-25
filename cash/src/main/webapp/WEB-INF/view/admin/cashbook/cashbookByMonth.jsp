@@ -201,6 +201,7 @@ td {
 					</table>
 				</div>
 			</section>
+			<a href="${pageContext.request.contextPath }/admin/index" class="tm-more-button margin-top-30" style="margin-bottom: 30px">Ȩ</a>
 		</div>
 	</div>
 <jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>

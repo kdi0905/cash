@@ -67,16 +67,37 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-6 col-md-6" style="margin-left: 20%; margin-top: 20px">
-								<form id="updateNoticeForm" method="post" action="${pageContext.request.contextPath }/admin/modifyNotice/${notice.noticeId}">
+								<form id="updateNoticeForm" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/admin/modifyNotice">
 									<div class="form-group">
 										<span style="font-size: 20px; margin-right: 30px; ">notice_id</span>
-										<input id="noticeTitle" type="text" class="form-control" name="noticeTitle" value="${notice.noticeId}" readonly="readonly">
+										<input id="noticeTitle" type="text" class="form-control" name="noticeId" value="${notice.noticeId}" readonly="readonly">
 									</div>
 									<div class="form-group">
 										<span style="font-size: 20px; margin-right: 30px;">notice_title</span>
 										<input id="noticeTitle" type="text" class="form-control" name="noticeTitle" value="${notice.noticeTitle }">
 										<span class="text-danger" style="margin-left: 10px; font-size: 10px"id="noticeTitleCheck"></span>
 									</div>
+									
+									<div class="form-group">
+										<span style="font-size: 20px; margin-right: 30px;">첨부파일</span>
+										<c:forEach var="nf" items="${notice.noticefileList}">
+											<c:if test="${nf.noticefileName!=null}">
+												<div>
+													<span class="form-control" style="width: 70%;"readonly="readonly">${nf.originalfileName}
+													 	<a class="text-danger" style="float: right" href="${pageContext.request.contextPath}/admin/deletefile/${notice.noticeId}/${nf.noticefileId}">X</a>
+													</span>
+												</div>
+											</c:if>
+										</c:forEach>
+										<span><button class="btn btn-link green-text" type="button" id="addBtn">파일 추가</button></span>
+										<span><button class="btn btn-link text-danger" type="button" id="delBtn">파일 삭제</button></span>
+										<div id="fileinput">
+											
+										</div>
+										<div id="fileCheck" class="text-danger" >
+										</div>
+									</div>
+									
 									<div class="form-group">
 										<span style="font-size: 20px; margin-right: 30px;">notice_content</span>
 										<textarea id="noticeContent" class="form-control" rows="6" name="noticeContent">${notice.noticeContent }</textarea>
@@ -90,7 +111,7 @@
 									</form>
 								</div>
 							</div>
-							<a href="#" class="tm-more-button margin-top-30">Read More</a>
+							<a href="${pageContext.request.contextPath }/admin/noticeOne/${notice.noticeId}" class="tm-more-button margin-top-30">목록</a>
 						</div>
 					</div>
 				</div>
@@ -100,6 +121,16 @@
 	<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
 </body>
 <script>
+$('#addBtn').click(function(){
+	let html=`<div style="margin-bottom: 10px; height:40px; " class="form-control"  >
+			 	 <input  type="file" class="noticefile"  name="noticefile"  required>
+			  </div>
+			  `;
+	$('#fileinput').append(html);
+});
+$('#delBtn').click(function(){
+	$('#fileinput').children().last().remove();
+});
 	$("#btn").click(function() {
 
 		if ($("#noticeTitle").val() == "") {
@@ -113,10 +144,21 @@
 		} else {
 			$("#noticeContentCheck").html("");
 		}
-
-		if ($("#noticeTitle").val() != "" && $("#noticeContent").val() != "") {
-			$("#updateNoticeForm").submit();
+		let ck = true;
+		$('.noticefile').each(function(index, item){
+			console.log($(item).val());
+			if($(item).val() == '') {
+				ck = false;
+			}
+		})
+		if(ck == false) { // if(ck)
+			$('#fileCheck').html('선택하지 않은 파일이 있습니다');
+		} else {
+			if ($("#noticeTitle").val() != "" && $("#noticeContent").val() != "") {
+				$("#updateNoticeForm").submit();
+			}
 		}
+		
 	});
 </script>
 </html>

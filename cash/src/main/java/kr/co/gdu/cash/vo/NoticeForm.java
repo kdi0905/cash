@@ -2,26 +2,26 @@ package kr.co.gdu.cash.vo;
 
 import java.util.List;
 
-public class Notice {
+import org.springframework.web.multipart.MultipartFile;
+
+public class NoticeForm {
 	private int noticeId;
 	private String memberId;
 	private String noticeTitle;
 	private String noticeContent;
 	private String noticeDate;
-	private List<Noticefile> noticefileList;
-	
+	private List<MultipartFile> noticefile;
 	public int getNoticeId() {
 		return noticeId;
 	}
 	public void setNoticeId(int noticeId) {
 		this.noticeId = noticeId;
 	}
-	
 	public String getMemberId() {
 		return memberId;
 	}
-	public void setMemberId(String string) {
-		this.memberId = string;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 	public String getNoticeTitle() {
 		return noticeTitle;
@@ -41,19 +41,18 @@ public class Notice {
 	public void setNoticeDate(String noticeDate) {
 		this.noticeDate = noticeDate;
 	}
-	
-	
-	public List<Noticefile> getNoticefileList() {
-		return noticefileList;
+	public List<MultipartFile> getNoticefile() {
+		return noticefile;
 	}
-	public void setNoticefileList(List<Noticefile> noticefileList) {
-		this.noticefileList = noticefileList;
+	public void setNoticefile(List<MultipartFile> noticefile) {
+		this.noticefile = noticefile;
 	}
 	@Override
 	public String toString() {
-		return "Notice [noticeId=" + noticeId + ", memberId=" + memberId + ", noticeTitle=" + noticeTitle
-				+ ", noticeContent=" + noticeContent + ", noticeDate=" + noticeDate + ", noticefileList="
-				+ noticefileList + "]";
+		return "NoticeForm [noticeId=" + noticeId + ", memberId=" + memberId + ", noticeTitle=" + noticeTitle
+				+ ", noticeContent=" + noticeContent + ", noticeDate=" + noticeDate + ", noticefile=" + noticefile
+				+ "]";
 	}
+	
 	
 }

@@ -92,25 +92,34 @@
 								
 								<div class="col-lg-6 col-md-6" style="margin-left: 20%;">
 									<div class="form-group">
-										<span style="font-size: 20px; margin-right: 30px;">notice_id </span>
+										<span style="font-size: 20px; margin-right: 30px;">공지 번호 </span>
 										 <input id="noticeTitle" type="text" class="form-control"
 										  name="noticeTitle" value="${notice.noticeId}"
 											readonly="readonly"> 
 									</div>
 									<div class="form-group">
-										<span style="font-size: 20px; margin-right: 30px;">notice_title</span>
+										<span style="font-size: 20px; margin-right: 30px;">공지 제목</span>
 										 <input id="noticeTitle" type="text" class="form-control"
 											name="noticeTitle" value="${notice.noticeTitle }"
 											readonly="readonly"> 
 									</div>
 									<div class="form-group">
-										<span style="font-size: 20px; margin-right: 30px;">notice_content</span>
-										<textarea id="noticeContent" class="form-control" rows="6"
-											 name="noticeContent" readonly="readonly">${notice.noticeContent }</textarea>
-										
+										<span style="font-size: 20px; margin-right: 30px;">첨부파일</span>
+										<c:forEach var="nf" items="${notice.noticefileList}">
+											<c:if test="${nf.noticefileName!=null }">
+												<div>
+												<a class="form-control" style="margin-bottom: 5px;" href="${pageContext.request.contextPath }/noticeupload/${nf.noticefileName}" readonly="readonly" download>${nf.originalfileName}</a>
+												</div>
+											</c:if>
+										</c:forEach>
 									</div>
 									<div class="form-group">
-										<span style="font-size: 20px; margin-right: 30px;">notice_date</span>
+										<span style="font-size: 20px; margin-right: 30px;">공지 내용</span>
+										<textarea id="noticeContent" class="form-control" rows="6"
+											 name="noticeContent" readonly="readonly">${notice.noticeContent }</textarea>
+									</div>
+									<div class="form-group">
+										<span style="font-size: 20px; margin-right: 30px;">공지 날짜</span>
 										 <input id="noticeTitle" type="text" class="form-control"
 											name="noticeDate" value="${notice.noticeDate}"
 											readonly="readonly"> 
@@ -141,34 +150,33 @@
 									<div class="form-group">
 										<div id="comment">
 											<c:forEach var="cm" items="${commentList}">
-												
 												<span style="font-size: 15px;">${cm.memberName}</span>
 												<span>
 													<c:if test="${cm.second<60}">
-														<span class="text-secondary" style="font-size: 8px;" >${cm.second}초 전</span>
+														<span class="text-secondary" style="font-size: 12px;" >${cm.second}초 전</span>
 													</c:if>
 													<c:if test="${cm.minute>0 and cm.minute<60}">
-														<span class="text-secondary" style="font-size: 8px;">${cm.minute}분 전</span>
+														<span class="text-secondary" style="font-size: 12px;">${cm.minute}분 전</span>
 													</c:if>
 													<c:if test="${cm.hour>0 and cm.hour<24}">
-														<span class="text-secondary" style="font-size: 8px;">${cm.hour}시간 전</span>
+														<span class="text-secondary" style="font-size: 12px;">${cm.hour}시간 전</span>
 													</c:if>
 													<c:if test="${cm.day>0 and cm.day<7}">
-														<span class="text-secondary" style="font-size: 8px;">${cm.day}일 전</span>
+														<span class="text-secondary" style="font-size: 12px;">${cm.day}일 전</span>
 													</c:if>
 													<c:if test="${cm.week>0 and cm.week<4}">
-														<span class="text-secondary" style="font-size: 8px;">${cm.week}주 전</span>
+														<span class="text-secondary" style="font-size: 12px;">${cm.week}주 전</span>
 													</c:if>
 													<c:if test="${cm.month>0 and cm.month<12}">
-														<span class="text-secondary" style="font-size: 8px;">${cm.month}개월 전</span>
+														<span class="text-secondary" style="font-size: 12px;">${cm.month}개월 전</span>
 													</c:if>
 													<c:if test="${cm.year>0}">
-														<span class="text-secondary" style="font-size: 8px;">${cm.year}년 전</span>
+														<span class="text-secondary" style="font-size: 12px;">${cm.year}년 전</span>
 													</c:if>
 												</span>
 												<c:if test="${cm.memberId==sessionId}">
 													<span style="float: right;">
-														<a class="btn text-danger" href="/admin/deleteComment/${cm.noticeId}/${cm.commentId}">삭제</a>
+														<a class="btn text-danger" href="${pageContext.request.contextPath }/admin/deleteComment/${cm.noticeId}/${cm.commentId}">삭제</a>
 													</span>
 												</c:if>
 												<input style="margin-bottom: 20px;" class="form-control" id="comment${cm.commentId}"readonly="readonly" value="${cm.commentContent}">

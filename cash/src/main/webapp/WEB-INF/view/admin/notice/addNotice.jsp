@@ -91,25 +91,36 @@
 
 					<div class="container ">
 
-						<form id="addNoticeForm" method="post" class="tm-contact-form"
+						<form id="addNoticeForm" method="post" enctype="multipart/form-data" class="tm-contact-form"
 							action="${pageContext.request.contextPath }/admin/addNotice">
+							
 							<div class="col-lg-6 col-md-6">
-								<span style="font-size: 20px; margin-right: 30px;">공지사항
-									제목 </span>
+							
 								<div class="form-group">
+									<span style="font-size: 20px; margin-right: 30px;">공지사항 제목 </span>
 									<input id="noticeTitle" type="text" class="form-control"
 										placeholder="공지 제목을 입력하세요" name="noticeTitle"> <span
 										class="text-danger" style="margin-left: 10px; font-size: 15px"
 										id="noticeTitleCheck"></span>
 								</div>
+							
 								<div class="form-group">
-									<span style="font-size: 20px; margin-right: 30px;">공지사항
-										내용 </span>
+									<span style="font-size: 20px; margin-right: 30px;">첨부파일</span>
+									<span><button class="btn btn-link green-text" type="button" id="addBtn">파일 추가</button></span>
+									<span><button class="btn btn-link text-danger" type="button" id="delBtn" >파일 삭제</button></span>
+									<div id="fileinput">
+										
+									</div>
+									<div id="fileCheck" class="text-danger" >
+									</div>
+								</div>
+								<div class="form-group" >
+									<span style="font-size: 20px; margin-right: 30px;">공지사항 내용 </span>
 
 									<textarea id="noticeContent" class="form-control" rows="6"
 										placeholder="공지 내용을 입력하세요" name="noticeContent"></textarea>
 									<span class="text-danger"
-										style="margin-left: 10px; font-size: 15px"
+										style="margin-left: 10px; font-size: 15px;"
 										id="noticeContentCheck"></span>
 								</div>
 								<button id="btn" class="tm-more-button "type="button">추가</button>
@@ -122,12 +133,22 @@
 	</div>
 	<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
 
-
+	<input type="file" >
 </body>
 
 <script>
+	$('#addBtn').click(function(){
+		let html=`<div style="margin-bottom: 10px; "  >
+				 	 <input type="file"style="height:40px;" class="form-control noticefile"  name="noticefile" required>
+				  </div>
+				  `;
+		$('#fileinput').append(html);
+	});
+	$('#delBtn').click(function(){
+		$('#fileinput').children().last().remove();
+	});
 	$("#btn").click(function() {
-
+		
 		if ($("#noticeTitle").val() == "") {
 			$("#noticeTitleCheck").html("공지 제목을 입력해주세요.");
 		} else {
@@ -139,10 +160,23 @@
 		} else {
 			$("#noticeContentCheck").html("");
 		}
-
-		if ($("#noticeTitle").val() != "" && $("#noticeContent").val() != "") {
-			$("#addNoticeForm").submit();
+		
+		let ck = true;
+		$('.noticefile').each(function(index, item){
+			console.log($(item).val());
+			if($(item).val() == '') {
+				ck = false;
+			}
+		})
+		if(ck == false) { // if(ck)
+			$('#fileCheck').html('선택하지 않은 파일이 있습니다');
+		} else {
+			if ($("#noticeTitle").val() != "" && $("#noticeContent").val() != "") {
+				$("#addNoticeForm").submit();
+			}
 		}
+	
 	});
+	
 </script>
 </html>

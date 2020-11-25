@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import kr.co.gdu.cash.service.CommentService;
 import kr.co.gdu.cash.service.NoticeService;
 import kr.co.gdu.cash.vo.Notice;
+import kr.co.gdu.cash.vo.NoticeForm;
 
 @Controller
 
 public class NoticeController {
+
 	@Autowired private NoticeService noticeService;
 	@Autowired private CommentService commentService;
 	//공지목록
@@ -62,11 +64,12 @@ public class NoticeController {
 	}
 	//공지 입력 액션
 	@PostMapping("admin/addNotice")
-	public String addNotice(Notice notice, HttpServletRequest request) {
-		
+	public String addNotice(NoticeForm noticeForm, HttpServletRequest request) {
 		HttpSession session = ((HttpServletRequest)request).getSession();
-		notice.setMemberId((String)session.getAttribute("loginId"));
-		noticeService.insertNotice(notice);
+		noticeForm.setMemberId((String)session.getAttribute("loginId"));
+		String PATH = request.getSession().getServletContext().getRealPath("/noticeupload/");
+		
+		noticeService.insertNotice(noticeForm,PATH);
 		return"redirect:/admin/noticeList/1";
 	}
 	//공지 상세보기
@@ -97,9 +100,18 @@ public class NoticeController {
 		return "admin/notice/modifyNotice";
 	}
 	//공지 수정 액션
-	@PostMapping("/admin/modifyNotice/{noticeId}")
-	public String modifyNotice(Notice notice, @PathVariable(name="noticeId") int noticeId) {
-		noticeService.updateNoticeOne(notice);
-		return "redirect:/admin/noticeOne/"+notice.getNoticeId();
+	@PostMapping("/admin/modifyNotice")
+	public String modifyNotice(NoticeForm noticeForm, HttpServletRequest request) {
+		String PATH = request.getSession().getServletContext().getRealPath("/noticeupload/");
+		noticeService.updateNoticeOne(noticeForm,PATH);
+		return "redirect:/admin/noticeOne/"+noticeForm.getNoticeId();
+	}
+	//파일 삭제
+	@GetMapping("/admin/deletefile/{noticeId}/{noticefileId}")
+	public String deletefile(@PathVariable(name="noticeId") int noticeId,
+							@PathVariable(name="noticefileId")int noticefileId, HttpServletRequest request) {
+		String PATH = request.getSession().getServletContext().getRealPath("/noticeupload/");
+		noticeService.deletefileOne(noticefileId,PATH);
+		return "redirect:/admin/modifyNotice/"+noticeId;
 	}
 }

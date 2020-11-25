@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>addCashbook</title>
+<title>updateCashbook</title>
 <!-- JS -->
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.11.2.min.js"></script>
 <!-- jQuery -->
@@ -56,7 +56,7 @@
 		</div>
 	</section>
 	<div class="tm-main-section light-gray-bg">
-		<div class="container" id="#addCashbook">
+		<div class="container" id="cashbook">
 			<section class="tm-section">
 				<div class="row">
 						<div class="col-lg-12 tm-section-header-container">
@@ -124,9 +124,11 @@
 						</form>
 					</div>
 				</div>
+					
 			</section>	
 		</div>
 	</div>
+	<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
 </body>
 <script>
 	$("#btn").click(function(){

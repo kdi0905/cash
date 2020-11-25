@@ -85,8 +85,6 @@
 								<a class="tm-more-button margin-top-30" href="${pageContext.request.contextPath }/admin/chart/beetweenCategoryOutByDate.jsp">날짜 별 카테고리 지출</a>
 							</div>
 						</div>
-						
-						<a href="#" class="tm-more-button margin-top-30">Read More</a>
 					</div>
 				</div>
 			</section>

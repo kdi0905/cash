@@ -86,6 +86,7 @@ tbody {
 	<div class="tm-main-section light-gray-bg">
 		<div class="container" id="index">
 			<section id="index" class="tm-section tm-section-margin-bottom-0 row">
+				<div class="container">
 				<div class="col-lg-12 tm-section-header-container">
 					<h2 class="tm-section-header gold-text tm-handwriting-font">
 						수입/지출</h2>
@@ -93,24 +94,25 @@ tbody {
 						<hr class="tm-hr">
 					</div>
 				</div>
-
-				<div class="col-lg-12 tm-popular-items-container">
-
-					<c:forEach var="io" items="${inOutList}">
-						<div class="tm-popular-item ">
-
-							<div class="tm-popular-item-description">
-								<h3 class="tm-handwriting-font tm-popular-item-title">
-									<span class="tm-handwriting-font bigger-first-letter"></span>${io["날짜"]}</h3>
-								<hr class="tm-popular-item-hr">
-								<p>
-								<div class="text-success">수입 : ${io["수입"]}</div>
-								<div class="text-danger">지출 : - ${io["지출"]}</div>
-								<div>합계 : ${io["합계"]}</div>
-
-							</div>
-						</div>
-					</c:forEach>
+				<div style="margin: auto;">
+				<div class=" tm-popular-items-container "   style="width:90%; margin: auto; " >
+							<c:forEach var="io" items="${inOutList}">
+								<div class="tm-popular-item ">
+			
+									<div class="tm-popular-item-description">
+										<h3 class="tm-handwriting-font tm-popular-item-title">
+											<span class="tm-handwriting-font bigger-first-letter"></span>${io["날짜"]}</h3>
+										<hr class="tm-popular-item-hr">
+										<p>
+										<div class="text-success">수입 : ${io["수입"]}</div>
+										<div class="text-danger">지출 : - ${io["지출"]}</div>
+										<div>합계 : ${io["합계"]}</div>
+									</div>
+								</div>
+							</c:forEach>
+						
+				</div>
+					<a href="${pageContext.request.contextPath }/admin/cashbookByMonth/now/-1/-1" class="tm-more-button"style="margin-bottom: 30px; margin-left: 30px;">달력</a>
 				</div>
 			</section>
 			<!-- 공지 -->
@@ -146,7 +148,7 @@ tbody {
 									</c:forEach>
 								</tbody>
 							</table>
-							<a href="#" class="tm-more-button margin-top-30">Read More</a>
+							<a href="${pageContext.request.contextPath }/admin/noticeList/1" class="tm-more-button margin-top-30">공지사항 </a>
 						</div>
 					</div>
 				</div>
