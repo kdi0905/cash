@@ -20,7 +20,7 @@ body{
 	<!-- 사용자 리스트 -> 추가버튼 -> 사용자 추가 -> 사용자 삭제 -->
 	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
 	<div style="text-align: center;">
-	<h1 style="margin-top: 30px; margin-bottom: 20px; ">사용자 추가</h1>
+	<h1 style="margin-top: 30px; margin-bottom: 20px; ">회원가입</h1>
 	<form id="addMember" method="post" action="${pageContext.request.contextPath }/admin/addMember">
 			<div>
 				<span  style="font-size: 20px; margin-right: 30px;">ID :</span> <input id="id" type ="text" name="id">
@@ -41,32 +41,31 @@ body{
 <script >
 	$('#id').focus();
 	
-		$('#id').blur(function(){
-			//비동기 요청으로 id값을 서버에 보내고 #id값이 중복인지 아닌지  확인
-			$.ajax({
-				url:'${pageContext.request.contextPath }/admin/idCheck/'+$('#id').val(),
-				type:'post',
-				success:function(data){ //data -> yes:사용가능한 id no:사용 불가 id
-					// 공백 확인
-					if($('#id').val() == '') {
-						$('#id').focus();
-						return;
-					}
-					if(data =='yes'){
-						$('#idCheck1').html("");
-						$('#idCheck2').html("사용가능한 ID입니다.");
-						$('#pw').focus();
-					}else{
-						$('#idCheck2').html("");
-						$('#idCheck1').html("사용중인 ID입니다.");
-						$('#id').select();
-						$('#id').focus();
-					}
+	$('#id').blur(function(){
+		//비동기 요청으로 id값을 서버에 보내고 #id값이 중복인지 아닌지  확인
+		$.ajax({
+			url:'${pageContext.request.contextPath }/admin/idCheck/'+$('#id').val(),
+			type:'post',
+			success:function(data){ //data -> yes:사용가능한 id no:사용 불가 id
+				// 공백 확인
+				if($('#id').val() == '') {
+					$('#id').focus();
+					return;
 				}
-			})
-		})
+				if(data =='yes'){
+					$('#idCheck1').html("");
+					$('#idCheck2').html("사용가능한 ID입니다.");
+					$('#pw').focus();
+				}else{
+					$('#idCheck2').html("");
+					$('#idCheck1').html("사용중인 ID입니다.");
+					$('#id').select();
+					$('#id').focus();
+				}
+			}
+		});
+	});
 	
-		
 	$('#btn').click(function(){
 		if($('#id').val()==""){
 			$('#idCheck').html("아이디를 입력해주세요.");	

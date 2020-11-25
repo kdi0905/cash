@@ -108,7 +108,7 @@
 										<c:forEach var="nf" items="${notice.noticefileList}">
 											<c:if test="${nf.noticefileName!=null }">
 												<div>
-												<a class="form-control" style="margin-bottom: 5px;" href="${pageContext.request.contextPath }/noticeupload/${nf.noticefileName}" readonly="readonly" download>${nf.originalfileName}</a>
+												<a class="form-control" style="margin-bottom: 5px;" href="${pageContext.request.contextPath }/noticeupload/${nf.noticefileName}" readonly="readonly" download="${nf.originalfileName}">${nf.originalfileName}</a>
 												</div>
 											</c:if>
 										</c:forEach>
