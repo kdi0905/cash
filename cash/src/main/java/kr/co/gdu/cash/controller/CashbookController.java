@@ -155,7 +155,7 @@ public class CashbookController {
 	
 	@GetMapping("/admin/cashbookList/{currentPage}")
 	public String cashbookList(Model model,@PathVariable(name = "currentPage", required = true)int currentPage) {
-		int rowPerPage =20;
+		int rowPerPage =10;
 		
 		List<Cashbook> cashbookList = cashbookService.getCashbookListByPage(currentPage, rowPerPage);
 		int totalCount = cashbookService.getCashbookListCount();

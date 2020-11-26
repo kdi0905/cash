@@ -6,134 +6,93 @@
 <head>
 <meta charset="UTF-8">
 <title>addNotice</title>
-<!-- JS -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/jquery-1.11.2.min.js"></script>
-<!-- jQuery -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/templatemo-script.js"></script>
-<!-- Templatemo Script -->
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
 <link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Damion'
-	rel='stylesheet' type='text/css'>
-<link href="${pageContext.request.contextPath }/css/bootstrap.min.css"
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath }/css/font-awesome.min.css"
+
+<!-- Custom styles for this template-->
+<link href="${pageContext.request.contextPath }/css/sb-admin-2.min.css"
 	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath }/css/templatemo-style.css"
-	rel="stylesheet">
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath }/img/favicon.ico"
-	type="image/x-icon" />
-<style>
-</style>
+<!-- Bootstrap core JavaScript-->
+<script
+	src="${pageContext.request.contextPath }/vendor/jquery/jquery.min.js"></script>
+<script
+	src="${pageContext.request.contextPath }/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script
+	src="${pageContext.request.contextPath }/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="${pageContext.request.contextPath }/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script
+	src="${pageContext.request.contextPath }/vendor/chart.js/Chart.min.js"></script>
 </head>
-<body id="landing">
+<body id="page-top">
+	<div id="wrapper">
+		<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
+		<div id="content-wrapper" class="d-flex flex-column">
+			<div class="container-fluid" style="margin: auto;min-width:700px;max-width: 1100px;">
+				<div class="card shadow mb-4">
+					<div class="card-header py-3  align-items-center justify-content-between  text-center">
+						<h5 class="m-0 font-weight-bold text-primary">공지사항 추가
+						<a style="float: left;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="${pageContext.request.contextPath }/admin/noticeList/1">목록</a>
+						</h5>
+					</div>
+					<div class="card-body">
+						<div style="margin: auto;">
+							<form id="addNoticeForm" method="post"
+								enctype="multipart/form-data" class="tm-contact-form"
+								action="${pageContext.request.contextPath }/admin/addNotice">
+								<div class="col-lg-6 col-md-6" style="margin-left: 25%;">
 
-	<jsp:include page="/WEB-INF/view/inc/menu.jsp"></jsp:include>
-	<!-- Preloader -->
-	<div id="loader-wrapper">
-		<div id="loader"></div>
-		<div class="loader-section section-left"></div>
-		<div class="loader-section section-right"></div>
-	</div>
-	<!-- End Preloader -->
-	<section class="tm-welcome-section">
-		<div class="container tm-position-relative">
-			<div class="tm-lights-container">
-				<img src="${pageContext.request.contextPath }/img/light.png"
-					alt="Light" class="light light-1"> <img
-					src="${pageContext.request.contextPath }/img/light.png" alt="Light"
-					class="light light-2"> <img
-					src="${pageContext.request.contextPath }/img/light.png" alt="Light"
-					class="light light-3">
-			</div>
-			<div class=" tm-welcome-content">
-				<h2 class="white-text tm-handwriting-font tm-welcome-header">
-					<img src="${pageContext.request.contextPath }/img/header-line.png"
-						alt="Line" class="tm-header-line">&nbsp;Notice&nbsp;&nbsp;<img
-						src="${pageContext.request.contextPath }/img/header-line.png"
-						alt="Line" class="tm-header-line">
-				</h2>
-				<h2 class="gold-text tm-welcome-header-2">공 지 사 항 추 가</h2>
-				<a href="#add" class="tm-more-button tm-more-button-welcome">addNotice</a>
-				<p class="gray-text tm-welcome-description text-center">
-					어서오세요. <br> <br> 공지사항을 추가 할 수 있습니다.
-				</p>
-			</div>
+									<div class="form-group">
+										<span style="font-size: 20px; margin-right: 30px;">공지사항
+											제목 </span> <input id="noticeTitle" type="text" class="form-control"
+											placeholder="공지 제목을 입력하세요" name="noticeTitle"> <span
+											class="text-danger"
+											style="margin-left: 10px; font-size: 15px"
+											id="noticeTitleCheck"></span>
+									</div>
 
-			<img src="${pageContext.request.contextPath }/img/table-set.png"
-				alt="Table Set" class="tm-table-set img-responsive">
+									<div class="form-group">
+										<span style="font-size: 20px; margin-right: 30px;">첨부파일</span>
+										<span><button class="btn btn-link green-text"
+												type="button" id="addBtn">파일 추가</button></span> <span><button
+												class="btn btn-link text-danger" type="button" id="delBtn">파일
+												삭제</button></span>
+										<div id="fileinput" style="min-height: 50px;"></div>
+										<div id="fileCheck" class="text-danger"></div>
+									</div>
+									<div class="form-group">
+										<span style="font-size: 20px; margin-right: 30px;">공지사항
+											내용 </span>
 
-		</div>
-	</section>
-	<div class="tm-main-section light-gray-bg">
-		<div class="container" id="add">
-			<section class="tm-section">
-				<div class="row">
-					<div class="col-lg-12 tm-section-header-container">
-						<h2 class="tm-section-header gold-text tm-handwriting-font">
-							공지사항 추가</h2>
-
-						<div class="tm-hr-container">
-							<hr class="tm-hr">
+										<textarea id="noticeContent" class="form-control" rows="6"
+											placeholder="공지 내용을 입력하세요" name="noticeContent"></textarea>
+										<span class="text-danger"
+											style="margin-left: 10px; font-size: 15px;"
+											id="noticeContentCheck"></span>
+									</div>
+									<button id="btn" style="float: right;"
+										class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+										type="button">추가</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
-				<div class="tm-daily-menu-container " style="margin-left: 25%">
-
-					<div class="container ">
-
-						<form id="addNoticeForm" method="post" enctype="multipart/form-data" class="tm-contact-form"
-							action="${pageContext.request.contextPath }/admin/addNotice">
-							
-							<div class="col-lg-6 col-md-6">
-							
-								<div class="form-group">
-									<span style="font-size: 20px; margin-right: 30px;">공지사항 제목 </span>
-									<input id="noticeTitle" type="text" class="form-control"
-										placeholder="공지 제목을 입력하세요" name="noticeTitle"> <span
-										class="text-danger" style="margin-left: 10px; font-size: 15px"
-										id="noticeTitleCheck"></span>
-								</div>
-							
-								<div class="form-group">
-									<span style="font-size: 20px; margin-right: 30px;">첨부파일</span>
-									<span><button class="btn btn-link green-text" type="button" id="addBtn">파일 추가</button></span>
-									<span><button class="btn btn-link text-danger" type="button" id="delBtn" >파일 삭제</button></span>
-									<div id="fileinput">
-										
-									</div>
-									<div id="fileCheck" class="text-danger" >
-									</div>
-								</div>
-								<div class="form-group" >
-									<span style="font-size: 20px; margin-right: 30px;">공지사항 내용 </span>
-
-									<textarea id="noticeContent" class="form-control" rows="6"
-										placeholder="공지 내용을 입력하세요" name="noticeContent"></textarea>
-									<span class="text-danger"
-										style="margin-left: 10px; font-size: 15px;"
-										id="noticeContentCheck"></span>
-								</div>
-								<button id="btn" class="tm-more-button "type="button">추가</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</section>
+			</div>
+				<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
-
-	<input type="file" >
 </body>
 
 <script>

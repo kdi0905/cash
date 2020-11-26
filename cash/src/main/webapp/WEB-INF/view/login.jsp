@@ -6,199 +6,79 @@
 <head>
 <meta charset="UTF-8">
 <title>login</title>
-<!-- JS -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/jquery-1.11.2.min.js"></script>
-<!-- jQuery -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/templatemo-script.js"></script>
-<!-- Templatemo Script -->
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Damion'
-	rel='stylesheet' type='text/css'>
-<link href="${pageContext.request.contextPath }/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath }/css/font-awesome.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath }/css/templatemo-style.css"
-	rel="stylesheet">
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath }/img/favicon.ico"
-	type="image/x-icon" />
-<style>
-thead {
-	background-color: #c79c60;
-}
+ <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-tbody {
-	background-color: white;
-}
-</style>
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
-<body id="landing">
-	<!-- Preloader -->
-	<div id="loader-wrapper">
-		<div id="loader"></div>
-		<div class="loader-section section-left"></div>
-		<div class="loader-section section-right"></div>
-	</div>
-	<!-- End Preloader -->
-	<div class="tm-top-header">
-		<div class="row">
-			<div class="tm-top-header-inner">
-				<div class="tm-logo-container">
+<body class="bg-gradient-primary">
+	<div class="container" style="margin-top:10%;">
 
-					<h1 class="tm-site-name tm-handwriting-font">
-						<a class="tm-site-name tm-handwriting-font"
-							href="${pageContext.request.contextPath }/admin/index">CASHBOOK</a>
-					</h1>
-				</div>
-				<div class="mobile-menu-icon">
-					<i class="fa fa-bars"></i>
-				</div>
-				<nav class="tm-nav">
-					<ul>
-						<li><a href="${pageContext.request.contextPath }/admin/index">홈</a></li>
-						<li><a
-							href="${pageContext.request.contextPath }/admin/noticeList/1">공지사항</a></li>
-						<li><a
-							href="${pageContext.request.contextPath }/admin/cashbookByMonth/now/-1/-1">가계부</a></li>
-						<li><a
-							href="${pageContext.request.contextPath }/admin/cashbookList/1">가계부리스트</a></li>
-						<li><a
-							href="${pageContext.request.contextPath }/admin/chartStrart.jsp">통계</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</div>
-	<section class="tm-welcome-section">
-		<div class="container tm-position-relative">
-			<div class="tm-lights-container">
-				<img src="${pageContext.request.contextPath }/img/light.png"
-					alt="Light" class="light light-1"> <img
-					src="${pageContext.request.contextPath }/img/light.png" alt="Light"
-					class="light light-2"> <img
-					src="${pageContext.request.contextPath }/img/light.png" alt="Light"
-					class="light light-3">
-			</div>
-			<div class=" tm-welcome-content">
-				<h2 class="white-text tm-handwriting-font tm-welcome-header">
-					<img src="${pageContext.request.contextPath }/img/header-line.png"
-						alt="Line" class="tm-header-line">&nbsp;Welcome
-					To&nbsp;&nbsp;<img
-						src="${pageContext.request.contextPath }/img/header-line.png"
-						alt="Line" class="tm-header-line">
-				</h2>
-				<h2 class="gold-text tm-welcome-header-2">가 계 부</h2>
-				<a href="#main" class="tm-more-button tm-more-button-welcome">로그인</a>
-				<p class="gray-text tm-welcome-description text-center">
-					spring으로 만든 가계부 입니다. <br> <br> 로그인 이후 이용할수 있습니다.
-				</p>
-			</div>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
 
-			<img src="${pageContext.request.contextPath }/img/table-set.png"
-				alt="Table Set" class="tm-table-set img-responsive">
+            <div class="col-xl-10 col-lg-12 col-md-9">
 
-		</div>
-
-	</section>
-
-
-	<div class="tm-main-section light-gray-bg">
-		<div class="container" id="main">
-			<section class="tm-section row ">
-				<div class="col-lg-9 col-md-9 col-sm-8">
-					<div class="row">
-						<div class="col-lg-12 tm-section-header-container">
-							<h2 class="tm-section-header gold-text tm-handwriting-font">
-								로그인</h2>
-							<div class="tm-hr-container">
-								<hr class="tm-hr">
-							</div>
-						</div>
-					</div>
-					<div style="margin-left: 20px; margin-top: 20px; margin-left: 40%;">
-						<form id="loginForm" method="post"
-							action="${pageContext.request.contextPath}/login">
-							<div>
-								<span style="font-size: 20px; margin-right: 30px;">ID </span> 
-								<input id="id" type="text" name="memberId" class="form-control" value="admin">
-							</div>
-							<span id="idCheck" class="text-danger" style="margin-left: 60px;"></span>
-							<div style="margin-top: 20px;">
-								<span style="font-size: 20px; margin-right: 20px;">PW </span> 
-								<input id="pw" type="password" name="memberPw" class="form-control" value="1234">
-							</div>
-							<span id="pwCheck" class="text-danger" style="margin-left: 60px;"></span>
-							<button id="btn" type="button"
-								class="tm-more-button margin-top-30">로그인</button>
-
-						</form>
-					</div>
-				</div>
-			</section>
-			<section class="tm-section">
-				<div class="row">
-					<div class="col-lg-12 tm-section-header-container">
-						<h2 class="tm-section-header gold-text tm-handwriting-font">
-							공지사항</h2>
-						<div class="tm-hr-container">
-							<hr class="tm-hr">
-						</div>
-					</div>
-				</div>
-				<div class="tm-daily-menu-container margin-top-60">
-					<div class="col-lg-4 col-md-4">
-						<div class="container">
-							<table class="table table-bordered "
-								style="margin-top: 20px; text-align: center;">
-								<thead>
-									<tr>
-										<th class="text-center">notice_id</th>
-										<th class="text-center">notice_title</th>
-										<th class="text-center">notice_date</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach var="n" items="${noticeList}">
-										<tr>
-											<td>${n.noticeId }</td>
-											<td>${n.noticeTitle }</td>
-											<td>${n.noticeDate }</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
-							<a href="" class="tm-more-button margin-top-30">top</a>
-						</div>
-					</div>
-				</div>
-			</section>
-		</div>
-	</div>
-	<jsp:include page="/WEB-INF/view/inc/lastMenu.jsp"></jsp:include>
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">가계부</h1>
+                                    </div>
+                                    <form id="loginForm" class="user" method="post" action="${pageContext.request.contextPath}/login">
+                                        <div class="form-group">
+                                            <input id="id" type="text" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp" name="memberId"
+                                                placeholder="Enter Id...">
+                                        </div>
+                                        <div class="form-group">
+                                            <input id="pw" type="password" class="form-control form-control-user" name="memberPw"
+                                                id="exampleInputPassword" placeholder="Password">
+                                        </div>
+                                       <button id="btn" type="button" class="btn btn-primary btn-user btn-block">로그인</button>
+                                    </form>
+                                    <hr>
+                                   
+                                    <div class="text-center">
+                                        <a class="small" href="register.html">회원가입</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script>
 	$('#btn').click(function() {
 		if ($('#id').val() == "") {
-			$('#idCheck').html("아이디를 입력해주세요.");
-
-		} else {
-			$('#idCheck').html("");
-		}
-		if ($('#pw').val() == "") {
-			$('#pwCheck').html("비밀번호를 입력해주세요.");
-		} else {
-			$('#pwCheck').html("");
+			$('#id').focus();
+		}else if ($('#pw').val() == "") {
+			$('#pw').focus();
 		}
 
 		if ($('#id').val() != "" && $('#pw').val() != "") {
