@@ -38,39 +38,40 @@
 				</div>
 				<div class="card-body">
 					<div style="margin: auto;">
-					
-						<div class=" style="margin-left: 25%; ">
-							<div class="row">
-							<div class="from-group text-center" style="margin: auto; ">
-								
-								<table>
-									<tr>
-										<td><input class="form-control  " type="date" id="startDate" value="2020-01-01" ></td>
-										<td><span class="gold-text " style="font-size: 20px;">~</span></td>
-										<td><input class="form-control  " type="date" id="endDate" value="2020-12-25"></td>
-										<td></td>
-										<td><button id="chartBtn" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="button">Chart</button></td>
-									</tr>
-								</table>
-							</div>
-							</div>
-							<!-- 0)출력 -->
-							<div class="text-center" id="canvas" style="margin-left: auto; margin-right:auto;width:70%; margin-top: 20px;  height: 400px;">
-								<!--   <canvas id="myChart"></canvas>-->
-								
-							</div>
+						<div class="row">
+						<div class="from-group text-center" style="margin: auto; ">
+							<table>
+								<tr>
+									<td><span id="select"></span></td>
+									<td><span style="font-size: 20px;">~</span></td>
+									<td><span id="select2"></span></td>
+									<td></td>
+									<td><button id="chartBtn" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="button">Chart</button></td>
+								</tr>
+							</table>
+						</div>
+						</div>
+						<!-- 0)출력 -->
+						<div class="text-center" id="canvas" style="margin-left: auto; margin-right:auto;width:70%; margin-top: 20px;  height: 400px;">
+							<!--   <canvas id="myChart"></canvas>-->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-			
-	
+	</div>	
+</div>	
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 <!--차트 -->
 <script>
+let today = new Date();
+let year = today.getFullYear(); //년도
+
+$('#select').html('<input class="form-control  " type="date" id="startDate" value="'+year+'-01-01">')
+$('#select2').html('<input class="form-control  " type="date" id="endDate"  value="'+year+'-12-31">')
+
 $('#canvas').html("");
 if ($('#startDate').val() != ""&&$('#endDate').val() != "") {
 	$('#canvas').append('<canvas id="myChart">')

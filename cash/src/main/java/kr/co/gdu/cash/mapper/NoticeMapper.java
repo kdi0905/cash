@@ -12,7 +12,7 @@ public interface NoticeMapper {
 	
 	
 	//공지리스트
-	List<Notice> selectNoticeListByPage(Map<String, Integer> map);
+	List<Map<String,Object>> selectNoticeListByPage(Map<String, Integer> map);
 	//공지 추가
 	int insertNotice(Notice notice);
 	//공지 총 개수 구하기

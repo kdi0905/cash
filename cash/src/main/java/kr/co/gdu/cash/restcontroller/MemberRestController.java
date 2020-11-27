@@ -11,11 +11,22 @@ import kr.co.gdu.cash.restservice.MemberRestService;
 public class MemberRestController {
 	@Autowired private MemberRestService memberRestService;
 	
-	@PostMapping("/admin/idCheck/{id}")
-	public String idCheck(@PathVariable(name ="id") String id) {
-		String returnId = memberRestService.getMemberId(id);
+	@PostMapping("/idCheck/{memberId}")
+	public String idCheck(@PathVariable(name ="memberId") String memberId) {
+		String returnId = memberRestService.getMemberId(memberId);
 		System.out.println(returnId);
 		if(returnId == null) {
+			return "yes";
+		}else {
+			return "no";
+		}
+		
+	}
+	@PostMapping("/nameCheck/{memberName}")
+	public String nameCheck(@PathVariable(name ="memberName") String memberName) {
+		String returnName = memberRestService.getMemberName(memberName);
+		System.out.println(returnName);
+		if(returnName == null) {
 			return "yes";
 		}else {
 			return "no";

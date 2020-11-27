@@ -14,6 +14,7 @@ public class MemberService {
 	public int addMember(Member member){
 		return memberMapper.insertMember(member);
 	}
+	
 	public Member getMemberById(Member paramMember) {
 	
 		Member member = memberMapper.selectMemberById(paramMember.getMemberId());
@@ -28,5 +29,9 @@ public class MemberService {
 			return member;
 		}
 		return null;
+	}
+	
+	public Member getMemberName(String memberId) {
+		return memberMapper.selectMemberById(memberId);
 	}
 }

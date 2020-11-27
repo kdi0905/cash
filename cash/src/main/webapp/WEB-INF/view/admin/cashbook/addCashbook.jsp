@@ -77,7 +77,7 @@
 								
 								<div class="form-group">
 									<span style="font-size: 20px; margin-right: 30px;">cashbook_price</span>
-									<input class="form-control" type="text" id ="cashbookPrice" name="cashbookPrice" placeholder="가격을 입력하세요">
+									<input class="form-control" type="number" id ="cashbookPrice" name="cashbookPrice" placeholder="가격을 입력하세요">
 									<span class="text-danger" style="margin-left:10px; font-size: 10px"id="cashbookPriceCheck"></span>
 								</div>
 								

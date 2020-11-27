@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class NoticeForm {
 	private int noticeId;
 	private String memberId;
+	private String memberName;
 	private String noticeTitle;
 	private String noticeContent;
 	private String noticeDate;
@@ -22,6 +23,12 @@ public class NoticeForm {
 	}
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 	public String getNoticeTitle() {
 		return noticeTitle;
@@ -49,7 +56,7 @@ public class NoticeForm {
 	}
 	@Override
 	public String toString() {
-		return "NoticeForm [noticeId=" + noticeId + ", memberId=" + memberId + ", noticeTitle=" + noticeTitle
+		return "NoticeForm [noticeId=" + noticeId + ", memberName=" + memberName + ", noticeTitle=" + noticeTitle
 				+ ", noticeContent=" + noticeContent + ", noticeDate=" + noticeDate + ", noticefile=" + noticefile
 				+ "]";
 	}

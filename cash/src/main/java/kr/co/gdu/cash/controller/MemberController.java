@@ -10,11 +10,11 @@ import kr.co.gdu.cash.vo.Member;
 @Controller
 public class MemberController {
 	@Autowired private MemberService memberService;
-	@GetMapping("/admin/addMember")
+	@GetMapping("/signUp")
 	public String addMember() {
-		return "/admin/member/addMember";
+		return "/signUp";
 	}
-	@PostMapping("/admin/addMember")
+	@PostMapping("/signUp")
 	public String addMember(Member member) {
 		memberService.addMember(member);
 		return "redirect:/admin/index"; //redirect:/admin/memberList ->추가

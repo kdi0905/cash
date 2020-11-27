@@ -86,9 +86,10 @@
 									style="margin-top: 20px; text-align: center;">
 									<thead>
 										<tr>
-											<th class="text-center ">notice_id</th>
-											<th class="text-center">notice_title</th>
-											<th class="text-center">notice_date</th>
+											<th class="text-center ">공지 번호</th>
+											<th class="text-center">공지 제목</th>
+											<th class="text-center">작성자</th>
+											<th class="text-center">공지 날짜</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -96,6 +97,7 @@
 											<tr>
 												<td>${n.noticeId }</td>
 												<td>${n.noticeTitle }</td>
+												<td>${n.memberName}</td>
 												<td>${n.noticeDate }</td>
 											</tr>
 										</c:forEach>

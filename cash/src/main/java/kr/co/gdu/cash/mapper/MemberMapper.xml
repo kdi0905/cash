@@ -20,7 +20,8 @@
   		SELECT
   			member_id memberId,
   			member_pw memberPw,
-  			member_name memberName
+  			member_name memberName,
+  			active
   		FROM member
   		WHERE member_id=#{memberId} 
   	</select>

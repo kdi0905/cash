@@ -5,14 +5,16 @@
 <mapper namespace="kr.co.gdu.cash.mapper.NoticeMapper">
 	
 	<!-- 공지사항 리스트 -->
-	<select id="selectNoticeListByPage" parameterType="java.util.Map" resultType="kr.co.gdu.cash.vo.Notice">
+	<select id="selectNoticeListByPage" parameterType="java.util.Map" resultType="java.util.Map">
 		SELECT 
-			notice_id noticeId,
-			member_id memberId,
-			notice_title noticeTitle,
-			notice_content noticeContent,
-			notice_date noticeDate 
-		FROM notice
+			n.notice_id noticeId,
+			n.member_id memberId,
+			m.member_name memberName,
+			n.notice_title noticeTitle,
+			n.notice_content noticeContent,
+			n.notice_date noticeDate 
+		FROM notice n INNER JOIN member m
+		ON n.member_id = m.member_id
 		ORDER BY notice_date DESC
 		LIMIT #{beginRow}, #{rowPerPage}
 	</select>

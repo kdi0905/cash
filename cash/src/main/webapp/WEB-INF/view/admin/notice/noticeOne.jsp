@@ -35,8 +35,10 @@
 				<div class="card-header py-3  align-items-center justify-content-between text-center">
 					<h5 class="m-0 font-weight-bold text-primary text-center ">공지사항 상세보기
 						<a style="float: left;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="${pageContext.request.contextPath }/admin/noticeList/1">목록</a>
+						<c:if test="${member.memberId==sessionId}">
 						<a style="float: right;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"  href="${pageContext.request.contextPath }/admin/removeNotice/${notice.noticeId}">삭제</a>
 						<a style="float: right; margin-right: 20px;"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"  href="${pageContext.request.contextPath }/admin/modifyNotice/${notice.noticeId}">수정</a>
+						</c:if>					
 					</h5>
 				</div>
 				<div class="card-body">
@@ -44,16 +46,18 @@
 					
 						<div class="col-lg-6 col-md-6" style="margin-left: 25%; ">
 							<div class="form-group">
+							
 								<span style="font-size: 20px; margin-right: 30px;">공지 번호 </span>
-								 <input id="noticeTitle" type="text" class="form-control"
-								  name="noticeTitle" value="${notice.noticeId}"
-									readonly="readonly"> 
+								 <input type="text" class="form-control" value="${notice.noticeId}" readonly="readonly"> 
+							</div>
+								<div class="form-group">
+							
+								<span style="font-size: 20px; margin-right: 30px;">작성자 </span>
+								 <input type="text" class="form-control" value="${member.memberName}" readonly="readonly"> 
 							</div>
 							<div class="form-group">
 								<span style="font-size: 20px; margin-right: 30px;">공지 제목</span>
-								 <input id="noticeTitle" type="text" class="form-control"
-									name="noticeTitle" value="${notice.noticeTitle }"
-									readonly="readonly"> 
+								 <input  type="text" class="form-control" value="${notice.noticeTitle }" readonly="readonly"> 
 							</div>
 							<div class="form-group">
 								<span style="font-size: 20px; margin-right: 30px;">첨부파일</span>
@@ -67,14 +71,11 @@
 							</div>
 							<div class="form-group">
 								<span style="font-size: 20px; margin-right: 30px;">공지 내용</span>
-								<textarea id="noticeContent" class="form-control" rows="6"
-									 name="noticeContent" readonly="readonly">${notice.noticeContent }</textarea>
+								<textarea class="form-control" rows="6" readonly="readonly">${notice.noticeContent }</textarea>
 							</div>
 							<div class="form-group">
 								<span style="font-size: 20px; margin-right: 30px;">공지 날짜</span>
-								 <input id="noticeTitle" type="text" class="form-control"
-									name="noticeDate" value="${notice.noticeDate}"
-									readonly="readonly"> 
+								 <input  type="text" class="form-control" value="${notice.noticeDate}"	readonly="readonly"> 
 							</div>
 						</div>
 					</div>

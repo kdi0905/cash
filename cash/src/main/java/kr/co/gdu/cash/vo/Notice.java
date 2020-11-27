@@ -51,7 +51,7 @@ public class Notice {
 	}
 	@Override
 	public String toString() {
-		return "Notice [noticeId=" + noticeId + ", memberId=" + memberId + ", noticeTitle=" + noticeTitle
+		return "Notice [noticeId=" + noticeId + ", memberId=" + memberId+ ", noticeTitle=" + noticeTitle
 				+ ", noticeContent=" + noticeContent + ", noticeDate=" + noticeDate + ", noticefileList="
 				+ noticefileList + "]";
 	}

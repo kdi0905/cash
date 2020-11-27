@@ -20,7 +20,7 @@ public class IndexController {
 	@GetMapping(value= "/admin/index")
 	public String index(Model model) {
 		List<Map<String,Object>> inOutList = cashbookService.getInOutList();
-		List<Notice> noticeList = noticeService.getNoticeListByPage(1, 5);
+		List<Map<String,Object>> noticeList = noticeService.getNoticeListByPage(1, 5);
 		model.addAttribute("noticeList",noticeList);
 		model.addAttribute("inOutList",inOutList);
 

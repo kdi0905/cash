@@ -1,7 +1,5 @@
 package kr.co.gdu.cash.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import kr.co.gdu.cash.service.MemberService;
 import kr.co.gdu.cash.service.NoticeService;
 import kr.co.gdu.cash.vo.Member;
-import kr.co.gdu.cash.vo.Notice;
 
 @Controller
 public class LoginController {
-	@Autowired private NoticeService noticeService;
+	
 	@Autowired private MemberService memberService;
 	//자바 관련 코드 타입이름을 같이 표현하는???방식
 	//카멜방식
@@ -49,4 +46,5 @@ public class LoginController {
 		session.invalidate();
 		return"redirect:/";
 	}
+	
 }

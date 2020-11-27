@@ -61,16 +61,7 @@
 											style="margin-left: 10px; font-size: 15px"
 											id="noticeTitleCheck"></span>
 									</div>
-
-									<div class="form-group">
-										<span style="font-size: 20px; margin-right: 30px;">첨부파일</span>
-										<span><button class="btn btn-link green-text"
-												type="button" id="addBtn">파일 추가</button></span> <span><button
-												class="btn btn-link text-danger" type="button" id="delBtn">파일
-												삭제</button></span>
-										<div id="fileinput" style="min-height: 50px;"></div>
-										<div id="fileCheck" class="text-danger"></div>
-									</div>
+									
 									<div class="form-group">
 										<span style="font-size: 20px; margin-right: 30px;">공지사항
 											내용 </span>
@@ -81,6 +72,17 @@
 											style="margin-left: 10px; font-size: 15px;"
 											id="noticeContentCheck"></span>
 									</div>
+									
+									<div class="form-group">
+										<span style="font-size: 20px; margin-right: 30px;">첨부파일</span>
+										<span><button class="btn btn-link green-text"
+												type="button" id="addBtn">파일 추가</button></span> <span><button
+												class="btn btn-link text-danger" type="button" id="delBtn">파일
+												삭제</button></span>
+										<div id="fileinput" style="min-height: 50px;"></div>
+										<div id="fileCheck" class="text-danger"></div>
+									</div>
+									
 									<button id="btn" style="float: right;"
 										class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
 										type="button">추가</button>

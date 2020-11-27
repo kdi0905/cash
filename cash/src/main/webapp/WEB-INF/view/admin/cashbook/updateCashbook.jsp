@@ -99,7 +99,7 @@
 
 									<div class="form-group">
 										<span style="font-size: 20px;">cashbook_price</span>
-										<input class="form-control" type="text" id="cashbookPrice"
+										<input class="form-control" type="number" id="cashbookPrice"
 											name="cashbookPrice" value="${cashbook.cashbookPrice}">
 										<span class="text-danger"
 											style="margin-left: 10px; font-size: 10px"

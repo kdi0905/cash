@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import kr.co.gdu.cash.service.CommentService;
+import kr.co.gdu.cash.service.MemberService;
 import kr.co.gdu.cash.service.NoticeService;
+import kr.co.gdu.cash.vo.Member;
 import kr.co.gdu.cash.vo.Notice;
 import kr.co.gdu.cash.vo.NoticeForm;
 
@@ -24,12 +26,13 @@ public class NoticeController {
 
 	@Autowired private NoticeService noticeService;
 	@Autowired private CommentService commentService;
+	@Autowired private MemberService memberService;
 	//공지목록
 	@GetMapping("/admin/noticeList/{currentPage}")
 	public String noticeList(Model model,@PathVariable(name="currentPage")int currentPage) {
 		
 		int rowPerPage =10;
-		List<Notice> noticeList = noticeService.getNoticeListByPage(currentPage, rowPerPage);
+		List<Map<String,Object>> noticeList = noticeService.getNoticeListByPage(currentPage, rowPerPage);
 		
 		int totalCount = noticeService.getCountNotice();
 		int lastPage=0;
@@ -76,6 +79,7 @@ public class NoticeController {
 	@GetMapping("/admin/noticeOne/{noticeId}")
 	public String noticeOne(Model model,@PathVariable(name = "noticeId") int noticeId, HttpServletRequest request) {
 		Notice notice = noticeService.getNoticeOneById(noticeId);
+		Member member =memberService.getMemberName(notice.getMemberId());
 		//댓글 
 		List<Map<String,Object>> commentList = commentService.getComment(noticeId);
 		HttpSession seesion = ((HttpServletRequest)request).getSession();
@@ -84,6 +88,7 @@ public class NoticeController {
 		model.addAttribute("sessionId",sessionId);
 		model.addAttribute("notice",notice);
 		model.addAttribute("commentList",commentList);
+		model.addAttribute("member",member);
 		return "admin/notice/noticeOne";
 	}
 	//공지 삭제

@@ -29,7 +29,7 @@ public class NoticeService {
 	
 
 	//공지사항 리스트
-	public List<Notice> getNoticeListByPage(int currentPage, int rowPerPage){
+	public List<Map<String,Object>> getNoticeListByPage(int currentPage, int rowPerPage){
 		//int currentPage , int rowPerPage-> beginRow
 		int beginRow = (currentPage-1)*rowPerPage;
 		Map<String,Integer> map = new HashMap<String,Integer>();
