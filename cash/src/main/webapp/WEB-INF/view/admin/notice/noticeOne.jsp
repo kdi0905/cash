@@ -8,7 +8,7 @@
 <title>noticeOne</title>
 
 <link rel="stylesheet" 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"	type="text/css">
+<link href="${pageContext.request.contextPath }/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"	type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
 <!-- Custom styles for this template-->
@@ -122,18 +122,17 @@
 													<a class="btn text-danger" href="${pageContext.request.contextPath }/admin/deleteComment/${cm.noticeId}/${cm.commentId}">삭제</a>
 												</span>
 											</c:if>
-											<input style="margin-bottom: 20px;" class="form-control" id="comment${cm.commentId}"readonly="readonly" value="${cm.commentContent}">
+											<input style="margin-bottom: 20px;word-break:break-all;" class="form-control" id="comment${cm.commentId}"readonly="readonly" value="${cm.commentContent}">
 										</c:forEach>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6 col-md-6" style="margin-left: 20%; ">
+							<div class="col-lg-6 col-md-6" style="margin-left: 25%; ">
 							<div class="form-group">
 								<hr class="tm-hr">
 								<form id="addComment" method="get" action="${pageContext.request.contextPath}/admin/insertComment">
 								<span style="font-size: 20px; margin-right: 30px;">댓글</span>
 								<input type="hidden" name="noticeId" value="${notice.noticeId}">
-								<input type="hidden" name="memberId" value="${notice.memberId}">
 								<textarea id="comment" class="form-control" rows="3" name="commentContent" ></textarea>
 								<button class="text-secondary btn" style="float: right"  id="btn" type="button" >등록</button>
 								</form>

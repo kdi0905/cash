@@ -27,7 +27,7 @@ public class Noticefile {
 		this.noticefileName = noticefileName;
 	}
 	public String getOriginalfileName() {
-		return originalfileName;
+		return originalfileName.replaceAll("(?i)<script", "&lt;script");
 	}
 	public void setOriginalfileName(String originalfileName) {
 		this.originalfileName = originalfileName;

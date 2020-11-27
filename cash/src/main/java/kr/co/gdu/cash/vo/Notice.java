@@ -24,13 +24,13 @@ public class Notice {
 		this.memberId = string;
 	}
 	public String getNoticeTitle() {
-		return noticeTitle;
+		return noticeTitle.replaceAll("(?i)<script", "&lt;script");
 	}
 	public void setNoticeTitle(String noticeTitle) {
 		this.noticeTitle = noticeTitle;
 	}
 	public String getNoticeContent() {
-		return noticeContent;
+		return noticeContent.replaceAll("(?i)<script", "&lt;script");
 	}
 	public void setNoticeContent(String noticeContent) {
 		this.noticeContent = noticeContent;

@@ -31,19 +31,19 @@ public class NoticeForm {
 		this.memberName = memberName;
 	}
 	public String getNoticeTitle() {
-		return noticeTitle;
+		return noticeTitle.replaceAll("(?i)<script", "&lt;script");
 	}
 	public void setNoticeTitle(String noticeTitle) {
 		this.noticeTitle = noticeTitle;
 	}
 	public String getNoticeContent() {
-		return noticeContent;
+		return noticeContent.replaceAll("(?i)<script", "&lt;script");
 	}
 	public void setNoticeContent(String noticeContent) {
 		this.noticeContent = noticeContent;
 	}
 	public String getNoticeDate() {
-		return noticeDate;
+		return noticeDate.replaceAll("(?i)<script", "&lt;script");
 	}
 	public void setNoticeDate(String noticeDate) {
 		this.noticeDate = noticeDate;

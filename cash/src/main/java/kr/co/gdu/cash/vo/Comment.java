@@ -33,7 +33,7 @@ public class Comment {
 	}
 
 	public String getCommentContent() {
-		return commentContent;
+		return commentContent.replaceAll("(?i)<script", "&lt;script");
 	}
 	public void setCommentContent(String commentContent) {
 		this.commentContent = commentContent;
