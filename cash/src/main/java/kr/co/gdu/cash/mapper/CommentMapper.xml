@@ -44,5 +44,6 @@
   		INNER JOIN member m
   		ON c.member_id = m.member_id
   		WHERE notice_id=#{noticeId}
+  		order by second desc
   	</select>
   </mapper>

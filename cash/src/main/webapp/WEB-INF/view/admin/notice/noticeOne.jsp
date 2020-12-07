@@ -25,6 +25,12 @@
 
 <!-- Page level plugins -->
 <script src="${pageContext.request.contextPath }/vendor/chart.js/Chart.min.js"></script>
+<style >
+textarea {width:300px;overflow:visible;}
+
+textarea.autosize { min-height: 50px; }
+
+</style>
 </head>
 <body id="page-top">
 <div id="wrapper">
@@ -122,7 +128,8 @@
 													<a class="btn text-danger" href="${pageContext.request.contextPath }/admin/deleteComment/${cm.noticeId}/${cm.commentId}">삭제</a>
 												</span>
 											</c:if>
-											<input style="margin-bottom: 20px;word-break:break-all;" class="form-control" id="comment${cm.commentId}"readonly="readonly" value="${cm.commentContent}">
+											<textarea onkeyup="xSize(this)"  style="resize: none;margin-bottom: 20px;word-break:break-all; min-height: 5px;" class="form-control autosize" id="comment${cm.commentId}"readonly="readonly" >${cm.commentContent}</textarea>
+											
 										</c:forEach>
 									</div>
 								</div>
@@ -153,7 +160,32 @@ $("#btn").click(function(){
 	}
 });
 
+function xSize(e)
+{
+    e.style.height = '1px';
+    e.style.height = (e.scrollHeight + 12) + 'px';
+}
+function xSize(e)
+{
+    var t;
 
+    e.onfocus = function()
+    {
+        t = setInterval(
+            function()
+            {
+                e.style.height = '1px';
+                e.style.height = (e.scrollHeight + 12) + 'px';
+            }, 100);
+    }
+
+    e.onblur = function()
+    {
+        clearInterval(t);
+    }
+}
+
+xSize(document.getElementById('ta'));
 
 </script>
 </html>

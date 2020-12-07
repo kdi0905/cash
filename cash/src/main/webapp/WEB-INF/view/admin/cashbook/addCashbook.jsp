@@ -17,6 +17,7 @@
 <link href="${pageContext.request.contextPath }/css/sb-admin-2.min.css"
 	rel="stylesheet">
 <!-- Bootstrap core JavaScript-->
+
 <script
 	src="${pageContext.request.contextPath }/vendor/jquery/jquery.min.js"></script>
 <script
@@ -98,6 +99,8 @@
 	</div>
 </body>
 <script>
+
+
 	$("#btn").click(function(){
 		
 		if($("#cashbookKind").val()=="no"){
@@ -125,6 +128,7 @@
 		}
 		
 		if($(".cashbookKind").val()!="no"&&$(".categoryNameCheck").val()!="no"&&$("#cashbookPrice").val()!=""&&$("#cashbookContent").val()!=""){
+			oEditors.getById["cashbookContent"].exec("UPDATE_CONTENTS_FIELD",[]);
 			$("#addCashbookForm").submit();
 		}
 	});

@@ -18,6 +18,7 @@
 <link href="${pageContext.request.contextPath }/css/sb-admin-2.min.css"
 	rel="stylesheet">
 <!-- Bootstrap core JavaScript-->
+<script type="text/javascript" src="${pageContext.request.contextPath }/smarteditor2/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script	src="${pageContext.request.contextPath }/vendor/jquery/jquery.min.js"></script>
 <script	src="${pageContext.request.contextPath }/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -43,7 +44,7 @@
 					</div>
 					<div class="card-body">
 						<div style="margin: auto;">
-						<div class="col-lg-6 col-md-6" style="margin-left: 25%; ">
+						<div class="col-lg-9 col-md-9" style="margin-left: 10%; ">
 							<form id="updateNoticeForm" enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath }/admin/modifyNotice">
 									<div class="form-group">
 										<span style="font-size: 20px; margin-right: 30px; ">notice_id</span>
@@ -55,6 +56,11 @@
 										<span class="text-danger" style="margin-left: 10px; font-size: 10px"id="noticeTitleCheck"></span>
 									</div>
 									
+									<div class="form-group">
+										<span style="font-size: 20px; margin-right: 30px;">notice_content</span>
+										<textarea id="noticeContent" class="form-control" rows="6" name="noticeContent" style="width: 100%;">${notice.noticeContent }</textarea>
+										<span class="text-danger" style="margin-left: 10px; font-size: 10px" id="noticeContentCheck"></span>
+									</div>
 									<div class="form-group">
 										<span style="font-size: 20px; margin-right: 30px;">첨부파일</span>
 										<c:forEach var="nf" items="${notice.noticefileList}">
@@ -74,12 +80,6 @@
 										<div id="fileCheck" class="text-danger" >
 										</div>
 									</div>
-									
-									<div class="form-group">
-										<span style="font-size: 20px; margin-right: 30px;">notice_content</span>
-										<textarea id="noticeContent" class="form-control" rows="6" name="noticeContent">${notice.noticeContent }</textarea>
-										<span class="text-danger" style="margin-left: 10px; font-size: 10px" id="noticeContentCheck"></span>
-									</div>
 									<div class="form-group">
 										<span style="font-size: 20px; margin-right: 30px;">notice_date</span>
 										<input id="noticeTitle" type="text" class="form-control"name="noticeDate" value="${notice.noticeDate}" readonly="readonly">
@@ -96,6 +96,15 @@
 	</div>
 </body>
 <script>
+var oEditors = [];
+
+nhn.husky.EZCreator.createInIFrame({
+  oAppRef : oEditors,
+  elPlaceHolder : "noticeContent",
+  sSkinURI : "${pageContext.request.contextPath }/smarteditor2/SmartEditor2Skin.html",
+  fCreator : "createSEditor2"
+});
+
 $('#addBtn').click(function(){
 	let html=`<div style="margin-bottom: 10px; height:40px; " class="form-control"  >
 			 	 <input  type="file" class="noticefile"  name="noticefile"  required>
@@ -130,6 +139,7 @@ $('#delBtn').click(function(){
 			$('#fileCheck').html('선택하지 않은 파일이 있습니다');
 		} else {
 			if ($("#noticeTitle").val() != "" && $("#noticeContent").val() != "") {
+				oEditors.getById["noticeContent"].exec("UPDATE_CONTENTS_FIELD",[]);
 				$("#updateNoticeForm").submit();
 			}
 		}
